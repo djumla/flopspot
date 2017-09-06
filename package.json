@@ -1,0 +1,30 @@
+{
+  "name": "flopspot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-less": "^3.3.2",
+    "livereload": "^0.6.2",
+    "vue": "^2.4.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-watch": "^4.3.11",
+    "gulp-watch-less": "^1.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djumla/flopspot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djumla/flopspot/issues"
+  },
+  "homepage": "https://github.com/djumla/flopspot#readme"
+}

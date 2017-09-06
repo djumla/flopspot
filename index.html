@@ -6,16 +6,21 @@
   <meta name="author" content="Sven Ahrens">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+
+  <link rel="stylesheet" href="./dist/styles.css" >
+
   <script src="node_modules/vue/dist/vue.js"></script>
 </head>
 <body>
   <div id="app">
     <header>
-      <img src="#"></img>
+      <img src="./assets/logo_rgb_inverted_dark.svg"></img>
       <nav>
         <ul>
-          <li href="#">Startseite</li>
-          <li href="#">Statistiken</li>
+          <li><a href="#">Startseite</a></li>
+          <li><a href="#">Statistiken</a></li>
         </ul>
       </nav>
     </header>
@@ -23,22 +28,24 @@
       <h1>Hotspot Bewerten</h1>
       <h2>Bitte geben Sie die Daten zu Ihrer Zugverbindung an und bewerten Sie anschließend die Qualität Ihres Hotspots.</h2>
       <form id="rating">
-        <label for="entrance">
-          Einstieg
-          <input type="text" id="entrance" placeholder="Einstieg" />
-        </label>
-        <label for="date">
-          Reisedatum
-          <input type="date" id="date" placeholder="Datum" />
-        </label>
-        <label for="train-number">
-          Zugnummer
-          <input type="text" id="train-number" placeholder="Zugnummer" />
-        </label>
-        <label for="exit">
-          Ausstieg
-          <input type="text" id="exit" placeholder="Ausstieg" />
-        </label>
+        <div class="container">
+          <label for="entrance">
+            Einstieg
+            <input type="text" id="entrance" placeholder="Einstieg" />
+          </label>
+          <label for="date">
+            Reisedatum
+            <input type="date" id="date" placeholder="Datum" />
+          </label>
+          <label for="train-number">
+            Zugnummer
+            <input type="text" id="train-number" placeholder="Zugnummer" />
+          </label>
+          <label for="exit">
+            Ausstieg
+            <input type="text" id="exit" placeholder="Ausstieg" />
+          </label>
+        </div>
         <label for="insufficient">
           <input type="radio" id="insufficient" />
         </label>
@@ -62,7 +69,7 @@
     <section id="statistics">
       <a href="#">
         Statisitken einsehen
-        <img src="#"></img>
+        <img src="./assets/stats.svg"></img>
       </a>
     </section>
     <footer>
