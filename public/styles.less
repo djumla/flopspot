@@ -1,5 +1,8 @@
 @import "./variables.less";
 @import "./base/normalize.less";
+@import "./modules/thumbs.less";
+@import "./modules/inputs.less";
+@import "./modules/arrow.less";
 
 body {
   background-color: @basicBlue;
@@ -26,22 +29,21 @@ ul {
 a {
   color: @linkBlue;
   text-decoration: none;
-  &:active {
+  &:target {
     color: @white;
   }
 }
 
-.clearfix:after {
-   content: " ";
-   visibility: hidden;
-   display: block;
-   height: 0;
-   clear: both;
+.underline {
+  width: 80px;
+  border-bottom: 1px solid @darkBlue;
+  margin: 0 auto;
 }
 
-// Main design
-
-// navigation
+header, main, section {
+  width: 85%;
+  margin: 0 auto;
+}
 
 header > img {
   display: block;
@@ -55,29 +57,41 @@ header > img {
 
 nav > ul > li{
   display: inline-block;
+  margin-bottom: 10px;
+  &:last-child {
+    margin-left: 10px;
+  }
 }
-
-// main section
 
 main {
   background-color: @white;
-  width: 90%;
-  margin: 0 auto;
-}
+  box-sizing: border-box;
+  padding: 100px;
 
-main > h2 {
-  color: @black;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  label, input {
-    width: 50%;
-    display: block;
+  h1 {
+    box-shadow: 0px 24px 3px -20px black;
   }
-  input {
-    width: 50%;
+
+  h2 {
+    color: @black;
+  }
+
+  h1, h2 {
+    text-align: center;
+  }
+
+  #satisfaction {
+    margin-top: 30px;
+  }
+
+  form > input[type="submit"] {
+    width: 20%;
+    height: 70px;
+    display: block;
+    margin: 0 auto;
+    background-color: @darkBlue;
+    border: none;
+    color: @white;
+    margin-top: 50px;
   }
 }

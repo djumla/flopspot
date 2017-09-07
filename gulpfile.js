@@ -21,7 +21,9 @@ gulp.task('less', function() {
 
 gulp.task('watch', function() {
   livereload.listen();
-  gulp.watch('./public/*.less', ['less']);
+  gulp.watch(['./public/*.less',
+    './public/*/*.less'
+  ], ['less']);
 });
 
 // 04.12

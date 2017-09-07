@@ -1,0 +1,54 @@
+#thumbs-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  input {
+    opacity: 0;
+  }
+
+  label, input {
+    display: block;
+    cursor: pointer;
+  }
+
+  label {
+    text-indent: -9000px;
+    width: 50%;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+    opacity: 0.3;
+    &:hover {
+      opacity: 1.0;
+    }
+  }
+
+  .container {
+    width: 33%;
+    .description {
+      display: none;
+    }
+    &:hover {
+      .description {
+        display: block;
+      }
+    }
+  }
+
+  #insufficient-label {
+    background-image: url("../assets/bad.svg");
+    background-repeat:no-repeat;
+  }
+
+  #satisfying-label {
+    background-image: url("../assets/average.svg");
+    background-repeat:no-repeat;
+  }
+
+  #satisfactory-label {
+    background-image: url("../assets/good.svg");
+    background-repeat:no-repeat;
+  }
+}
