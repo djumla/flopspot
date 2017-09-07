@@ -1,11 +1,5 @@
-// Declaration of general stuff.
-@black: #000;
-@white: #fff;
-@basicBlue: #0093bc;
-@linkBlue: #49b2d7;
-@darkBlue: #004b72;
-@notoSans: 'Noto Sans', sans-serif;
-@openSans: 'Open Sans:300', sans-serif;
+@import "./variables.less";
+@import "./base/normalize.less";
 
 body {
   background-color: @basicBlue;
@@ -77,16 +71,13 @@ main > h2 {
 
 .container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
   flex-direction: row;
-  label {
-    flex: 0 0 auto;
+  flex-wrap: wrap;
+  label, input {
+    width: 50%;
+    display: block;
   }
   input {
     width: 50%;
-  }
-  label, input {
-    display: block;
   }
 }
