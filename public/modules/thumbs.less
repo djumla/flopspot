@@ -16,16 +16,16 @@
   label {
     text-indent: -9000px;
     width: 50%;
-    height: 300px;
     margin: 0 auto;
     margin-top: 30px;
     opacity: 0.3;
-    &:hover {
+    &:hover, &.selected {
       opacity: 1.0;
     }
   }
 
   .container {
+    position: relative;
     width: 33%;
     .description {
       display: none;
@@ -40,15 +40,18 @@
   #insufficient-label {
     background-image: url("../assets/bad.svg");
     background-repeat:no-repeat;
+    background-size: cover;
   }
 
   #satisfying-label {
     background-image: url("../assets/average.svg");
     background-repeat:no-repeat;
+    background-size: cover;
   }
 
   #satisfactory-label {
     background-image: url("../assets/good.svg");
     background-repeat:no-repeat;
+    background-size: cover;
   }
 }
