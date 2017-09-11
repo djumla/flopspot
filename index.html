@@ -8,7 +8,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif|Open+Sans|Poppins" rel="stylesheet">
 
-  <link rel="stylesheet" href="./dist/styles.css" >
+  <link rel="stylesheet" href="./public/styles.css" >
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 
   <script src="node_modules/vue/dist/vue.js"></script>
@@ -30,20 +30,19 @@
   <div id="app">
     <div class="wrapper">
       <header>
-        <img src="./assets/logo_rgb_inverted_dark.svg"></img>
+        <img src="./public/assets/logo_rgb_inverted_dark.svg"></img>
         <nav>
           <ul>
             <li><a class="active" href="./index.html">Startseite</a></li>
-            <li><a href="./src/views/statistics.html">Statistiken</a></li>
+            <li><a href="./public/views/statistics.html">Statistiken</a></li>
           </ul>
         </nav>
       </header>
       <main>
-        <h1>Hotspot Bewerten</h1>
-        <div class="underline"></div>
+        <h1 class="underlined">Hotspot Bewerten</h1>
         <h2>Bitte geben Sie die Daten zu Ihrer Zugverbindung an und bewerten Sie anschließend die Qualität Ihres Hotspots.</h2>
         <form id="rating">
-          <div id="flex-container">
+          <div id="flex-form">
             <label for="entrance">
               Einstieg
               <input type="text" id="entrance" placeholder="Einstieg" />
@@ -62,17 +61,16 @@
             </label>
           </div>
           <div id="satisfaction">Zufriedenheit</div>
-          <div id="thumbs-container">
+          <div id="flex-thumbs">
             <div class="container">
               <label id ="insufficient-label" for="insufficient">
                 Unzufrieden
                 <input type="radio" id="insufficient" name="rate" />
               </label>
               <div class="description">
-                <p class="title">
+                <p class="title underlined">
                   Unzufrieden!
                 </p>
-                <div class="underline"></div>
                 <div class="text">Die Leistungen der Bahn waren inakzeptabel und nicht zuverlässig!</div>
               </div>
             </div>
@@ -82,8 +80,7 @@
                 <input type="radio" id="satisfying" name="rate" />
               </label>
               <div class="description">
-                <p class="title">Befriedigend</p>
-                <div class="underline"></div>
+                <p class="title underlined">Befriedigend</p>
                 <div class="text">Der Hotspot war ausreichend für meine Bedürfnisse.</div>
               </div>
             </div>
@@ -93,8 +90,7 @@
                 <input type="radio" id="satisfactory" name="rate" />
               </label>
               <div class="description">
-                <p class="title">Sehr Zufrieden</p>
-                <div class="underline"></div>
+                <p class="title underlined">Sehr Zufrieden</p>
                   <div class="text">Der Hotspot funktioniere einwandfrei!</div>
               </div>
             </div>
@@ -102,23 +98,22 @@
           <input type="submit" value="Bewertung abgeben" />
         </form>
       </main>
-      <div id="service-container">
+      <div id="info">
         <section id="about-me">
           <div class="indent">
-            <h1>Was ist flopspot?</h1>
-            <div class="underline"></div>
+            <h1 class="underlined">Was ist flopspot?</h1>
             <h2>Flopspot ist das folgende..</h2>
             <p>
               flopspot ist eine Webapplikation zur Erfassung der Qualität der WLAN Hotspots in den Zügen der Deutschen Bahn. Durch die erfassten Daten der Benutzer werden Schaubilder generiert,
               um die Zuverlässigkeit des Hotspots der Bahn darzustellen. flopspot wurde innerhalb eines Schulprojektes in Kooperation mit der Firma djumla entwickelt.
               Das Projekt ist Open Source und auf GitHub zu finden: www.github.com
             </p>
-        </div>
+          </div>
         </section>
         <section id="statistics">
           <figure>
             <a href="#">
-              <img src="./assets/stats.svg" />
+              <img src="./public/assets/stats.svg" />
               <figcaption> Statistiken einsehen </figcaption>
             </a>
           </figure>
@@ -126,24 +121,21 @@
       </div>
     </div>
     <footer>
-      <div id="info-container">
-        <div id="column-container">
+      <div id="service">
+        <div id="flex-service">
           <section id="contact">
-            <h1>Fragen oder Anregungen?</h1>
-            <div class="underline"></div>
+            <h1 class="underlined">Fragen oder Anregungen?</h1>
             <h2> Schreib uns an <a href="#">kontakt@flopspot.de</a>
           </section>
           <section id="social-media">
-            <h1>Werde ein Fan von flopspot</h1>
-            <div class="underline"></div>
+            <h1 class="underlined">Werde ein Fan von flopspot</h1>
             <div>
               <h2>Folge uns auf Facebook oder Twitter</h2>
-              <a href="#"><img src="./assets/facebook.png"></img></a>
-              <a href="https://twitter.com/FlopspotDE/"><img src="./assets/twitter.png"></img></a>
+              <a href="#"><img src="./public/assets/facebook.png"></img></a>
+              <a href="https://twitter.com/FlopspotDE/"><img src="./public/assets/twitter.png"></img></a>
             </div>
           </section>
-          <nav>
-            <div class="underline"></div>
+          <nav class="underlined">
             <ul>
               <li><a href="./src/views/imprint.html">Impressum</a></li>
               <li><a href="./src/views/contact.html">Kontakt</a></li>
@@ -154,10 +146,8 @@
         <section id="tweets">
           <!-- TODO: By every additional tweet, which'll be added, this height needs to be added in #column-container  -->
           <div id="tweet">
-            <span class="title">DB Super Wifi</span>
-            <div class="underline"></div>
-            <p></p>
-            So, irgendwas mit setzt sich eh nicht durch, bacon, käse?
+            <span class="title underlined">DB Super Wifi</span>
+            <p>So, irgendwas mit setzt sich eh nicht durch, bacon, käse?</p>
           </div>
         </section>
       </div>

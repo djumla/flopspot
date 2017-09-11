@@ -1,4 +1,4 @@
-#thumbs-container {
+#flex-thumbs {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -27,6 +27,24 @@
   .container {
     position: relative;
     width: 33%;
+
+    label > img {
+      background-repeat:no-repeat;
+      background-size: cover;
+    }
+
+    #insufficient-label {
+      background-image: url("../public/assets/bad.svg");
+    }
+
+    #satisfying-label {
+      background-image: url("../public/assets/bad.svg");
+    }
+
+    #satisfactory-label {
+      background-image: url("../public/assets/bad.svg");
+    }
+
     .description {
       display: none;
     }
@@ -67,23 +85,5 @@
       border: none;
       width: 100%;
     }
-  }
-
-  #insufficient-label {
-    background-image: url("../assets/bad.svg");
-    background-repeat:no-repeat;
-    background-size: cover;
-  }
-
-  #satisfying-label {
-    background-image: url("../assets/average.svg");
-    background-repeat:no-repeat;
-    background-size: cover;
-  }
-
-  #satisfactory-label {
-    background-image: url("../assets/good.svg");
-    background-repeat:no-repeat;
-    background-size: cover;
   }
 }

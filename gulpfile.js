@@ -10,19 +10,19 @@ var onError = function(err) {
 };
 
 gulp.task('less', function() {
-  return gulp.src('./public/*.less')
+  return gulp.src('./dist/*.less')
     .pipe(plumber({
       errorHandler: onError
     }))
     .pipe(less())
-    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./public/'))
     .pipe(livereload());
 });
 
 gulp.task('watch', function() {
   livereload.listen();
-  gulp.watch(['./public/*.less',
-    './public/*/*.less'
+  gulp.watch(['./dist/*.less',
+    './dist/*/*.less'
   ], ['less']);
 });
 
