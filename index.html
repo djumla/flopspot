@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif|Open+Sans|Poppins" rel="stylesheet">
 
   <link rel="stylesheet" href="./dist/styles.css" >
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 
   <script src="node_modules/vue/dist/vue.js"></script>
   <script
@@ -23,6 +24,7 @@
   ></script>
   <script src="src/js/design/flopspot-responsive.js"></script>
   <script src="src/js/design/flopspot-observer.js"></script>
+  <script src="src/js/flopspot-datepicker.js"></script>
 </head>
 <body>
   <div id="app">
@@ -31,8 +33,8 @@
         <img src="./assets/logo_rgb_inverted_dark.svg"></img>
         <nav>
           <ul>
-            <li><a class="active" href="#">Startseite</a></li>
-            <li><a href="#">Statistiken</a></li>
+            <li><a class="active" href="./index.html">Startseite</a></li>
+            <li><a href="./src/views/statistics.html">Statistiken</a></li>
           </ul>
         </nav>
       </header>
@@ -56,7 +58,7 @@
             </label>
             <label for="date">
               Reisedatum
-              <input type="date" id="date" placeholder="Datum" />
+              <input type="text" id="datepicker" placeholder="Datum" />
             </label>
           </div>
           <div id="satisfaction">Zufriedenheit</div>
@@ -71,7 +73,7 @@
                   Unzufrieden!
                 </p>
                 <div class="underline"></div>
-                Die Leistungen der Bahn waren inakzeptabel und nicht zuverlässig!
+                <div class="text">Die Leistungen der Bahn waren inakzeptabel und nicht zuverlässig!</div>
               </div>
             </div>
             <div class="container">
@@ -82,7 +84,7 @@
               <div class="description">
                 <p class="title">Befriedigend</p>
                 <div class="underline"></div>
-                Der Hotspot war ausreichend für meine Bedürfnisse.
+                <div class="text">Der Hotspot war ausreichend für meine Bedürfnisse.</div>
               </div>
             </div>
             <div class="container">
@@ -93,7 +95,7 @@
               <div class="description">
                 <p class="title">Sehr Zufrieden</p>
                 <div class="underline"></div>
-                  Der Hotspot funktioniere einwandfrei!
+                  <div class="text">Der Hotspot funktioniere einwandfrei!</div>
               </div>
             </div>
           </div>
@@ -125,29 +127,32 @@
     </div>
     <footer>
       <div id="info-container">
-        <section id="contact">
-          <h1>Fragen oder Anregungen?</h1>
-          <div class="underline"></div>
-          <h2> Schreib uns an <a href="#">kontakt@flopspot.de</a>
-        </section>
-        <section id="social-media">
-          <h1>Werde ein Fan von flopspot</h1>
-          <div class="underline"></div>
-          <div>
-            <h2>Folge uns auf Facebook oder Twitter</h2>
-            <a href="#"><img src="./assets/facebook.png"></img></a>
-            <a href="#"><img src="./assets/twitter.png"></img></a>
-          </div>
-        </section>
-        <nav>
-          <div class="underline"></div>
-          <ul>
-            <li><a href="#">Impressum</a></li>
-            <li><a href="#">Kontakt</a></li>
-            <li><a href="#">Datenschutz</a></li>
-          </ul>
-        </nav>
+        <div id="column-container">
+          <section id="contact">
+            <h1>Fragen oder Anregungen?</h1>
+            <div class="underline"></div>
+            <h2> Schreib uns an <a href="#">kontakt@flopspot.de</a>
+          </section>
+          <section id="social-media">
+            <h1>Werde ein Fan von flopspot</h1>
+            <div class="underline"></div>
+            <div>
+              <h2>Folge uns auf Facebook oder Twitter</h2>
+              <a href="#"><img src="./assets/facebook.png"></img></a>
+              <a href="https://twitter.com/FlopspotDE/"><img src="./assets/twitter.png"></img></a>
+            </div>
+          </section>
+          <nav>
+            <div class="underline"></div>
+            <ul>
+              <li><a href="./src/views/imprint.html">Impressum</a></li>
+              <li><a href="./src/views/contact.html">Kontakt</a></li>
+              <li><a href="./src/views/privacyPolicy.html">Datenschutz</a></li>
+            </ul>
+          </nav>
+        </div>
         <section id="tweets">
+          <!-- TODO: By every additional tweet, which'll be added, this height needs to be added in #column-container  -->
           <div id="tweet">
             <span class="title">DB Super Wifi</span>
             <div class="underline"></div>

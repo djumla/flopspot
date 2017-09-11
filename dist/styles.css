@@ -462,7 +462,7 @@ table {
 }
 #thumbs-container label {
   text-indent: -9000px;
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
   margin-top: 30px;
   opacity: 0.3;
@@ -480,6 +480,37 @@ table {
 }
 #thumbs-container .container:hover .description {
   display: block;
+}
+#thumbs-container .container .title {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+#thumbs-container .container .text {
+  margin-top: 5px;
+}
+@media (max-width: 950px) {
+  #thumbs-container .container {
+    border-right: 2px solid #004b72;
+  }
+  #thumbs-container .container:last-child {
+    border-right: none;
+  }
+  #thumbs-container .container .description {
+    background-color: #fff;
+    color: #004b72;
+    display: block;
+    position: relative;
+    margin: 0;
+  }
+  #thumbs-container .container .description:after {
+    content: none;
+  }
+}
+@media (max-width: 550px) {
+  #thumbs-container .container {
+    border: none;
+    width: 100%;
+  }
 }
 #thumbs-container #insufficient-label {
   background-image: url("../assets/bad.svg");
@@ -522,6 +553,11 @@ table {
 #flex-container label,
 #flex-container input {
   display: block;
+}
+@media (max-width: 550px) {
+  #flex-container label {
+    width: 100%;
+  }
 }
 .description {
   box-sizing: border-box;
@@ -624,27 +660,59 @@ footer #info-container {
   margin: 0 auto;
   height: 600px;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+}
+@media (max-width: 1000px) {
+  footer #info-container {
+    height: 650px;
+  }
+}
+@media (max-width: 760px) {
+  footer #info-container {
+    flex-direction: column;
+    height: 800px;
+  }
+  footer #info-container #column-container {
+    height: 100%;
+  }
+  footer #info-container #column-container,
+  footer #info-container #tweets {
+    width: 100%;
+  }
+  footer #info-container #tweets {
+    disply: flex;
+    order: -1;
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+  footer #info-container h1 {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 550px) {
+  footer #info-container {
+    height: 800px;
+  }
+}
+footer #column-container {
+  width: 50%;
+}
+footer #column-container,
+footer #tweets {
+  margin-top: 45px;
 }
 footer #contact,
 footer #social-media,
 footer nav {
-  width: 30%;
+  width: 100%;
 }
 footer #tweets {
   width: 50%;
-  min-height: 600px;
   color: #fff;
 }
 footer h1 {
   color: #fff;
   font-style: italic;
   margin: 0;
-}
-footer #tweets,
-footer h1 {
-  margin-top: 50px;
 }
 footer h2 {
   color: #fff;
@@ -677,6 +745,15 @@ footer .underline {
   border-color: #fff;
   margin-left: 0;
   margin-top: 15px;
+}
+#imprint {
+  background-color: #004b72;
+  padding: 10px;
+}
+#imprint p,
+#imprint address,
+#imprint h2 {
+  color: #fff;
 }
 body {
   background-color: #0093BC;
@@ -747,7 +824,7 @@ h2 {
   font-family: 'Noto Serif', sans-serif;
 }
 .underline {
-  width: 80px;
+  width: 50px;
   border-bottom: 1px solid #004b72;
   margin: 0 auto;
 }
@@ -775,7 +852,7 @@ header > nav > ul > li:last-child {
 main {
   background-color: #fff;
   box-sizing: border-box;
-  padding: 100px;
+  padding: 30px;
 }
 main h1 {
   box-shadow: 0px 24px 3px -20px black;
@@ -791,8 +868,8 @@ main #satisfaction {
   margin-top: 30px;
 }
 main form > input[type="submit"] {
-  width: 300px;
-  height: 70px;
+  width: 350px;
+  height: 50px;
   display: block;
   margin: 0 auto;
   background-color: #004b72;
@@ -802,6 +879,12 @@ main form > input[type="submit"] {
   font-family: 'Noto Serif', sans-serif;
   font-size: 24px;
   font-style: italic;
+}
+@media (max-width: 950px) {
+  main form > input[type="submit"] {
+    width: 300px;
+    height: 40px;
+  }
 }
 #service-container {
   display: flex;
@@ -830,11 +913,23 @@ main form > input[type="submit"] {
   justify-content: center;
 }
 #service-container #statistics img {
-  width: 100%;
   display: block;
   margin: 0 auto;
 }
 #service-container #statistics figcaption {
   text-align: center;
   margin-top: 10px;
+}
+@media (max-width: 950px) {
+  #service-container #about-me,
+  #service-container #statistics {
+    width: 100%;
+  }
+  #service-container #statistics {
+    margin-top: 20px;
+  }
+  #service-container #statistics img {
+    width: 80%;
+    margin-top: 10px;
+  }
 }

@@ -10,29 +10,62 @@ footer {
     margin: 0 auto;
     height: 600px;
     display: flex;
-    flex-direction: column;
-    //justify-content: space-between;
-    flex-wrap: wrap;
+
+    @media (max-width: 1000px) {
+      height: 650px;
+    }
+
+    @media (max-width: 760px) {
+      flex-direction: column;
+      height: 800px;
+
+      #column-container {
+        height: 100%;
+      }
+
+      #column-container, #tweets {
+        width: 100%;
+      }
+
+      #tweets {
+        disply: flex;
+        order: -1;
+        margin-top: 20px;
+        margin-left: 0px;
+      }
+
+      h1 {
+        margin-top: 50px;
+      }
+    }
+
+    @media(max-width: 550px) {
+      height: 800px;
+    }
+  }
+
+  #column-container {
+    width: 50%;
+  }
+
+  #column-container, #tweets {
+    margin-top: 45px;
   }
 
   #contact, #social-media, nav {
-    width: 30%;
+    width: 100%;
   }
 
   #tweets {
     width: 50%;
-    min-height: 600px;
     color: @white;
+
   }
 
   h1 {
     color: @white;
     font-style: italic;
     margin: 0;
-  }
-
-  #tweets, h1 {
-    margin-top: 50px;
   }
 
   h2 {
