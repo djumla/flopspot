@@ -1,0 +1,39 @@
+#flex-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  label {
+    width: 30%;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    font-family: @poppins;
+    font-size: 18px;
+    &:last-child {
+      width: 100%;
+    }
+  }
+
+  input {
+    border-color: @darkBlue;
+    border-width: 1.4px;
+    margin-top: 10px;
+    height: 35px;
+    font-family: @poppins;
+    font-size: 18px;
+    &:last-child {
+      width: 100%;
+    }
+  }
+
+  label, input {
+    display: block;
+  }
+
+  @media (max-width: 550px) {
+    label {
+      width: 100%;
+    }
+  }
+}
