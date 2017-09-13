@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('index', 'DBStationsController@index');
+Route::get('stations', 'FlopspotAPIController@stations');
+Route::get('trainName', 'FlopspotAPIController@trainName');

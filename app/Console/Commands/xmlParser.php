@@ -69,38 +69,38 @@ class xmlParser extends Command
       }
     }
 
-    public function getStations($path)
+    public function getStation($path)
     {
-      // Array for possibly duplicates
-      $duplicates = [];
+      $station = [];
 
       $parsed = $this->parse($path);
 
       foreach($parsed as $p) {
-        // Store stations
-        $stations = $p->name;
-        array_push($duplicates, $stations);
+        foreach($p->xpath("//tracks/track/trains/train") as $train) {
+          if($train->traintypes->traintype == "ICE") {
+            foreach($train->xpath("//subtrains/subtrain/destination") as $destination) {
+              // Store destinations
+              $via = $destination->destinationVia;
 
-        foreach($p->xpath("//tracks/track/trains/subtrains") as $destination){
-          // Store destinations
-          $destinations = $destination->subtrain->destination->destinationName;
-          $via = $destination->subtrain->destination->destinationVia->item;
-
-          foreach($via as $v){
-            array_push($duplicates, $v);
+              foreach($via as $v){
+                if(strlen($v) != 0) {
+                  $station[trim((string) $v)] = (string) $v;
+                }
+              }
+              if(strlen($destination->destinationName) != 0) {
+                // Add stations and destinations to the array
+                $station[trim((string) $destination->destinationName)] = (string) $destination->destinationName;
+              }
+            }
           }
-
-          // Add stations and destinations to the array
-          array_push($duplicates, $destinations);
         }
       }
 
-      // Return result without duplicates
-      return array_unique($duplicates);
+      return $station;
 
     }
 
-    public function getTrainNumber($path)
+    public function getTrainName($path)
     {
       $trainName = [];
 
@@ -108,42 +108,43 @@ class xmlParser extends Command
 
       foreach($parsed as $p) {
         foreach($p->xpath("//tracks/track/trains/train") as $train) {
-          // Store train numbers
-          $number = $train->trainNumbers->trainNumber;
+          if($train->traintypes->traintype == "ICE") {
+              // Store train numbers
+              $number = $train->trainNumbers->trainNumber;
 
-          // Store their train type
-          $type = $train->traintypes->traintype;
+              // Store their train type
+              $type = $train->traintypes->traintype;
 
-          // Combine type and numbers to get the full train name
-          $combine = $type." ".$number;
+              // Combine type and numbers to get the full train name
+              $combine = $type." ".$number;
 
-          // Add the combined version to the array
-          array_push($trainName, $combine);
+              // Add the combined version to the array
+              array_push($trainName, $combine);
+            }
+          }
         }
-    }
 
-    // Return train names
-    return $trainName;
+        return array_values(array_unique($trainName));
 
-  }
-
-    public function store($path)
-    {
-      // Stations to save
-      $stations = $this->getStations($path);
-
-      // Train names to save
-      $trainName = $this->getTrainNumber($path);
-
-      foreach($stations as $station) {
-        $sql = new Stations;
-        $sql->station = $station;
-        $sql->save();
       }
-      foreach($trainName as $name) {
-        $sql = new TrainNames;
-        $sql->name = $name;
-        $sql->save();
+
+      public function store($path)
+      {
+        // Stations to save
+        $stations = $this->getStation($path);
+
+        // Train names to save
+        $trainName = $this->getTrainName($path);
+
+        foreach($stations as $station) {
+          $sql = new Stations;
+          $sql->station = $station;
+          $sql->save();
+        }
+        foreach($trainName as $name) {
+          $sql = new TrainNames;
+          $sql->name = $name;
+          $sql->save();
+        }
       }
-    }
 }
