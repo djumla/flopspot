@@ -1,29 +1,10 @@
 {
   "name": "flopspot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A Vue.js project",
+  "author": "Sven Ahrens",
   "private": true,
-  "dependencies": {
-    "gulp-less": "^3.3.2",
-    "livereload": "^0.6.2",
-    "vue": "^2.4.2",
-    "axios": "^0.16.2",
-    "bootstrap-sass": "^3.3.7",
-    "cross-env": "^5.0.1",
-    "jquery": "^3.1.1",
-    "laravel-mix": "^1.0",
-    "lodash": "^4.17.4"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-livereload": "^3.8.1",
-    "gulp-plumber": "^1.1.0",
-    "gulp-watch": "^4.3.11",
-    "gulp-watch-less": "^1.0.1"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -32,14 +13,22 @@
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/djumla/flopspot.git"
+  "devDependencies": {
+    "axios": "^0.16.2",
+    "bootstrap-sass": "^3.3.7",
+    "cross-env": "^5.0.1",
+    "gulp": "^3.9.1",
+    "jquery": "^3.1.1",
+    "laravel-elixir": "^6.0.0-15",
+    "laravel-elixir-vue-2": "^0.3.0",
+    "laravel-elixir-webpack-official": "^1.0.10",
+    "laravel-mix": "^1.0",
+    "lodash": "^4.17.4",
+    "vue": "^2.1.10",
+    "webpack": "^3.6.0"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/djumla/flopspot/issues"
-  },
-  "homepage": "https://github.com/djumla/flopspot#readme"
+  "dependencies": {
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5"
+  }
 }

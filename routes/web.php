@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+Route::get('/statistics', function () {
+    return view('/layouts/statistics');
 });
 
 Route::get('stations', 'FlopspotAPIController@stations');

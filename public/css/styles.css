@@ -153,8 +153,8 @@ dfn {
  * Known issue: no IE 6/7 normalization.
  */
 hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   height: 0;
 }
 /**
@@ -388,7 +388,8 @@ html input[disabled] {
  */
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -405,7 +406,6 @@ input[type="radio"] {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box;
@@ -570,10 +570,18 @@ a:target {
   padding: 10px;
 }
 #flex-thumbs {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 #flex-thumbs input {
   opacity: 0;
@@ -598,18 +606,20 @@ a:target {
   position: relative;
   width: 33%;
 }
-#flex-thumbs .container label > img {
+#flex-thumbs .container #insufficient-label {
+  background-image: url("/assets/bad.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
-#flex-thumbs .container #insufficient-label {
-  background-image: url("../public/assets/bad.svg");
-}
 #flex-thumbs .container #satisfying-label {
-  background-image: url("../public/assets/bad.svg");
+  background-image: url("/assets/bad.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #flex-thumbs .container #satisfactory-label {
-  background-image: url("../public/assets/bad.svg");
+  background-image: url("/assets/bad.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #flex-thumbs .container .description {
   display: none;
@@ -649,10 +659,18 @@ a:target {
   }
 }
 #flex-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 #flex-form label {
   width: 30%;
@@ -685,7 +703,8 @@ a:target {
   }
 }
 .description {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   position: absolute;
   background: #004b72;
   padding: 10px;
@@ -733,6 +752,8 @@ footer #service {
   width: 85%;
   margin: 0 auto;
   height: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 footer #service #flex-service {
@@ -782,7 +803,10 @@ footer #service #tweets {
 }
 @media (max-width: 760px) {
   footer #service {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     height: 800px;
   }
   footer #service h1 {
@@ -797,7 +821,9 @@ footer #service #tweets {
   }
   footer #service #tweets {
     disply: flex;
-    order: -1;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
     margin-top: 20px;
     margin-left: 0px;
   }
@@ -827,7 +853,8 @@ header img {
 }
 main {
   background-color: #fff;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 30px;
 }
 main h2 {
@@ -875,10 +902,18 @@ main form > input[type="submit"] {
   }
 }
 #info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-top: 50px;
   min-height: 450px;
 }
@@ -906,9 +941,15 @@ main form > input[type="submit"] {
 #info #statistics {
   width: 20%;
   background-color: #004b72;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 #info #statistics img {
   display: block;

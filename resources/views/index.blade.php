@@ -9,10 +9,9 @@
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif|Open+Sans|Poppins" rel="stylesheet">
 
-    <link rel="stylesheet" href="./static/styles.css" >
+    <link rel="stylesheet" href="/css/styles.css" >
 
     <script src="node_modules/vue/dist/vue.js"></script>
-    <script src="./dist/bundle.js"></script>
     <script
     src="https://code.jquery.com/jquery-3.2.1.js"
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -23,14 +22,17 @@
     integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
     crossorigin="anonymous"
     ></script>
-    <script src="./src/js/design/flopspot-responsive.js"></script>
-    <script src="./src/js/design/flopspot-observer.js"></script>
-    <script src="./src/js/flopspot-datepicker.js"></script>
-    <script src="./src/api/flopspot-stations.js"></script>
-    <script src="./src/api/flopspot-trainNumbers.js"></script>
+    <script src="flopspot-responsive.js"></script>
+    <script src="flopspot-observer.js"></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <app-header></app-header>
+      <app-form></app-form>
+      <app-service></app-service>
+      <app-footer></app-footer>
+    </div>
     <!-- built files will be auto injected -->
+    <script src="{{ asset('js/app.js') }}"></script>
   </body>
 </html>
