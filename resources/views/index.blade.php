@@ -11,19 +11,15 @@
 
     <link rel="stylesheet" href="/css/styles.css" >
 
-    <script src="node_modules/vue/dist/vue.js"></script>
     <script
     src="https://code.jquery.com/jquery-3.2.1.js"
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"
     ></script>
-    <script
-    src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-    crossorigin="anonymous"
-    ></script>
     <script src="flopspot-responsive.js"></script>
     <script src="flopspot-observer.js"></script>
+    <script src="./vue2-autocomplete-js/dist/vue2-autocomplete.js"></script>
+    <link rel="stylesheet" href="./vue2-autocomplete-js/dist/style/vue2-autocomplete.css">
   </head>
   <body>
     <div id="app">

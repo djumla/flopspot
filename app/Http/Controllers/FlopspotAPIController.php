@@ -8,13 +8,14 @@ use Illuminate\Http\Response;
 
 class FlopspotAPIController extends Controller
 {
-  public function stations()
+
+  public function station(Request $request)
   {
-    return DB::table('train_station')->select('station')->get();
+    return DB::table('train_station')->where('station', 'like', $request->station.'%')->limit(8)->get();
   }
 
-  public function trainName()
+  public function trainName(Request $request)
   {
-    return DB::table('train_name')->select('name')->get();
+    return DB::table('train_name')->where('name', 'like', $request->name.'%')->limit(8)->get();
   }
 }

@@ -18,5 +18,5 @@ Route::get('/statistics', function () {
     return view('/layouts/statistics');
 });
 
-Route::get('stations', 'FlopspotAPIController@stations');
-Route::get('trainName', 'FlopspotAPIController@trainName');
+Route::post('station', 'FlopspotAPIController@station');
+Route::post('trainName', 'FlopspotAPIController@trainName');
