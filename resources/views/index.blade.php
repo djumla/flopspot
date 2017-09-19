@@ -9,7 +9,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif|Open+Sans|Poppins" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/styles.css" >
+    <link rel="stylesheet" href="/css/app.css" >
 
     <script
     src="https://code.jquery.com/jquery-3.2.1.js"
