@@ -17,6 +17,10 @@ Route::get('/', function () {
 Route::get('/statistics', function () {
     return view('/layouts/statistics');
 });
-
+Route::get('getInsufficientRating', 'FlopspotAPIController@getInsufficientRating');
+Route::get('getSatisfyingRating', 'FlopspotAPIController@getSatisfyingRating');
+Route::get('getSatisfactoryRating', 'FlopspotAPIController@getSatisfactoryRating');
 Route::post('station', 'FlopspotAPIController@station');
-Route::post('trainName', 'FlopspotAPIController@trainName');
+Route::post('trainNumber', 'FlopspotAPIController@trainNumber');
+Route::post('saveRating', 'RatingController@saveRating');
+Route::post('test', 'RatingController@test');

@@ -579,20 +579,19 @@ a:target {
 #flex-thumbs input {
   opacity: 0;
 }
-#flex-thumbs label,
-#flex-thumbs input {
+#flex-thumbs input,
+#flex-thumbs label {
   display: block;
   cursor: pointer;
 }
 #flex-thumbs label {
   text-indent: -9000px;
   width: 40%;
-  margin: 0 auto;
-  margin-top: 30px;
+  margin: 30px auto 0;
   opacity: 0.3;
 }
-#flex-thumbs label:hover,
-#flex-thumbs label.selected {
+#flex-thumbs label.selected,
+#flex-thumbs label:hover {
   opacity: 1.0;
 }
 #flex-thumbs .container {
@@ -605,12 +604,12 @@ a:target {
   background-size: cover;
 }
 #flex-thumbs .container #satisfying-label {
-  background-image: url("/assets/bad.svg");
+  background-image: url("/assets/average.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 #flex-thumbs .container #satisfactory-label {
-  background-image: url("/assets/bad.svg");
+  background-image: url("/assets/good.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }

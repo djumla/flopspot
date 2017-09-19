@@ -13,9 +13,9 @@ class CreateTrainNameTable extends Migration
      */
     public function up()
     {
-        Schema::create('train_name', function (Blueprint $table) {
+        Schema::create('train_number', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('trainNumber');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateTrainNameTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('train_name');
+        Schema::dropIfExists('train_number');
     }
 }

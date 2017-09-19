@@ -15,16 +15,17 @@ class CreateRatingInfoTable extends Migration
     {
         Schema::create('rating_info', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('station')->unsigned();
+            $table->integer('entrance')->unsigned();
+            $table->integer('exit')->unsigned();
+            $table->integer('trainNumber')->unsigned();
             $table->integer('rating')->unsigned();
             $table->timestamps();
 
-            $table->foreign('station')
-                  ->references('id')->on('train_station')
-                  ->onDelete('cascade');
-            $table->foreign('rating')
-                  ->references('id')->on('rating')
-                  ->onDelete('cascade');
+            $table->foreign('entrance')->references('id')->on('train_station')->onDelete('cascade');
+            $table->foreign('exit')->references('id')->on('train_station')->onDelete('cascade');
+            $table->foreign('trainNumber')->references('id')->on('train_number')->onDelete('cascade');
+            $table->foreign('rating')->references('id')->on('rating')->onDelete('cascade');
+
         });
     }
 

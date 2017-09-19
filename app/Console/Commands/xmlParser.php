@@ -4,8 +4,8 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
-use App\Stations;
-use App\TrainNames;
+use App\Station;
+use App\TrainNumber;
 
 class xmlParser extends Command
 {
@@ -137,13 +137,13 @@ class xmlParser extends Command
         $trainName = $this->getTrainName($path);
 
         foreach($stations as $station) {
-          $sql = new Stations;
+          $sql = new Station;
           $sql->station = $station;
           $sql->save();
         }
         foreach($trainName as $name) {
-          $sql = new TrainNames;
-          $sql->name = $name;
+          $sql = new TrainNumber;
+          $sql->trainNumber = $name;
           $sql->save();
         }
       }
