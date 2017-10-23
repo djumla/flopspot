@@ -119,13 +119,10 @@ export default {
           const {
             responseText
           } = e.target
-
           let response = JSON.parse(responseText);
-
           // The options to pass in the autocomplete
           resolve(response)
         });
-
         ajax.send(JSON.stringify(params));
       })
     },

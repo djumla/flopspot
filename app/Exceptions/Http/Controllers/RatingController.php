@@ -11,39 +11,17 @@ class RatingController extends Controller
 {
     public function saveRating(Request $request)
     {
-      $entranceID;
-      $exitID;
-      $ratingID;
-      $trainNumberID;
-
-      $rating = DB::table('rating')->where('id', '=', $request->rating)->get();
-      $entrance = DB::table('train_station')->where('station', '=', $request->entrance)->get();
-      $exit = DB::table('train_station')->where('station', '=', $request->exit)->get();
-      $trainNumber = DB::table('train_number')->where('trainNumber', '=', $request->trainNumber)->get();
-
-      foreach($rating as $rtng) {
-        $ratingID = $rtng->id;
-        echo $ratingID;
-      }
-
-      foreach($entrance as $entrnc) {
-        $entranceID = $entrnc->id;
-      }
-
-      foreach($exit as $ext) {
-        $exitID = $ext->id;
-      }
-
-      foreach($trainNumber as $number) {
-        $trainNumberID = $number->id;
-      }
+      $rating = DB::table('rating')->where('id', '=', $request->rating)->first();
+      $entrance = DB::table('train_station')->where('station', '=', $request->entrance)->first();
+      $exit = DB::table('train_station')->where('station', '=', $request->exit)->first();
+      $trainNumber = DB::table('train_number')->where('trainNumber', '=', $request->trainNumber)->first();
 
       $ratingInfo = new RatingInfo;
 
-      $ratingInfo->entrance = $entranceID;
-      $ratingInfo->exit = $exitID;
-      $ratingInfo->trainNumber = $trainNumberID;
-      $ratingInfo->rating = $ratingID;
+      $ratingInfo->entrance = $entrance->id;
+      $ratingInfo->exit = $exit->id;
+      $ratingInfo->trainNumber = $trainNumber->id;
+      $ratingInfo->rating = $rating->id;
 
       $ratingInfo->save();
     }

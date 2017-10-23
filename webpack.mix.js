@@ -10,7 +10,3 @@ let mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
-mix.less('resources/assets/less/styles.less', 'public/css');
-mix.less('resources/assets/less/*/*.less', 'public/css');
-/*.less('resources/assets/less/admin.less', 'public/css');*/

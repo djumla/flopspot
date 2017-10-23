@@ -16,10 +16,8 @@
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"
     ></script>
-    <script src="flopspot-responsive.js"></script>
-    <script src="flopspot-observer.js"></script>
-    <script src="./vue2-autocomplete-js/dist/vue2-autocomplete.js"></script>
-    <link rel="stylesheet" href="./vue2-autocomplete-js/dist/style/vue2-autocomplete.css">
+    <script src="./js/flopspot-responsive.js"></script>
+    <script src="./js/flopspot-observer.js"></script>
   </head>
   <body>
     <div id="app">
