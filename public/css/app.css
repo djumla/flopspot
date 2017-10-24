@@ -1006,6 +1006,10 @@ main form > input[type="submit"] {
   color: grey;
   font-size: 13px;
 }
+.chart-container {
+  width: 0;
+  height: 0;
+}
 #imprint {
   background-color: #004b72;
   padding: 10px;

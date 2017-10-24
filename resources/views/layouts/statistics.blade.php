@@ -11,11 +11,19 @@
 
     <link rel="stylesheet" href="/css/app.css" >
 
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"
+    ></script>
+    <script src="./js/flopspot-responsive.js"></script>
+    <script src="./js/flopspot-observer.js"></script>
   </head>
   <body>
     <div id="app">
       <app-header></app-header>
       <app-overall></app-overall>
+      <app-footer></app-footer>
     </div>
     <script src="{{ asset('js/statistics.js') }}"></script>
   </body>

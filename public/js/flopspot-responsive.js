@@ -5,6 +5,14 @@ $(function() {
     });
   }
 
+  function addHeight() {
+    var height = $('#tweets').height() / 5;
+    var footerHeight = $('#service').height();
+
+    $('#service').height(footerHeight + height);
+  }
+
+  addHeight();
   setHeightEqualWidth();
   $(window).resize(setHeightEqualWidth);
 });

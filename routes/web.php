@@ -14,16 +14,17 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/statistics', function () {
+Route::get('/statistic', function () {
     return view('/layouts/statistics');
 });
-Route::get('rating/insufficient', 'FlopspotAPIController@getInsufficient');
-Route::get('rating/satisfying', 'FlopspotAPIController@getSatisfying');
-Route::get('rating/satisfactory', 'FlopspotAPIController@getSatisfactory');
-Route::get('rating/monthly', 'FlopspotAPIController@getMonthly');
-Route::get('rating/overall', 'FlopspotAPIController@overall');
-Route::get('rating/pastSixMonth', 'FlopspotAPIController@pastSixMonth');
-Route::post('station', 'FlopspotAPIController@station');
-Route::post('trainNumber', 'FlopspotAPIController@trainNumber');
-Route::post('saveRating', 'RatingController@saveRating');
-Route::post('test', 'RatingController@test');
+Route::get('rating/insufficient', 'API\FlopspotController@getInsufficient');
+Route::get('rating/satisfying', 'API\FlopspotController@getSatisfying');
+Route::get('rating/satisfactory', 'API\FlopspotController@getSatisfactory');
+Route::get('rating/monthly', 'API\FlopspotController@getMonthly');
+Route::get('rating/overall', 'API\FlopspotController@overall');
+Route::get('rating/pastSixMonth', 'API\FlopspotController@pastSixMonth');
+Route::get('tweets', 'API\TwitterController@getTweets');
+Route::post('station', 'API\FlopspotController@station');
+Route::post('trainNumber', 'API\FlopspotController@trainNumber');
+Route::post('saveRating', 'API\RatingController@saveRating');
+Route::get('imprint', 'PageController@imprint');

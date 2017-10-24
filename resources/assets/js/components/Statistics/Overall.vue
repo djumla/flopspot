@@ -1,6 +1,9 @@
 <template>
-<section id="rating" style="position: relative; height:40vh; width:80vh">
-  <canvas id="history"></canvas>
+<section id="rating">
+  <div class="chart-container">
+    <h1>Gesamtstatistik der letzten sechs Monate!</h1>
+    <canvas id="history"></canvas>
+  </div>
 </section>
 </template>
 
@@ -11,40 +14,76 @@ import Axios from 'axios';
 export default {
   mounted: function() {
     this.$nextTick(function() {
-      this.pie();
+      this.create();
     })
   },
   methods: {
-
-    pie: function() {
+    pie: function(insufficient, satisfying, satisfactory) {
       let ctx = document.getElementById('history');
-
       let data = {
         datasets: [{
-          data: [this.getRating()]
+          data: [insufficient, satisfying, satisfactory],
+          backgroundColor: [
+            '#736280',
+            '#e5d9ca',
+            '#5f9ea0',
+          ],
+          borderColor: [
+            '#fff',
+            '#fff',
+            '#fff'
+          ],
+          hoverBorderColor: [
+            ''
+          ]
         }],
 
-        // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [
-          'Red'
+          'Unzufrieden',
+          'Zufrieden',
+          'Sehr zufrieden'
         ]
       };
 
+      let options = {
+        responsive: true
+      }
+
       let myPieChart = new Chart(ctx, {
-        type: 'pie',
-        data: data
+        type: 'doughnut',
+        data: data,
+        options: options
       });
     },
 
-    getRating() {
-      Axios.get('localhost:8000/rating/pastSixMonth')
+    create: function() {
+      let self = this;
+      Axios.get('/rating/pastSixMonth')
         .then(function(response) {
-          console.log(response);
+          self.pie(response.data.insufficient, response.data.satisfying, response.data.satisfactory);
         })
         .catch(function(error) {
           console.log(error);
         });
-    }
+    },
+
+
   }
 }
 </script>
+<style>
+#rating {
+  height: 800px;
+}
+
+.chart-container h1 {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.chart-container {
+  width: 50%;
+  margin: 0 auto;
+}
+</style>

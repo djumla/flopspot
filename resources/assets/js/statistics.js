@@ -15,6 +15,7 @@ window.Vue = require('vue');
  */
 Vue.component('app-overall', require('./components/Statistics/Overall.vue'));
 Vue.component('app-header', require('./components/Header.vue'));
+Vue.component('app-footer', require('./components/Footer.vue'));
 
 const app = new Vue({
   el: '#app'

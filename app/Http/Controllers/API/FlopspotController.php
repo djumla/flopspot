@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Response;
+use App\Http\Controllers\Controller;
 
-class FlopspotAPIController extends Controller
+class FlopspotController extends Controller
 {
 
   public function station(Request $request)
@@ -43,6 +44,12 @@ class FlopspotAPIController extends Controller
     $start = date("n")-6;
     $end = date("n");
 
-    return DB::table('rating_info')->select('rating', 'created_at')->whereMonth('created_at', '>',$start, 'and', '<', $end)->get();
+    $insufficient = DB::table('rating_info')->select('rating')->whereMonth('created_at', '>',$start, 'and', '<', $end)->where('rating', '=', 1)->count();
+    $satisfying = DB::table('rating_info')->select('rating')->whereMonth('created_at', '>',$start, 'and', '<', $end)->where('rating', '=', 2)->count();
+    $satisfactory = DB::table('rating_info')->select('rating')->whereMonth('created_at', '>',$start, 'and', '<', $end)->where('rating', '=', 3)->count();
+
+    $rating = array("insufficient" => $insufficient, "satisfying" => $satisfying, "satisfactory" => $satisfactory);
+
+    return $rating;
   }
 }
