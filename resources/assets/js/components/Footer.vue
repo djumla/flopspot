@@ -42,12 +42,14 @@ export default {
 
   methods: {
     /**
-     * @return {void} 
+     * @return {void}
      */
     createTweets: function() {
       Axios.get('/api/get/tweets')
         .then(function(response) {
           response.data.statuses.forEach(function(val, key) {
+            let postDate = val.created_at.replace('+0000', "");
+
             if (key < 5) {
               /**
                * Every tweet has its own div
@@ -57,7 +59,7 @@ export default {
 
               // Headline
               let span = document.createElement('span');
-              let spanText = document.createTextNode(val.created_at);
+              let spanText = document.createTextNode(postDate);
 
               // Tweet itself
               let p = document.createElement('p');
@@ -79,6 +81,10 @@ export default {
           });
 
         })
+    },
+
+    dateFormatting: function(date) {
+      return date.replace("+0000");
     }
   }
 }
