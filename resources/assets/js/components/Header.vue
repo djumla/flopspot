@@ -17,6 +17,7 @@ export default {
   },
 
   methods: {
+    // Class active will change the current navigation link color
     setActive: function() {
       let active;
       switch (window.location.pathname) {

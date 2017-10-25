@@ -12,13 +12,14 @@ import Chart from 'chart.js';
 import Axios from 'axios';
 
 export default {
+  // Mounted? Yes. The view needs to be rendered to actually create a chart.
   mounted: function() {
     this.$nextTick(function() {
       this.create();
     })
   },
   methods: {
-    pie: function(insufficient, satisfying, satisfactory) {
+    chart: function(insufficient, satisfying, satisfactory) {
       let ctx = document.getElementById('history');
       let data = {
         datasets: [{
@@ -29,7 +30,6 @@ export default {
             '#00ff00',
           ]
         }],
-
         labels: [
           'Unzufrieden: ' + insufficient,
           'Zufrieden: ' + satisfying,
@@ -51,7 +51,7 @@ export default {
         }
       }
 
-      let myPieChart = new Chart(ctx, {
+      let chart = new Chart(ctx, {
         type: 'doughnut',
         data: data,
         options: options
@@ -59,10 +59,11 @@ export default {
     },
 
     create: function() {
+      // WHAT THE HACK?
       let self = this;
       Axios.get('/rating/pastSixMonth')
         .then(function(response) {
-          self.pie(response.data.insufficient, response.data.satisfying, response.data.satisfactory);
+          self.chart(response.data.insufficient, response.data.satisfying, response.data.satisfactory);
         })
         .catch(function(error) {
           console.log(error);

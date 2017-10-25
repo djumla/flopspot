@@ -113,16 +113,17 @@ export default {
         };
 
         ajax.open('POST', "/station", true);
-        // On Done
+
         ajax.setRequestHeader('Content-type', 'application/json; charset=utf-8');
         ajax.addEventListener('loadend', (e) => {
           const {
             responseText
           } = e.target
           let response = JSON.parse(responseText);
-          // The options to pass in the autocomplete
+
           resolve(response)
         });
+
         ajax.send(JSON.stringify(params));
       })
     },
@@ -134,7 +135,7 @@ export default {
         };
 
         ajax.open('POST', "/trainNumber", true);
-        // On Done
+
         ajax.setRequestHeader('Content-type', 'application/json; charset=utf-8');
         ajax.addEventListener('loadend', (e) => {
           const {
@@ -143,7 +144,6 @@ export default {
 
           let response = JSON.parse(responseText);
 
-          // The options to pass in the autocomplete
           resolve(response)
         });
 

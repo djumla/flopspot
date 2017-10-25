@@ -23,7 +23,7 @@
       </nav>
     </div>
     <section id="tweets">
-      <!-- TODO: By every additional tweet, which'll be added, this height needs to be added in #column-container  -->
+      <!-- Auto injection here -->
     </section>
   </div>
   <div id="copyright">Copyright 2016 - flopspot</div>
@@ -42,11 +42,15 @@ export default {
 
   methods: {
     tweets: function() {
-      //title underlined
       Axios.get('/tweets')
         .then(function(response) {
           response.data.statuses.forEach(function(val, key) {
             if (key < 5) {
+              /**
+               * Every tweet has its own div
+               * Also, of course, every tweet has a node and a headline
+               * Tweet structure: Div > headline > text
+               */
               let p = document.createElement('p');
               let pText = document.createTextNode(val.text);
               let header = document.createElement('span');
