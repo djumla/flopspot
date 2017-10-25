@@ -41,6 +41,9 @@ export default {
   },
 
   methods: {
+    /**
+     * @return {void} 
+     */
     createTweets: function() {
       Axios.get('/api/get/tweets')
         .then(function(response) {

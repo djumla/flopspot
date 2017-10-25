@@ -10,27 +10,42 @@ use App\Rating;
 
 class RatingController extends Controller
 {
+    /**
+     * @return array
+     */
     public function total()
     {
         return DB::table('ratings')->select('rating')->count();
     }
 
+    /**
+     * @return array
+     */
     public function getInsufficient()
     {
         //return $model->where('rating', '=', 1)->count();
         return DB::table('ratings')->where('rating', '=', 1)->count();
     }
 
+    /**
+     * @return array
+     */
     public function getSatisfying(/*RatingInfo $model*/)
     {
         return DB::table('ratings')->where('rating', '=', 2)->count();
     }
 
+    /**
+     * @return array
+     */
     public function getSatisfactory()
     {
         return DB::table('ratings')->where('rating', '=', 3)->count();
     }
 
+    /**
+     * @return array
+     */
     public function pastSixMonth()
     {
         $start = date("n")-6;
@@ -46,12 +61,18 @@ class RatingController extends Controller
           * To speed this up, chart.js needs some values to generate their chart.
           * And finally, to know which part of the value will be represented of the chart, every value has a key to identify.
         */
-        $rating = array("insufficient" => $insufficient, "satisfying" => $satisfying, "satisfactory" => $satisfactory);
+        $ratings = array("insufficient" => $insufficient, "satisfying" => $satisfying, "satisfactory" => $satisfactory);
 
-        return $rating;
+        return $ratings;
     }
 
-    // Called when form was submitted in frontend
+    /**
+     * Called when form was submitted in frontend
+     *
+     * @param  Request $request
+     *
+     * @return void
+     */
     public function store(Request $request)
     {
         // TODO: FIRST VALIDATE FORM AND CHECK RATING

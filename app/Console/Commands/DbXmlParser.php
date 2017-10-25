@@ -58,7 +58,7 @@ class DbXmlParser extends Command
     /**
     * @param  string $path  path to XMLs
     *
-    * @return Array
+    * @return array
     **/
     public function parse($path)
     {
@@ -81,10 +81,18 @@ class DbXmlParser extends Command
     }
 
     /**
-      * This method and the same for getTrainName iterate through the entire XML files
-      * This needs to be done because the XML files are nested as fuck. Like every tag is nested in another and so on..
-      * In fact, those two methods(getStation, getTrainName) iterate through the entire XML files unless they found the information they need
+
     */
+
+    /**
+     * This method and the same for getTrainName iterate through the entire XML files
+     * This needs to be done because the XML files are nested as fuck. Like every tag is nested in another and so on..
+     * In fact, those two methods(getStation, getTrainName) iterate through the entire XML files unless they found the information they need
+     *
+     * @param  string $path path to xml files
+     *
+     * @return array
+     */
     public function getStations($path)
     {
         $stations = [];
@@ -114,6 +122,11 @@ class DbXmlParser extends Command
         return $stations;
     }
 
+    /**
+     * @param  string $path
+     *
+     * @return array
+     */
     public function getTrainNumbers($path)
     {
         $trainNumbers = [];
@@ -140,6 +153,11 @@ class DbXmlParser extends Command
         return $trainNumbers;
     }
 
+    /**
+     * @param  string $path
+     *
+     * @return void
+     */
     public function store($path)
     {
         $stations = $this->getStations($path);

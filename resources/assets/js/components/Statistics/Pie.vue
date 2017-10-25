@@ -19,6 +19,15 @@ export default {
     })
   },
   methods: {
+    /**
+     * @param  {integer} insufficient
+     *
+     * @param  {integer} satisfying
+     *
+     * @param  {integer} satisfactory
+     *
+     * @return {void}
+     */
     chart: function(insufficient, satisfying, satisfactory) {
       let ctx = document.getElementById('history');
       let data = {
@@ -58,6 +67,9 @@ export default {
       });
     },
 
+    /**
+     * @return {void} 
+     */
     create: function() {
       let self = this;
 

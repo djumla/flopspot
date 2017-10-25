@@ -17,7 +17,11 @@ export default {
   },
 
   methods: {
-    // Class active will change the current navigation link color
+    /**
+     * Class active will change the current navigation link color
+     * 
+     * @return {void}
+     */
     setActiveLink: function() {
       let active;
 

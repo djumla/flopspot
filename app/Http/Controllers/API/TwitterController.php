@@ -10,11 +10,17 @@ class TwitterController extends Controller
 {
     protected $conn;
 
+    /**
+     * @param TwitterAPIConnection $conn
+     */
     public function __construct(TwitterAPIConnection $conn)
     {
         $this->conn = $conn;
     }
 
+    /**
+     * @return array
+     */
     public function getTweets()
     {
         $response = $this->conn->connection()->request(

@@ -108,6 +108,11 @@ export default {
     Datepicker
   },
   methods: {
+    /**
+     * @param  {string} value
+     *
+     * @return {void}
+     */
     getStations(value) {
       return new Promise((resolve, reject) => {
         let ajax = new XMLHttpRequest();
@@ -130,6 +135,12 @@ export default {
         ajax.send(JSON.stringify(params));
       })
     },
+
+    /**
+     * @param  {string} value
+     *
+     * @return {void}
+     */
     getTrainNumbers(value) {
       return new Promise((resolve, reject) => {
         let ajax = new XMLHttpRequest();
@@ -153,6 +164,9 @@ export default {
         ajax.send(JSON.stringify(params));
       })
     },
+    /**
+     * @return {void}
+     */
     send() {
       let entrance = document.getElementById('entrance').value;
       let exit = document.getElementById('exit').value;
@@ -172,6 +186,10 @@ export default {
           console.log(error);
         });
     },
+
+    /**
+     * @return {integer}
+     */
     getSelectedRating() {
       let insufficient = document.getElementById('insufficient');
       let satisfying = document.getElementById('satisfying');
