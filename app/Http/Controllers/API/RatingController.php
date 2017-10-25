@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
-use App\RatingInfo;
+use App\Rating;
 
 class RatingController extends Controller
 {
@@ -25,12 +26,12 @@ class RatingController extends Controller
         return DB::table('rating_info')->where('rating', '=', 2)->count();
     }
 
-    public function getSatisfactory(RatingInfo $model)
+    public function getSatisfactory()
     {
         return DB::table('rating_info')->where('rating', '=', 3)->count();
     }
 
-    public function pastSixMonth(RatingInfo $model)
+    public function pastSixMonth()
     {
         $start = date("n")-6;
         $end = date("n");

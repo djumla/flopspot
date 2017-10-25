@@ -7,8 +7,8 @@
       <label for="entrance">
           Einstieg
           <autocomplete
-            anchor="stations"
-            label="stations"
+            anchor="station"
+            label="station"
             placeholder="Bahnhof / Haltestelle / Berlin Hbf"
             :onShouldGetData="getStation"
             url="/stations"
@@ -18,8 +18,8 @@
       <label for="exit">
           Ausstieg
           <autocomplete
-            anchor="stations"
-            label="stations"
+            anchor="station"
+            label="station"
             placeholder="Bahnhof / Haltestelle / Köln Hbf"
             :onShouldGetData="getStation"
             url="/stations"
@@ -29,8 +29,8 @@
       <label for="trainNumber">
           Zugnummer
           <autocomplete
-            anchor="trainNumbers"
-            label="trainNumbers"
+            anchor="trainNumber"
+            label="trainNumber"
             placeholder="Zugnummer / Zug-ID / ICE 105"
             :onShouldGetData="getTrainNumber"
             url="/trainNumbers"
@@ -159,7 +159,7 @@ export default {
       let trainNumber = document.getElementById('trainNumber').value;
       let rating = this.getCheckedRadio();
 
-      Axios.post('/api/rating/save', {
+      Axios.post('api/rating/save', {
           entrance: entrance,
           exit: exit,
           trainNumber: trainNumber,
