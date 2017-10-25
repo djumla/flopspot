@@ -2,38 +2,38 @@
 <main class="wrapper">
   <h1 class="underlined">Hotspot Bewerten</h1>
   <h2>Bitte geben Sie die Daten zu Ihrer Zugverbindung an und bewerten Sie anschließend die Qualität Ihres Hotspots.</h2>
-  <form id="rating" v-on:submit="send">
+  <form id="rating" v-on:submit.prevent="send">
     <div id="flex-form">
       <label for="entrance">
           Einstieg
           <autocomplete
-            anchor="station"
-            label="station"
+            anchor="stations"
+            label="stations"
             placeholder="Bahnhof / Haltestelle / Berlin Hbf"
             :onShouldGetData="getStation"
-            url="/station"
+            url="/stations"
             id="entrance">
           </autocomplete>
       </label>
       <label for="exit">
           Ausstieg
           <autocomplete
-            anchor="station"
-            label="station"
+            anchor="stations"
+            label="stations"
             placeholder="Bahnhof / Haltestelle / Köln Hbf"
             :onShouldGetData="getStation"
-            url="/station"
+            url="/stations"
             id="exit">
           </autocomplete>
       </label>
       <label for="trainNumber">
           Zugnummer
           <autocomplete
-            anchor="trainNumber"
-            label="trainNumber"
+            anchor="trainNumbers"
+            label="trainNumbers"
             placeholder="Zugnummer / Zug-ID / ICE 105"
             :onShouldGetData="getTrainNumber"
-            url="/trainNumber"
+            url="/trainNumbers"
             id="trainNumber">
           </autocomplete>
       </label>
@@ -166,7 +166,7 @@ export default {
           rating: rating
         })
         .then(function(response) {
-          //Change directory
+          console.log(response);
         })
         .catch(function(error) {
           console.log(error);

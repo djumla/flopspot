@@ -9,6 +9,6 @@ class Station extends Model
     protected $table = 'train_stations';
 
     protected $fillable = [
-      'stations'
+      'station'
     ];
 }

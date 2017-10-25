@@ -147,12 +147,12 @@ class DbXmlParser extends Command
 
         foreach ($stations as $station) {
             $sql = new Station;
-            $sql->stations= $station;
+            $sql->station= $station;
             $sql->save();
         }
         foreach ($trainNumbers as $trainNumber) {
             $sql = new TrainNumber;
-            $sql->trainNumbers = $trainNumber;
+            $sql->trainNumber = $trainNumber;
             $sql->save();
         }
     }

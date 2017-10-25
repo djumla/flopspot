@@ -15,7 +15,7 @@ class CreateTrainNumbersTable extends Migration
     {
         Schema::create('train_numbers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('trainNumbers');
+            $table->string('trainNumber');
             $table->timestamps();
         });
     }

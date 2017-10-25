@@ -42,7 +42,7 @@ export default {
 
   methods: {
     tweets: function() {
-      Axios.get('/tweets')
+      Axios.get('/api/get/tweets')
         .then(function(response) {
           response.data.statuses.forEach(function(val, key) {
             if (key < 5) {

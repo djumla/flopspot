@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
+    "name": "djumla/Flotspot",
+    "description": "Flopspot.de application",
     "keywords": ["framework", "laravel"],
-    "license": "MIT",
+    "license": "GPLv3",
     "type": "project",
     "require": {
         "php": ">=7.0.0",

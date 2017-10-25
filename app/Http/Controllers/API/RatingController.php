@@ -53,17 +53,17 @@ class RatingController extends Controller
     // Called when form was submitted in frontend
     public function saveRating(Request $request)
     {
-        $rating = DB::table('rating')->where('id', '=', $request->rating)->first();
-        $entrance = DB::table('train_station')->where('station', '=', $request->entrance)->first();
-        $exit = DB::table('train_station')->where('station', '=', $request->exit)->first();
-        $trainNumber = DB::table('train_number')->where('trainNumber', '=', $request->trainNumber)->first();
+        // TODO: FIRST VALIDATE FORM AND CHECK RATING
+        $entrance = DB::table('train_stations')->where('station', '=', $request->entrance)->first();
+        $exit = DB::table('train_stations')->where('station', '=', $request->exit)->first();
+        $trainNumber = DB::table('train_numbers')->where('trainNumber', '=', $request->trainNumber)->first();
 
-        $ratingInfo = new RatingInfo;
-        $ratingInfo->entrance = $entrance->id;
-        $ratingInfo->exit = $exit->id;
-        $ratingInfo->trainNumber = $trainNumber->id;
-        $ratingInfo->rating = $rating->id;
+        $rating = new Rating;
+        $rating->entrance = $entrance->id;
+        $rating->exit = $exit->id;
+        $rating->trainNumber = $trainNumber->id;
+        $rating->rating = $request->rating; // CHANGE THIS
 
-        $ratingInfo->save();
+        $rating->save();
     }
 }

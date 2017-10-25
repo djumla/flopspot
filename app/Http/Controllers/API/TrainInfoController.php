@@ -11,11 +11,11 @@ class TrainInfoController extends Controller
 {
     public function station(Request $request)
     {
-        return DB::table('train_station')->where('station', 'like', $request->station.'%')->limit(8)->get();
+        return DB::table('train_stations')->where('station', 'like', $request->station.'%')->limit(8)->get();
     }
 
     public function trainNumber(Request $request)
     {
-        return DB::table('train_number')->where('trainNumber', 'like', $request->trainNumber.'%')->limit(8)->get();
+        return DB::table('train_numbers')->where('trainNumber', 'like', $request->trainNumber.'%')->limit(8)->get();
     }
 }
