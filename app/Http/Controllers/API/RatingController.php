@@ -30,8 +30,9 @@ class RatingController extends Controller
     /**
      * @return array
      */
-    public function getSatisfying(/*RatingInfo $model*/)
+    public function getSatisfying()
     {
+        //RatingInfo $model
         return DB::table('ratings')->where('rating', '=', 2)->count();
     }
 
@@ -73,9 +74,8 @@ class RatingController extends Controller
      *
      * @return void
      */
-    public function store(Request $request)
+    public function store(\App\Http\Requests\StoreRating $request)
     {
-        // TODO: FIRST VALIDATE FORM AND CHECK RATING
         $entrance = DB::table('train_stations')->where('station', '=', $request->entrance)->first();
         $exit = DB::table('train_stations')->where('station', '=', $request->exit)->first();
         $trainNumber = DB::table('train_numbers')->where('trainNumber', '=', $request->trainNumber)->first();
@@ -84,7 +84,7 @@ class RatingController extends Controller
         $rating->entrance = $entrance->id;
         $rating->exit = $exit->id;
         $rating->trainNumber = $trainNumber->id;
-        $rating->rating = $request->rating; // CHANGE THIS
+        $rating->rating = $request->rating;
 
         $rating->save();
     }
