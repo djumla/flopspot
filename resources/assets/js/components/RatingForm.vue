@@ -2,7 +2,7 @@
 <main class="wrapper">
   <h1 class="underlined">Hotspot Bewerten</h1>
   <h2>Bitte geben Sie die Daten zu Ihrer Zugverbindung an und bewerten Sie anschließend die Qualität Ihres Hotspots.</h2>
-  <form id="rating" v-on:submit.prevent="send">
+  <form id="rating" v-on:submit="send">
     <div id="flex-form">
       <label for="entrance">
           Einstieg
@@ -86,9 +86,12 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import Autocomplete from 'vue2-autocomplete-js';
 import Datepicker from 'vuejs-datepicker';
 import Axios from 'axios';
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
 
 let state = {
   date: new Date()
@@ -112,7 +115,7 @@ export default {
           "station": value
         };
 
-        ajax.open('POST', "/station", true);
+        ajax.open('POST', "/api/get/stations", true);
 
         ajax.setRequestHeader('Content-type', 'application/json; charset=utf-8');
         ajax.addEventListener('loadend', (e) => {
@@ -134,7 +137,7 @@ export default {
           "trainNumber": value
         };
 
-        ajax.open('POST', "/trainNumber", true);
+        ajax.open('POST', "/api/get/trainNumbers", true);
 
         ajax.setRequestHeader('Content-type', 'application/json; charset=utf-8');
         ajax.addEventListener('loadend', (e) => {
@@ -156,14 +159,14 @@ export default {
       let trainNumber = document.getElementById('trainNumber').value;
       let rating = this.getCheckedRadio();
 
-      Axios.post('http://localhost:8000/saveRating', {
+      Axios.post('/api/rating/save', {
           entrance: entrance,
           exit: exit,
           trainNumber: trainNumber,
           rating: rating
         })
         .then(function(response) {
-          console.log(response);
+          //Change directory
         })
         .catch(function(error) {
           console.log(error);
