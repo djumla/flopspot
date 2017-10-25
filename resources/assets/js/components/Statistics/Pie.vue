@@ -59,9 +59,9 @@ export default {
     },
 
     create: function() {
-      // WHAT THE HACK?
       let self = this;
-      Axios.get('/rating/pastSixMonth')
+
+      Axios.get('/api/rating/pastSixMonth')
         .then(function(response) {
           self.chart(response.data.insufficient, response.data.satisfying, response.data.satisfactory);
         })
