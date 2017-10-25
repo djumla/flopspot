@@ -10,7 +10,7 @@
             anchor="station"
             label="station"
             placeholder="Bahnhof / Haltestelle / Berlin Hbf"
-            :onShouldGetData="getStation"
+            :onShouldGetData="getStations"
             url="/stations"
             id="entrance">
           </autocomplete>
@@ -21,7 +21,7 @@
             anchor="station"
             label="station"
             placeholder="Bahnhof / Haltestelle / Köln Hbf"
-            :onShouldGetData="getStation"
+            :onShouldGetData="getStations"
             url="/stations"
             id="exit">
           </autocomplete>
@@ -32,7 +32,7 @@
             anchor="trainNumber"
             label="trainNumber"
             placeholder="Zugnummer / Zug-ID / ICE 105"
-            :onShouldGetData="getTrainNumber"
+            :onShouldGetData="getTrainNumbers"
             url="/trainNumbers"
             id="trainNumber">
           </autocomplete>
@@ -108,7 +108,7 @@ export default {
     Datepicker
   },
   methods: {
-    getStation(value) {
+    getStations(value) {
       return new Promise((resolve, reject) => {
         let ajax = new XMLHttpRequest();
         let params = {
@@ -130,7 +130,7 @@ export default {
         ajax.send(JSON.stringify(params));
       })
     },
-    getTrainNumber(value) {
+    getTrainNumbers(value) {
       return new Promise((resolve, reject) => {
         let ajax = new XMLHttpRequest();
         let params = {
@@ -157,7 +157,7 @@ export default {
       let entrance = document.getElementById('entrance').value;
       let exit = document.getElementById('exit').value;
       let trainNumber = document.getElementById('trainNumber').value;
-      let rating = this.getCheckedRadio();
+      let rating = this.getSelectedRating();
 
       Axios.post('api/rating/save', {
           entrance: entrance,
@@ -172,7 +172,7 @@ export default {
           console.log(error);
         });
     },
-    getCheckedRadio() {
+    getSelectedRating() {
       let insufficient = document.getElementById('insufficient');
       let satisfying = document.getElementById('satisfying');
       let satisfactory = document.getElementById('satisfactory');

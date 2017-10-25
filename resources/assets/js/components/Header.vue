@@ -1,6 +1,6 @@
 <template>
 <header class="wrapper">
-  <!--<img src="./assets/logo_rgb_inverted_dark.svg"></img>-->
+  <img src="/assets/logo_rgb_inverted_dark.svg"></img>
   <nav>
     <ul>
       <li><a id="home" href="/">Startseite</a></li>
@@ -13,17 +13,19 @@
 <script>
 export default {
   mounted: function() {
-    this.setActive();
+    this.setActiveLink();
   },
 
   methods: {
     // Class active will change the current navigation link color
-    setActive: function() {
+    setActiveLink: function() {
       let active;
+
       switch (window.location.pathname) {
         case "/statistic":
           active = document.getElementById("statistic").classList.add("active");
           break;
+
         case "/":
           active = document.getElementById("home").classList.add("active");
           break;

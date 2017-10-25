@@ -36,12 +36,12 @@ import Axios from 'axios';
 export default {
   mounted: function() {
     this.$nextTick(function() {
-      this.tweets();
+      this.createTweets();
     })
   },
 
   methods: {
-    tweets: function() {
+    createTweets: function() {
       Axios.get('/api/get/tweets')
         .then(function(response) {
           response.data.statuses.forEach(function(val, key) {
@@ -51,21 +51,27 @@ export default {
                * Also, of course, every tweet has a node and a headline
                * Tweet structure: Div > headline > text
                */
+
+              // Headline
+              let span = document.createElement('span');
+              let spanText = document.createTextNode(val.created_at);
+
+              // Tweet itself
               let p = document.createElement('p');
               let pText = document.createTextNode(val.text);
-              let header = document.createElement('span');
-              let hText = document.createTextNode(val.created_at);
-              let container = document.createElement('div');
 
-              container.className = "tweet";
-              header.className = "title underlined";
+              let tweetContainer = document.createElement('div');
 
-              header.appendChild(hText);
+              tweetContainer.className = "tweet";
+              span.className = "title underlined";
+
+              span.appendChild(spanText);
               p.appendChild(pText);
 
-              document.getElementById('tweets').appendChild(container);
-              container.appendChild(header);
-              container.appendChild(p);
+              document.getElementById('tweets').appendChild(tweetContainer);
+
+              tweetContainer.appendChild(span);
+              tweetContainer.appendChild(p);
             }
           });
 

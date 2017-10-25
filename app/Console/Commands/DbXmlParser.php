@@ -24,6 +24,7 @@ class DbXmlParser extends Command
       * Specify the path, in which the parser should go to
       * Feel free to change the path if the folder structure has changed!
     */
+
     private $path = 'Services/DBTrainInfo/';
 
     /**
@@ -146,14 +147,14 @@ class DbXmlParser extends Command
         $trainNumbers = $this->getTrainNumbers($path);
 
         foreach ($stations as $station) {
-            $sql = new Station;
-            $sql->station= $station;
-            $sql->save();
+            $db = new Station;
+            $db->station= $station;
+            $db->save();
         }
         foreach ($trainNumbers as $trainNumber) {
-            $sql = new TrainNumber;
-            $sql->trainNumber = $trainNumber;
-            $sql->save();
+            $db = new TrainNumber;
+            $db->trainNumber = $trainNumber;
+            $db->save();
         }
     }
 }

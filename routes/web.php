@@ -10,24 +10,28 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Main View
 Route::get('/', function () {
     return view('index');
 });
+
+// Statstic View
 Route::get('/statistic', function () {
     return view('/layouts/statistics');
 });
 
+// RatingController
 Route::get('api/rating/insufficient', 'API\RatingController@getInsufficient');
 Route::get('api/rating/satisfying', 'API\RatingController@getSatisfying');
 Route::get('api/rating/satisfactory', 'API\RatingController@getSatisfactory');
 Route::get('api/rating/monthly', 'API\RatingController@getMonthly');
-Route::get('api/rating/overall', 'API\RatingController@overall');
+Route::get('api/rating/total', 'API\RatingController@total');
 Route::get('api/rating/pastSixMonth', 'API\RatingController@pastSixMonth');
+Route::post('api/rating/save', 'API\RatingController@store');
 
+// TwitterController
 Route::get('api/get/tweets', 'API\TwitterController@getTweets');
 
-Route::post('api/get/stations', 'API\TrainInfoController@station');
-Route::post('api/get/trainNumbers', 'API\TrainInfoController@trainNumber');
-
-Route::post('api/rating/save', 'API\RatingController@saveRating');
+// TrainInfoController
+Route::post('api/get/stations', 'API\TrainInfoController@getStations');
+Route::post('api/get/trainNumbers', 'API\TrainInfoController@getTrainNumbers');

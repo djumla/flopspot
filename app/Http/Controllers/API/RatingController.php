@@ -10,25 +10,25 @@ use App\Rating;
 
 class RatingController extends Controller
 {
-    public function overall()
+    public function total()
     {
-        return DB::table('rating_info')->select('rating')->count();
+        return DB::table('ratings')->select('rating')->count();
     }
 
     public function getInsufficient()
     {
         //return $model->where('rating', '=', 1)->count();
-        return DB::table('rating_info')->where('rating', '=', 1)->count();
+        return DB::table('ratings')->where('rating', '=', 1)->count();
     }
 
     public function getSatisfying(/*RatingInfo $model*/)
     {
-        return DB::table('rating_info')->where('rating', '=', 2)->count();
+        return DB::table('ratings')->where('rating', '=', 2)->count();
     }
 
     public function getSatisfactory()
     {
-        return DB::table('rating_info')->where('rating', '=', 3)->count();
+        return DB::table('ratings')->where('rating', '=', 3)->count();
     }
 
     public function pastSixMonth()
@@ -36,9 +36,9 @@ class RatingController extends Controller
         $start = date("n")-6;
         $end = date("n");
 
-        $insufficient = DB::table('rating_info')->select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 1)->count();
-        $satisfying = DB::table('rating_info')->select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 2)->count();
-        $satisfactory = DB::table('rating_info')->select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 3)->count();
+        $insufficient = DB::table('ratings')->select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 1)->count();
+        $satisfying = DB::table('ratings')->select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 2)->count();
+        $satisfactory = DB::table('ratings')->select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 3)->count();
 
         /**
           * Every value has a specific key. (insufficient => $insufficient)
@@ -52,7 +52,7 @@ class RatingController extends Controller
     }
 
     // Called when form was submitted in frontend
-    public function saveRating(Request $request)
+    public function store(Request $request)
     {
         // TODO: FIRST VALIDATE FORM AND CHECK RATING
         $entrance = DB::table('train_stations')->where('station', '=', $request->entrance)->first();
