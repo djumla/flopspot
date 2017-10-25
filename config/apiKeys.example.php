@@ -2,7 +2,7 @@
 
 /**
   * This is an example file.
-  * To get those API keys, please contact me on this E-Mail:
+  * To get those API keys, please contact me on this E-Mail: s.ahrens@djumla.de
 */
 
 /**
