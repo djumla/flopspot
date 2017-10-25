@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 class TwitterController extends Controller
 {
     protected $conn;
+
     public function __construct(TwitterAPIConnection $conn)
     {
         $this->conn = $conn;
@@ -21,7 +22,9 @@ class TwitterController extends Controller
             'search/tweets.json?l=&q=from%3ADB_INFO&src=typd',
             ['auth' => 'oauth']
         );
+
         $body = $response->getBody();
-        echo $body;
+
+        return response($body);
     }
 }

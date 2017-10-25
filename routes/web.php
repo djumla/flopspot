@@ -18,20 +18,16 @@ Route::get('/statistic', function () {
     return view('/layouts/statistics');
 });
 
-// Chart routes
-Route::get('rating/insufficient', 'API\FlopspotController@getInsufficient');
-Route::get('rating/satisfying', 'API\FlopspotController@getSatisfying');
-Route::get('rating/satisfactory', 'API\FlopspotController@getSatisfactory');
-Route::get('rating/monthly', 'API\FlopspotController@getMonthly');
-Route::get('rating/overall', 'API\FlopspotController@overall');
-Route::get('rating/pastSixMonth', 'API\FlopspotController@pastSixMonth');
+Route::get('api/rating/insufficient', 'API\RatingController@getInsufficient');
+Route::get('api/rating/satisfying', 'API\RatingController@getSatisfying');
+Route::get('api/rating/satisfactory', 'API\RatingController@getSatisfactory');
+Route::get('api/rating/monthly', 'API\RatingController@getMonthly');
+Route::get('api/rating/overall', 'API\RatingController@overall');
+Route::get('api/rating/pastSixMonth', 'API\RatingController@pastSixMonth');
 
-// Tweets route to display those in frontend
-Route::get('tweets', 'API\TwitterController@getTweets');
+Route::get('api/get/tweets', 'API\TwitterController@getTweets');
 
-// Routes for the vue.js autocomplete plugin
-Route::post('station', 'API\FlopspotController@station');
-Route::post('trainNumber', 'API\FlopspotController@trainNumber');
+Route::post('api/get/stations', 'API\TrainInfoController@station');
+Route::post('api/get/trainNumbers', 'API\TrainInfoController@trainNumber');
 
-// Frontend form route
-Route::post('saveRating', 'API\RatingController@saveRating');
+Route::post('api/rating/save', 'API\RatingController@saveRating');
