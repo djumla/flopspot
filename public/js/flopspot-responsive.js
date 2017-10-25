@@ -12,7 +12,7 @@ $(function() {
     $('#service').height(footerHeight + height);
   }
 
-  addHeight();
+  //addHeight();
   setHeightEqualWidth();
   $(window).resize(setHeightEqualWidth);
 });

@@ -739,9 +739,14 @@ footer #copyright {
 footer #service {
   width: 85%;
   margin: 0 auto;
-  height: 600px;
+  height: 750px;
   display: -webkit-box;
   display: flex;
+}
+@media (max-width: 1000px) {
+  footer #service {
+    height: 850px;
+  }
 }
 footer #service #flex-service {
   width: 50%;
@@ -782,18 +787,14 @@ footer #service #tweets {
 footer #service #flex-service,
 footer #service #tweets {
   margin-top: 45px;
+  padding-right: 50px;
 }
-@media (max-width: 1000px) {
-  footer #service {
-    height: 650px;
-  }
-}
-@media (max-width: 760px) {
+@media (max-width: 805px) {
   footer #service {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     flex-direction: column;
-    height: 800px;
+    height: 1650px;
   }
   footer #service h1 {
     margin-top: 50px;
@@ -810,12 +811,7 @@ footer #service #tweets {
     -webkit-box-ordinal-group: 0;
     order: -1;
     margin-top: 20px;
-    margin-left: 0px;
-  }
-}
-@media (max-width: 550px) {
-  footer #service {
-    height: 800px;
+    margin-left: 0;
   }
 }
 header {
@@ -1005,10 +1001,6 @@ main form > input[type="submit"] {
   margin-top: 3px;
   color: grey;
   font-size: 13px;
-}
-.chart-container {
-  width: 0;
-  height: 0;
 }
 #imprint {
   background-color: #004b72;

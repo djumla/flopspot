@@ -5,19 +5,25 @@
  */
 
 //require('./bootstrap');
-
-window.Vue = require('vue');
+import Vue from 'vue';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-Vue.component('app-header', require('./components/Header.vue'));
-Vue.component('app-form', require('./components/RatingForm.vue'));
-Vue.component('app-service', require('./components/AboutMe.vue'));
-Vue.component('app-footer', require('./components/Footer.vue'));
+
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
+import Form from './components/RatingForm.vue';
+import Service from './components/AboutMe.vue';
 
 const app = new Vue({
-  el: '#app'
-});
+  el: '#app',
+  components: {
+    'flopspot-header': Header,
+    'flopspot-footer': Footer,
+    'flopspot-form': Form,
+    'flopspot-service': Service
+  }
+})

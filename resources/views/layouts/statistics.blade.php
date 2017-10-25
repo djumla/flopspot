@@ -17,13 +17,12 @@
     crossorigin="anonymous"
     ></script>
     <script src="./js/flopspot-responsive.js"></script>
-    <script src="./js/flopspot-observer.js"></script>
   </head>
   <body>
     <div id="app">
-      <app-header></app-header>
-      <app-overall></app-overall>
-      <app-footer></app-footer>
+      <flopspot-header></flopspot-header>
+      <flopspot-pie></flopspot-pie>
+      <flopspot-footer></flopspot-footer>
     </div>
     <script src="{{ asset('js/statistics.js') }}"></script>
   </body>

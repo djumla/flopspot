@@ -36,6 +36,7 @@
     "laravel-elixir-vueify-2.0": "^1.0.3",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
+    "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.4.4",
     "vue2-autocomplete-js": "^0.2.2",
     "vuejs-datepicker": "^0.9.13"

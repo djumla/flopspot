@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class RatingInfo extends Model
 {
-  protected $table = 'rating_info';
+    protected $table = 'rating_info';
 
-  protected $fillable = [
+    protected $fillable = [
     'entrance',
     'exit',
     'trainNumber',

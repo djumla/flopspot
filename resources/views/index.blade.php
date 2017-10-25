@@ -21,10 +21,10 @@
   </head>
   <body>
     <div id="app">
-      <app-header></app-header>
-      <app-form></app-form>
-      <app-service></app-service>
-      <app-footer></app-footer>
+      <flopspot-header></flopspot-header>
+      <flopspot-form></flopspot-form>
+      <flopspot-service></flopspot-service>
+      <flopspot-footer></flopspot-footer>
     </div>
     <!-- built files will be auto injected -->
     <script src="{{ asset('js/app.js') }}"></script>

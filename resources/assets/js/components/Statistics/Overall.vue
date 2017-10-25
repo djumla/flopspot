@@ -24,29 +24,31 @@ export default {
         datasets: [{
           data: [insufficient, satisfying, satisfactory],
           backgroundColor: [
-            '#736280',
-            '#e5d9ca',
-            '#5f9ea0',
-          ],
-          borderColor: [
-            '#fff',
-            '#fff',
-            '#fff'
-          ],
-          hoverBorderColor: [
-            ''
+            '#EB0A54',
+            '#FFF283',
+            '#00ff00',
           ]
         }],
 
         labels: [
-          'Unzufrieden',
-          'Zufrieden',
-          'Sehr zufrieden'
+          'Unzufrieden: ' + insufficient,
+          'Zufrieden: ' + satisfying,
+          'Sehr zufrieden: ' + satisfactory
         ]
       };
 
       let options = {
-        responsive: true
+        responsive: true,
+        tooltips: {
+          enabled: false
+        },
+        legend: {
+          display: true,
+          labels: {
+            fontColor: '#000',
+            fontSize: 18,
+          }
+        }
       }
 
       let myPieChart = new Chart(ctx, {
@@ -73,13 +75,18 @@ export default {
 </script>
 <style>
 #rating {
+  width: 80%;
+  background-color: #fff;
   height: 800px;
+  margin: 0 auto;
 }
 
 .chart-container h1 {
+  color: #000;
   text-align: center;
   margin-top: 80px;
   margin-bottom: 80px;
+  padding: 20px;
 }
 
 .chart-container {

@@ -9,14 +9,17 @@ footer {
     color: @white;
     text-align: right;
     padding-right: 30px;
-    padding-top:25px;
+    padding-top: 25px;
   }
 
   #service {
     width: 85%;
     margin: 0 auto;
-    height: 600px;
+    height: 750px;
     display: flex;
+    @media (max-width: 1000px) {
+      height: 850px;
+    }
 
     #flex-service {
       width: 50%;
@@ -45,6 +48,7 @@ footer {
 
       nav {
         margin-top: 150px;
+
         &.underlined {
           &:after {
             display: block;
@@ -65,17 +69,14 @@ footer {
       color: @white;
     }
 
-    #flex-service, #tweets {
+    #flex-service,
+    #tweets {
       margin-top: 45px;
+      padding-right: 50px;
     }
-
-    @media (max-width: 1000px) {
-      height: 650px;
-    }
-
-    @media (max-width: 760px) {
+    @media (max-width: 805px) {
       flex-direction: column;
-      height: 800px;
+      height: 1650px;
 
       h1 {
         margin-top: 50px;
@@ -85,7 +86,8 @@ footer {
         height: 100%;
       }
 
-      #flex-service, #tweets {
+      #flex-service,
+      #tweets {
         width: 100%;
       }
 
@@ -93,12 +95,8 @@ footer {
         disply: flex;
         order: -1;
         margin-top: 20px;
-        margin-left: 0px;
+        margin-left: 0;
       }
-    }
-
-    @media(max-width: 550px) {
-      height: 800px;
     }
   }
 }

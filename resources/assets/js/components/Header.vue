@@ -3,8 +3,8 @@
   <img src="../../../../public/assets/logo_rgb_inverted_dark.svg"></img>
   <nav>
     <ul>
-      <li><a id="home" href="#">Startseite</a></li>
-      <li><a id="statistic" href="#">Statistiken</a></li>
+      <li><a id="home" href="/">Startseite</a></li>
+      <li><a id="statistic" href="/statistic">Statistiken</a></li>
     </ul>
   </nav>
 </header>
