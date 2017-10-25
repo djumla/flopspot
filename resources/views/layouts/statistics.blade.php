@@ -16,7 +16,7 @@
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"
     ></script>
-    <script src="./js/flopspot-responsive.js"></script>
+    <script src="./js/responsive.js"></script>
   </head>
   <body>
     <div id="app">
