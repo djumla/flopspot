@@ -9,10 +9,10 @@ class TwitterAPIConnection
 {
     public function connection()
     {
-        $consumerKey = config('apiKeys.twitterAPI.consumerKey');
-        $consumerSecret = config('apiKeys.twitterAPI.consumerSecret');
-        $token = config('apiKeys.twitterAPI.token');
-        $tokenSecret = config('apiKeys.twitterAPI.tokenSecret');
+        $consumerKey = env('CONSUMER_KEY');
+        $consumerSecret = env('CONSUMER_SECRET');
+        $token = env('TOKEN');
+        $tokenSecret = env('TOKEN_SECRET');
         $stack = HandlerStack::create();
 
         $middleware = new Oauth1([

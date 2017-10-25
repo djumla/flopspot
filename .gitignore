@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 vendor
 config/apiKeys.php
+.env
 
 # Editor directories and files
 .idea
