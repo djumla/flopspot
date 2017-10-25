@@ -1,6 +1,6 @@
 <template>
 <header class="wrapper">
-  <img src="../../../../public/assets/logo_rgb_inverted_dark.svg"></img>
+  <img src="/assets/logo_rgb_inverted_dark.svg"></img>
   <nav>
     <ul>
       <li><a id="home" href="/">Startseite</a></li>

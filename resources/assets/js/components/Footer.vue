@@ -11,14 +11,14 @@
         <div>
           <h2>Folge uns auf Facebook oder Twitter</h2>
           <a href="#"><img src="/assets/facebook.png"></img></a>
-          <a href="https://twitter.com/FlopspotDE/"><img src="../../../../public/assets/twitter.png"></img></a>
+          <a href="https://twitter.com/FlopspotDE/"><img src="/assets/twitter.png"></img></a>
         </div>
       </section>
       <nav class="underlined">
         <ul>
           <li><a href="/imprint">Impressum</a></li>
-          <li><a href="/views/contact.html">Kontakt</a></li>
-          <li><a href="../../../../public/views//privacyPolicy.html">Datenschutz</a></li>
+          <li><a href="/contact">Kontakt</a></li>
+          <li><a href="/privacyPolicy">Datenschutz</a></li>
         </ul>
       </nav>
     </div>
