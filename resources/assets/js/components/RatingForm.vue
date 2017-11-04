@@ -2,7 +2,7 @@
 <main class="wrapper">
   <h1 class="underlined">Hotspot Bewerten</h1>
   <h2>Bitte geben Sie die Daten zu Ihrer Zugverbindung an und bewerten Sie anschließend die Qualität Ihres Hotspots.</h2>
-  <form id="rating" v-on:submit.prevent="send">
+  <form id="rating" v-on:submit="send">
     <div id="flex-form">
       <label for="entrance">
           Einstieg
@@ -180,7 +180,7 @@ export default {
           rating: rating
         })
         .then(function(response) {
-          //console.log(response);
+          window.location.replace("/statistic");
         })
         .catch(function(error) {
           console.log(error);

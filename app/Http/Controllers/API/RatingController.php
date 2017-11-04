@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Rating;
+use App\Station;
+use App\TrainNumber;
 use Validator;
 
 class RatingController extends Controller
@@ -73,17 +75,17 @@ class RatingController extends Controller
      *
      * @return void
      */
-    public function store(Requests\StoreRating $request)
+    public function store(Request $request)
     {
-        $entrance = \App\Rating::where('station', '=', $request->entrance)->first();
-        $exit = \App\Rating::where('station', '=', $request->exit)->first();
-        $trainNumber = \App\Rating::where('trainNumber', '=', $request->trainNumber)->first();
+        $entrance = \App\Station::where('station', '=', $request->entrance)->first();
+        $exit = \App\Station::where('station', '=', $request->exit)->first();
+        $trainNumber = \App\TrainNumber::where('trainNumber', '=', $request->trainNumber)->first();
 
         $rating = new Rating;
         $rating->entrance = $entrance->id;
         $rating->exit = $exit->id;
         $rating->trainNumber = $trainNumber->id;
-        $rating->rating = $request->rating;
+        $rating->rating = $request->rating; // Rating
 
         $rating->save();
     }
