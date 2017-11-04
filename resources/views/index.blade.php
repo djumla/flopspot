@@ -1,32 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>flopspot</title>
-    <meta name="description" content="Description">
-    <meta name="author" content="Sven Ahrens">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.layout')
 
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif|Open+Sans|Poppins" rel="stylesheet">
+@section('scripts')
+<script
+src="https://code.jquery.com/jquery-3.2.1.js"
+integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+crossorigin="anonymous"
+></script>
+<script src="./js/responsive.js"></script>
+<script src="./js/observer.js"></script>
+@endsection
 
-    <link rel="stylesheet" href="/css/app.css" >
-
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.js"
-    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-    crossorigin="anonymous"
-    ></script>
-    <script src="./js/responsive.js"></script>
-    <script src="./js/observer.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <flopspot-header></flopspot-header>
-      <flopspot-form></flopspot-form>
-      <flopspot-service></flopspot-service>
-      <flopspot-footer></flopspot-footer>
-    </div>
-    <!-- built files will be auto injected -->
-    <script src="{{ asset('js/app.js') }}"></script>
-  </body>
-</html>
+@section('content')
+<div id="app">
+  <flopspot-header></flopspot-header>
+  <flopspot-form></flopspot-form>
+  <flopspot-service></flopspot-service>
+  <flopspot-footer></flopspot-footer>
+</div>
+<!-- built files will be auto injected -->
+<script src="{{ asset('js/app.js') }}"></script>
+@endsection

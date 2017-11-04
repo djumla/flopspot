@@ -10,14 +10,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Main View
+
 Route::get('/', function () {
     return view('index');
 });
 
-// Statstic View
 Route::get('/statistic', function () {
     return view('/layouts/statistics');
+});
+
+Route::get('/contact', function () {
+    return view('/layouts/contact');
+});
+
+Route::get('/imprint', function () {
+    return view('/layouts/imprint');
+});
+
+Route::get('/privacyPolicy', function () {
+    return view('/layouts/privacyPolicy');
 });
 
 // RatingController
