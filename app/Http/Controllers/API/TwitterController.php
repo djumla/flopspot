@@ -19,7 +19,7 @@ class TwitterController extends Controller
     }
 
     /**
-     * @return array
+     * @return object
      */
     public function getTweets()
     {

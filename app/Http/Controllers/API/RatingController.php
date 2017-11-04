@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Rating;
+use Validator;
 
 class RatingController extends Controller
 {
@@ -15,7 +16,7 @@ class RatingController extends Controller
      */
     public function total()
     {
-        return DB::table('ratings')->select('rating')->count();
+        return \App\Rating::select('rating')->count();
     }
 
     /**
@@ -23,8 +24,7 @@ class RatingController extends Controller
      */
     public function getInsufficient()
     {
-        //return $model->where('rating', '=', 1)->count();
-        return DB::table('ratings')->where('rating', '=', 1)->count();
+        return \App\Rating::where('rating', '=', 1)->count();
     }
 
     /**
@@ -32,8 +32,7 @@ class RatingController extends Controller
      */
     public function getSatisfying()
     {
-        //RatingInfo $model
-        return DB::table('ratings')->where('rating', '=', 2)->count();
+        return \App\Rating::where('rating', '=', 2)->count();
     }
 
     /**
@@ -41,7 +40,7 @@ class RatingController extends Controller
      */
     public function getSatisfactory()
     {
-        return DB::table('ratings')->where('rating', '=', 3)->count();
+        return \App\Rating::where('rating', '=', 3)->count();
     }
 
     /**
@@ -52,15 +51,15 @@ class RatingController extends Controller
         $start = date("n")-6;
         $end = date("n");
 
-        $insufficient = DB::table('ratings')->select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 1)->count();
-        $satisfying = DB::table('ratings')->select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 2)->count();
-        $satisfactory = DB::table('ratings')->select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 3)->count();
+        $insufficient = \App\Rating::select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 1)->count();
+        $satisfying = \App\Rating::select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 2)->count();
+        $satisfactory = \App\Rating::select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 3)->count();
 
         /**
-          * Every value has a specific key. (insufficient => $insufficient)
+          * Every value in $ratings has a specific key. (insufficient => $insufficient)
           * This is done because this data will be used for chart.js
           * To speed this up, chart.js needs some values to generate their chart.
-          * And finally, to know which part of the value will be represented of the chart, every value has a key to identify.
+          * And finally, to know which part of the value will be represented on the chart, every value has a key to identify.
         */
         $ratings = array("insufficient" => $insufficient, "satisfying" => $satisfying, "satisfactory" => $satisfactory);
 
@@ -74,11 +73,11 @@ class RatingController extends Controller
      *
      * @return void
      */
-    public function store(\App\Http\Requests\StoreRating $request)
+    public function store(Requests\StoreRating $request)
     {
-        $entrance = DB::table('train_stations')->where('station', '=', $request->entrance)->first();
-        $exit = DB::table('train_stations')->where('station', '=', $request->exit)->first();
-        $trainNumber = DB::table('train_numbers')->where('trainNumber', '=', $request->trainNumber)->first();
+        $entrance = \App\Rating::where('station', '=', $request->entrance)->first();
+        $exit = \App\Rating::where('station', '=', $request->exit)->first();
+        $trainNumber = \App\Rating::where('trainNumber', '=', $request->trainNumber)->first();
 
         $rating = new Rating;
         $rating->entrance = $entrance->id;

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Validator;
 
 class StoreRating extends FormRequest
 {
@@ -29,5 +30,20 @@ class StoreRating extends FormRequest
             'trainNumber' => 'required|string',
             'rating' => 'required|integer|max:3'
         ];
+    }
+
+    public function messages()
+    {
+        return [
+          'entrance.required' => 'Einstieg eingeben!',
+          'exit.required'  => 'Ausstieg eingeben!',
+          'trainNumber.required' => 'Zugnummer eingeben!',
+          'rating.required' => 'Anklicken, man!'
+        ];
+    }
+
+    public function returnMessages()
+    {
+        return Validator::make($this->rules(), $this->messages());
     }
 }
