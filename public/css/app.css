@@ -1011,6 +1011,7 @@ main form > input[type="submit"] {
 #rating h1 {
   text-align: center;
   color: #fff;
+  padding-top: 35px;
 }
 #rating .chart-container {
   width: 800px;
@@ -1123,6 +1124,7 @@ main form > input[type="submit"] {
 #rating h1 {
   text-align: center;
   color: #fff;
+  padding-top: 35px;
 }
 #rating .chart-container {
   width: 800px;

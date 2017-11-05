@@ -1,6 +1,6 @@
 <template>
 <section id="rating">
-  <h1>Gesamtstatistik der letzten sechs Monate!</h1>
+  <h1>Gesamtstatistik der letzten sechs Monate</h1>
   <div class="chart-container">
     <canvas id="history"></canvas>
   </div>
@@ -33,9 +33,9 @@ export default {
         datasets: [{
           data: [insufficient, satisfying, satisfactory],
           backgroundColor: [
-            '#EB0A54',
-            '#FFF283',
-            '#00ff00',
+            '#D80B55',
+            '#EFF281',
+            '#00ed97',
           ]
         }],
         labels: [
