@@ -74,7 +74,7 @@ class RatingController extends Controller
      *
      * @return void
      */
-    public function store(Request $request)
+    public function store(Requests\StoreRating $request)
     {
         $entrance = \App\Station::where('station', '=', $request->entrance)->first();
         $exit = \App\Station::where('station', '=', $request->exit)->first();

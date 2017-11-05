@@ -1,7 +1,7 @@
 <template>
 <section id="rating">
+  <h1>Gesamtstatistik der letzten sechs Monate!</h1>
   <div class="chart-container">
-    <h1>Gesamtstatistik der letzten sechs Monate!</h1>
     <canvas id="history"></canvas>
   </div>
 </section>
@@ -12,7 +12,6 @@ import Chart from 'chart.js';
 import Axios from 'axios';
 
 export default {
-  // Mounted? Yes. The view needs to be rendered to actually create a chart.
   mounted: function() {
     this.$nextTick(function() {
       this.create();
@@ -86,24 +85,3 @@ export default {
   }
 }
 </script>
-<style>
-#rating {
-  width: 80%;
-  background-color: #343d46;
-  height: 800px;
-  margin: 0 auto;
-}
-
-.chart-container h1 {
-  color: #fff;
-  text-align: center;
-  margin-top: 80px;
-  margin-bottom: 80px;
-  padding: 20px;
-}
-
-.chart-container {
-  widht: 30%;
-  margin: 0 auto;
-}
-</style>
