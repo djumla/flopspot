@@ -1002,31 +1002,31 @@ main form > input[type="submit"] {
   color: grey;
   font-size: 13px;
 }
-#rating {
+#rating-section {
   widht: 80%;
   height: 700px;
   margin: 0 auto;
   background-color: #343d46;
 }
-#rating h1 {
+#rating-section h1 {
   text-align: center;
   color: #fff;
   padding-top: 35px;
 }
-#rating .chart-container {
+#rating-section .chart-container {
   width: 800px;
   height: 800px;
   margin: 0 auto;
   padding-top: 60px;
 }
 @media (max-width: 750px) {
-  #rating .chart-container {
+  #rating-section .chart-container {
     width: 650px;
     height: 650px;
   }
 }
 @media (max-width: 600px) {
-  #rating .chart-container {
+  #rating-section .chart-container {
     width: 400px;
     height: 550px;
   }
@@ -1115,31 +1115,31 @@ main form > input[type="submit"] {
   }
 }
 
-#rating {
+#rating-section {
   widht: 80%;
   height: 700px;
   margin: 0 auto;
   background-color: #343d46;
 }
-#rating h1 {
+#rating-section h1 {
   text-align: center;
   color: #fff;
   padding-top: 35px;
 }
-#rating .chart-container {
+#rating-section .chart-container {
   width: 800px;
   height: 800px;
   margin: 0 auto;
   padding-top: 60px;
 }
 @media (max-width: 750px) {
-  #rating .chart-container {
+  #rating-section .chart-container {
     width: 650px;
     height: 650px;
   }
 }
 @media (max-width: 600px) {
-  #rating .chart-container {
+  #rating-section .chart-container {
     width: 400px;
     height: 550px;
   }

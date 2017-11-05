@@ -1,5 +1,5 @@
 <template>
-<section id="rating">
+<section id="rating-section">
   <h1>Gesamtstatistik der letzten sechs Monate</h1>
   <div class="chart-container">
     <canvas id="history"></canvas>
