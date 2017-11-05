@@ -54,7 +54,7 @@ export default {
         legend: {
           display: true,
           labels: {
-            fontColor: '#000',
+            fontColor: '#fff',
             fontSize: 18,
           }
         }
@@ -68,7 +68,7 @@ export default {
     },
 
     /**
-     * @return {void} 
+     * @return {void}
      */
     create: function() {
       let self = this;
@@ -89,13 +89,13 @@ export default {
 <style>
 #rating {
   width: 80%;
-  background-color: #fff;
+  background-color: #343d46;
   height: 800px;
   margin: 0 auto;
 }
 
 .chart-container h1 {
-  color: #000;
+  color: #fff;
   text-align: center;
   margin-top: 80px;
   margin-bottom: 80px;
@@ -103,7 +103,7 @@ export default {
 }
 
 .chart-container {
-  width: 50%;
+  widht: 30%;
   margin: 0 auto;
 }
 </style>

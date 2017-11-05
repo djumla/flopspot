@@ -2,7 +2,7 @@
 <main class="wrapper">
   <h1 class="underlined">Hotspot Bewerten</h1>
   <h2>Bitte geben Sie die Daten zu Ihrer Zugverbindung an und bewerten Sie anschließend die Qualität Ihres Hotspots.</h2>
-  <form id="rating" v-on:submit="send">
+  <form id="rating" v-on:submit.prevent="send($event)">
     <div id="flex-form">
       <label for="entrance">
           Einstieg
@@ -167,11 +167,13 @@ export default {
     /**
      * @return {void}
      */
-    send() {
+    send(event) {
       let entrance = document.getElementById('entrance').value;
       let exit = document.getElementById('exit').value;
       let trainNumber = document.getElementById('trainNumber').value;
       let rating = this.getSelectedRating();
+
+      //if (entrance == "") event.preventDefault();
 
       Axios.post('api/rating/save', {
           entrance: entrance,

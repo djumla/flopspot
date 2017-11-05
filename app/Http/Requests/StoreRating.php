@@ -32,6 +32,9 @@ class StoreRating extends FormRequest
         ];
     }
 
+    /**
+     * @return array
+     */
     public function messages()
     {
         return [
@@ -40,10 +43,5 @@ class StoreRating extends FormRequest
           'trainNumber.required' => 'Zugnummer eingeben!',
           'rating.required' => 'Anklicken, man!'
         ];
-    }
-
-    public function returnMessages()
-    {
-        return Validator::make($this->rules(), $this->messages());
     }
 }

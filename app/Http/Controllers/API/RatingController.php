@@ -9,7 +9,6 @@ use App\Http\Requests;
 use App\Rating;
 use App\Station;
 use App\TrainNumber;
-use Validator;
 
 class RatingController extends Controller
 {
