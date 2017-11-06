@@ -661,11 +661,10 @@ a:target {
   justify-content: space-between;
 }
 #flex-form label {
-  width: 20%;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
+  width: 100%;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
+  padding-top: 25px;
 }
 #flex-form label:last-child {
   width: 100%;
@@ -681,6 +680,13 @@ a:target {
 }
 #flex-form input:last-child {
   width: 100%;
+}
+#flex-form .inputs {
+  width: 30%;
+}
+#flex-form .inputs > div {
+  margin-top: 15px;
+  text-align: center;
 }
 #flex-form input,
 #flex-form label {
@@ -1298,11 +1304,10 @@ header img {
   justify-content: space-between;
 }
 #flex-form label {
-  width: 20%;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
+  width: 100%;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
+  padding-top: 25px;
 }
 #flex-form label:last-child {
   width: 100%;
@@ -1318,6 +1323,13 @@ header img {
 }
 #flex-form input:last-child {
   width: 100%;
+}
+#flex-form .inputs {
+  width: 30%;
+}
+#flex-form .inputs > div {
+  margin-top: 15px;
+  text-align: center;
 }
 #flex-form input,
 #flex-form label {

@@ -4,29 +4,34 @@
   <h2>Bitte geben Sie die Daten zu Ihrer Zugverbindung an und bewerten Sie anschließend die Qualität Ihres Hotspots.</h2>
   <form id="rating" v-on:submit.prevent="send($event)">
     <div id="flex-form">
-      <label for="entrance">
-          Einstieg
-          <autocomplete
-            anchor="station"
-            label="station"
-            placeholder="Bahnhof / Haltestelle / Berlin Hbf"
-            :onShouldGetData="getStations"
-            url="/stations"
-            id="entrance">
-          </autocomplete>
-      </label>
-      <label for="exit">
-          Ausstieg
-          <autocomplete
-            anchor="station"
-            label="station"
-            placeholder="Bahnhof / Haltestelle / Köln Hbf"
-            :onShouldGetData="getStations"
-            url="/stations"
-            id="exit">
-          </autocomplete>
-      </label>
-      <label for="trainNumber">
+      <div id="entrance-container" class="inputs">
+        <label for="entrance">
+            Einstieg
+            <autocomplete
+              anchor="station"
+              label="station"
+              placeholder="Bahnhof / Haltestelle / Berlin Hbf"
+              :onShouldGetData="getStations"
+              url="/stations"
+              id="entrance">
+            </autocomplete>
+        </label>
+      </div>
+      <div id="exit-container" class="inputs">
+        <label for="exit">
+            Ausstieg
+            <autocomplete
+              anchor="station"
+              label="station"
+              placeholder="Bahnhof / Haltestelle / Köln Hbf"
+              :onShouldGetData="getStations"
+              url="/stations"
+              id="exit">
+            </autocomplete>
+        </label>
+      </div>
+      <div id="trainNumber-container" class="inputs">
+        <label for="trainNumber">
           Zugnummer
           <autocomplete
             anchor="trainNumber"
@@ -36,7 +41,8 @@
             url="/trainNumbers"
             id="trainNumber">
           </autocomplete>
-      </label>
+        </label>
+      </div>
       <label for="date">
           Reisedatum
           <datepicker
@@ -172,6 +178,7 @@ export default {
       let exit = document.getElementById('exit').value;
       let trainNumber = document.getElementById('trainNumber').value;
       let rating = this.getSelectedRating();
+      let self = this;
 
       //if (entrance == "") event.preventDefault();
 
@@ -185,7 +192,8 @@ export default {
           window.location.replace("/statistic");
         })
         .catch(function(error) {
-          console.log(error);
+          self.displayError(error);
+          self.removeError();
         });
     },
 
@@ -209,6 +217,35 @@ export default {
       }
 
       return rating;
+    },
+
+    displayError(error) {
+      this.createElements(error);
+      this.removeError();
+    },
+    createElements(error) {
+
+      for (let i = 0; i < document.getElementById('flex-form').children.length - 1; i++) {
+        if ('entrance' in error.response.data.errors) {}
+        if ('exit' in error.response.data.errors) {}
+        if ('trainNumber' in error.response.data.errors) {}
+
+        //append 
+      }
+
+    },
+
+
+    removeError() {
+      if (document.getElementsByClassName('error')) {
+        let element = document.getElementsByClassName('error');
+
+        for (let i = 0; i < document.getElementById('flex-form').children.length - 1; i++) {
+          document.getElementsByTagName('input')[i].onblur = function() {
+            document.getElementById('flex-form').children[i].removeChild(document.getElementsByClassName('error')[i]);
+          }
+        }
+      }
     }
   }
 };
