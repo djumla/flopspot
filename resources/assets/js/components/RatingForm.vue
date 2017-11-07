@@ -180,8 +180,6 @@ export default {
       let rating = this.getSelectedRating();
       let self = this;
 
-      //if (entrance == "") event.preventDefault();
-
       Axios.post('api/rating/save', {
           entrance: entrance,
           exit: exit,
@@ -192,8 +190,7 @@ export default {
           window.location.replace("/statistic");
         })
         .catch(function(error) {
-          self.displayError(error);
-          self.removeError();
+          self.showError(error);
         });
     },
 
@@ -219,30 +216,62 @@ export default {
       return rating;
     },
 
-    displayError(error) {
-      this.createElements(error);
-      this.removeError();
+    showError(error) {
+      this.create(error);
+      this.removeElement();
     },
-    createElements(error) {
+    create(error) {
+      let parent = document.getElementById('flex-form').children;
 
-      for (let i = 0; i < document.getElementById('flex-form').children.length - 1; i++) {
-        if ('entrance' in error.response.data.errors) {}
-        if ('exit' in error.response.data.errors) {}
-        if ('trainNumber' in error.response.data.errors) {}
 
-        //append 
+      if ('entrance' in error.response.data.errors) {
+        this.addElement(parent[0], error.response.data.errors.entrance);
       }
+      if ('exit' in error.response.data.errors) {
+        this.addElement(parent[1], error.response.data.errors.exit);
+      }
+      if ('trainNumber' in error.response.data.errors) {
+        this.addElement(parent[2], error.response.data.errors.trainNumber);
+      }
+    },
 
+    addElement(parent, message) {
+      let element = document.createElement('div');
+      let msg = document.createTextNode(message);
+      let ids = parent.getAttribute('id');
+
+      element.appendChild(msg);
+
+      element.className = "error";
+
+      switch (ids) {
+        case 'entrance-container':
+          element.id = "entrance-error";
+          break;
+        case 'exit-container':
+          element.id = "exit-error";
+          break;
+        case 'trainNumber-container':
+          element.id = "trainNumber-error";
+          break;
+      }
+      parent.appendChild(element);
     },
 
 
-    removeError() {
-      if (document.getElementsByClassName('error')) {
-        let element = document.getElementsByClassName('error');
+    removeElement() {
+      for (let i = 0; i < document.getElementById('flex-form').children.length - 1; i++) {
+        document.querySelectorAll(".autocomplete-input")[i].onchange = function() {
+          let parent = document.getElementById('flex-form').children[i];
 
-        for (let i = 0; i < document.getElementById('flex-form').children.length - 1; i++) {
-          document.getElementsByTagName('input')[i].onblur = function() {
-            document.getElementById('flex-form').children[i].removeChild(document.getElementsByClassName('error')[i]);
+          if (parent.getAttribute('id') == 'entrance-container' && document.getElementById('entrance-error')) {
+            parent.removeChild(document.getElementById('entrance-error'));
+          }
+          if (parent.getAttribute('id') == 'exit-container' && document.getElementById('exit-error')) {
+            parent.removeChild(document.getElementById('exit-error'));
+          }
+          if (parent.getAttribute('id') == 'trainNumber-container' && document.getElementById('trainNumber-error')) {
+            parent.removeChild(document.getElementById('trainNumber-error'));
           }
         }
       }

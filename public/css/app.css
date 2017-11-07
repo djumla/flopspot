@@ -1037,6 +1037,13 @@ main form > input[type="submit"] {
     height: 550px;
   }
 }
+.error {
+  height: 30px;
+  background-color: #004b72;
+  color: #fff;
+  padding-top: 8px;
+  border-radius: 2px;
+}
 #imprint {
   background-color: #004b72;
   padding: 10px;
@@ -1149,6 +1156,14 @@ main form > input[type="submit"] {
     width: 400px;
     height: 550px;
   }
+}
+
+.error {
+  height: 30px;
+  background-color: #004b72;
+  color: #fff;
+  padding-top: 8px;
+  border-radius: 2px;
 }
 
 footer {
