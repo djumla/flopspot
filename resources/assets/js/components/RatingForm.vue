@@ -216,14 +216,24 @@ export default {
       return rating;
     },
 
+    /**
+     * @param  {object} error reponse of the error
+     *
+     * @return {void}
+     */
     showError(error) {
       this.create(error);
       this.removeElement();
     },
 
+    /**
+     * @param  {object} error add element to the parent
+     *
+     * @return {void}
+     */
     create(error) {
       let parent = document.getElementById('flex-form').children;
-
+      console.log(error.response.data.errors);
 
       if ('entrance' in error.response.data.errors) {
         this.addElement(parent[0], error.response.data.errors.entrance);
@@ -236,6 +246,11 @@ export default {
       }
     },
 
+    /**
+     * @param {object} parent
+     *
+     * @param {string} message
+     */
     addElement(parent, message) {
       let element = document.createElement('div');
       let msg = document.createTextNode(message);
@@ -259,7 +274,9 @@ export default {
       parent.appendChild(element);
     },
 
-
+    /**
+     * @return {void} 
+     */
     removeElement() {
       for (let i = 0; i < document.getElementById('flex-form').children.length - 1; i++) {
         document.querySelectorAll(".autocomplete-input")[i].onchange = function() {
