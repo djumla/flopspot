@@ -220,6 +220,7 @@ export default {
       this.create(error);
       this.removeElement();
     },
+
     create(error) {
       let parent = document.getElementById('flex-form').children;
 
