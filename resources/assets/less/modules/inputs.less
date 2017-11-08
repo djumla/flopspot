@@ -6,6 +6,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
 
+  .inputs {
+    width: 30%;
+  }
+
   label {
     width: 100%;
     font-family: @poppins;
@@ -31,15 +35,6 @@
     }
   }
 
-  .inputs {
-    width: 30%;
-
-    > div {
-      margin-top: 15px;
-      text-align: center;
-    }
-  }
-
   input,
   label {
     display: block;
@@ -47,6 +42,13 @@
   @media (max-width: 550px) {
     label {
       width: 100%;
+    }
+    .inputs {
+      width: 100%;
+    }
+
+    .error {
+      width: 73%;
     }
   }
 }

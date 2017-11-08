@@ -4,11 +4,13 @@
   box-sizing: border-box;
   position: absolute;
   background: #D80B55;
-  padding: 10px;
+  padding: 20px;
   color: @white;
   text-align: center;
   border-radius: 5px;
   width: 25%;
+  z-index: 100000;
+  margin-top: 20px;
 
   &:after {
     bottom: 100%;
@@ -22,5 +24,8 @@
     border-bottom-color: #D80B55;
     border-width: 15px;
     margin-left: -30px;
+  }
+  @media (max-width: 550px) {
+    width: 30%;
   }
 }

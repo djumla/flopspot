@@ -660,6 +660,9 @@ a:target {
   -webkit-box-pack: justify;
   justify-content: space-between;
 }
+#flex-form .inputs {
+  width: 30%;
+}
 #flex-form label {
   width: 100%;
   font-family: 'Poppins', sans-serif;
@@ -681,13 +684,6 @@ a:target {
 #flex-form input:last-child {
   width: 100%;
 }
-#flex-form .inputs {
-  width: 30%;
-}
-#flex-form .inputs > div {
-  margin-top: 15px;
-  text-align: center;
-}
 #flex-form input,
 #flex-form label {
   display: block;
@@ -695,6 +691,12 @@ a:target {
 @media (max-width: 550px) {
   #flex-form label {
     width: 100%;
+  }
+  #flex-form .inputs {
+    width: 100%;
+  }
+  #flex-form .error {
+    width: 73%;
   }
 }
 .description {
@@ -1041,11 +1043,13 @@ main form > input[type="submit"] {
   box-sizing: border-box;
   position: absolute;
   background: #D80B55;
-  padding: 10px;
+  padding: 20px;
   color: #fff;
   text-align: center;
   border-radius: 5px;
   width: 25%;
+  z-index: 100000;
+  margin-top: 20px;
 }
 .error:after {
   bottom: 100%;
@@ -1059,6 +1063,11 @@ main form > input[type="submit"] {
   border-bottom-color: #D80B55;
   border-width: 15px;
   margin-left: -30px;
+}
+@media (max-width: 550px) {
+  .error {
+    width: 30%;
+  }
 }
 #imprint {
   background-color: #004b72;
@@ -1178,11 +1187,13 @@ main form > input[type="submit"] {
   box-sizing: border-box;
   position: absolute;
   background: #D80B55;
-  padding: 10px;
+  padding: 20px;
   color: #fff;
   text-align: center;
   border-radius: 5px;
   width: 25%;
+  z-index: 100000;
+  margin-top: 20px;
 }
 .error:after {
   bottom: 100%;
@@ -1196,6 +1207,11 @@ main form > input[type="submit"] {
   border-bottom-color: #D80B55;
   border-width: 15px;
   margin-left: -30px;
+}
+@media (max-width: 550px) {
+  .error {
+    width: 30%;
+  }
 }
 
 footer {
@@ -1350,6 +1366,9 @@ header img {
   -webkit-box-pack: justify;
   justify-content: space-between;
 }
+#flex-form .inputs {
+  width: 30%;
+}
 #flex-form label {
   width: 100%;
   font-family: 'Poppins', sans-serif;
@@ -1371,13 +1390,6 @@ header img {
 #flex-form input:last-child {
   width: 100%;
 }
-#flex-form .inputs {
-  width: 30%;
-}
-#flex-form .inputs > div {
-  margin-top: 15px;
-  text-align: center;
-}
 #flex-form input,
 #flex-form label {
   display: block;
@@ -1385,6 +1397,12 @@ header img {
 @media (max-width: 550px) {
   #flex-form label {
     width: 100%;
+  }
+  #flex-form .inputs {
+    width: 100%;
+  }
+  #flex-form .error {
+    width: 73%;
   }
 }
 

@@ -36,18 +36,19 @@ export default {
             '#D80B55',
             '#EFF281',
             '#00ed97',
-          ]
+          ],
+            borderColor: '#004b72',
+            borderWidth: ['3', '3', '3']
         }],
         labels: [
           'Unzufrieden: ' + insufficient,
           'Zufrieden: ' + satisfying,
           'Sehr zufrieden: ' + satisfactory
-        ]
+        ],
       };
 
       let options = {
         responsive: true,
-          segmentShowStroke: true,
         tooltips: {
           enabled: false
         },
