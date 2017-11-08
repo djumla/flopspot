@@ -73,17 +73,13 @@ class RatingController extends Controller
      *
      * @param  Request $request
      *
-     * @return void
+     * @return void|Response
      */
     public function store(Requests\StoreRating $request)
     {
         $entrance = \App\Station::where('station', '=', $request->entrance)->first();
         $exit = \App\Station::where('station', '=', $request->exit)->first();
         $trainNumber = \App\TrainNumber::where('trainNumber', '=', $request->trainNumber)->first();
-
-        if(count($entrance) === 0 || count($exit) === 0 || count($trainNumber) === 0) {
-            return response("Not found", "422");
-        }
 
         $rating = new Rating;
         $rating->entrance = $entrance->id;
