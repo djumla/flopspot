@@ -703,12 +703,13 @@ a:target {
   box-sizing: border-box;
   position: absolute;
   background: #004b72;
-  padding: 10px;
+  padding: 25px;
   color: #fff;
   text-align: center;
   border-radius: 5px;
-  width: 100%;
+  width: 60%;
   margin-top: 40px;
+  left: 20%;
 }
 .description:after {
   bottom: 100%;
@@ -730,6 +731,11 @@ a:target {
   font-family: 'Noto Serif', sans-serif;
   font-size: 16px;
   font-style: italic;
+}
+@media (max-width: 850px) {
+  .description {
+    padding: 0px;
+  }
 }
 footer {
   background-color: #004b72;
@@ -1014,7 +1020,7 @@ main form > input[type="submit"] {
   font-size: 13px;
 }
 #rating-section {
-  width: 80%;
+  width: 85%;
   height: 700px;
   margin: 0 auto;
   background-color: #004b72;
@@ -1072,12 +1078,12 @@ main form > input[type="submit"] {
   background: #D80B55;
   padding: 10px 0px 10px 0px;
   color: #fff;
-  width: 10%;
+  width: 30%;
   text-align: center;
   border-radius: 5px;
   z-index: 100000;
   margin-top: 15px;
-  padding: 30px;
+  padding: 10px 5px 10px 0px;
 }
 .error:after {
   bottom: 100%;
@@ -1089,7 +1095,7 @@ main form > input[type="submit"] {
   position: absolute;
   pointer-events: none;
   border-bottom-color: #D80B55;
-  border-width: 15px;
+  border-width: 13px;
 }
 #rating-error {
   width: 10%;
@@ -1184,7 +1190,7 @@ main form > input[type="submit"] {
 }
 
 #rating-section {
-  width: 80%;
+  width: 85%;
   height: 700px;
   margin: 0 auto;
   background-color: #004b72;
@@ -1243,12 +1249,12 @@ main form > input[type="submit"] {
   background: #D80B55;
   padding: 10px 0px 10px 0px;
   color: #fff;
-  width: 10%;
+  width: 30%;
   text-align: center;
   border-radius: 5px;
   z-index: 100000;
   margin-top: 15px;
-  padding: 30px;
+  padding: 10px 5px 10px 0px;
 }
 .error:after {
   bottom: 100%;
@@ -1260,7 +1266,7 @@ main form > input[type="submit"] {
   position: absolute;
   pointer-events: none;
   border-bottom-color: #D80B55;
-  border-width: 15px;
+  border-width: 13px;
 }
 #rating-error {
   width: 10%;
@@ -1470,12 +1476,13 @@ header img {
   box-sizing: border-box;
   position: absolute;
   background: #004b72;
-  padding: 10px;
+  padding: 25px;
   color: #fff;
   text-align: center;
   border-radius: 5px;
-  width: 100%;
+  width: 60%;
   margin-top: 40px;
+  left: 20%;
 }
 .description:after {
   bottom: 100%;
@@ -1497,6 +1504,11 @@ header img {
   font-family: 'Noto Serif', sans-serif;
   font-size: 16px;
   font-style: italic;
+}
+@media (max-width: 850px) {
+  .description {
+    padding: 0px;
+  }
 }
 
 #info {

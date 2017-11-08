@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
 use App\Http\Requests;
 use App\Rating;
 use App\Station;
@@ -79,14 +80,17 @@ class RatingController extends Controller
         $entrance = \App\Station::where('station', '=', $request->entrance)->first();
         $exit = \App\Station::where('station', '=', $request->exit)->first();
         $trainNumber = \App\TrainNumber::where('trainNumber', '=', $request->trainNumber)->first();
-        return $entrance;
 
-        /*$rating = new Rating;
+        if(count($entrance) === 0 || count($exit) === 0 || count($trainNumber) === 0) {
+            return response("Not found", "422");
+        }
+
+        $rating = new Rating;
         $rating->entrance = $entrance->id;
         $rating->exit = $exit->id;
         $rating->trainNumber = $trainNumber->id;
-        $rating->rating = $request->rating; // Rating
+        $rating->rating = $request->rating;
 
-        $rating->save();*/
+        $rating->save();
     }
 }

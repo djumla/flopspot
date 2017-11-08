@@ -12,7 +12,7 @@
   </section>
   <section id="statistics">
     <figure>
-      <a href="#">
+      <a href="/statistic">
           <img src="/assets/stats.svg" />
           <figcaption> Statistiken einsehen </figcaption>
         </a>

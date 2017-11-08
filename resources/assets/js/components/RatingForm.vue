@@ -236,6 +236,7 @@ export default {
       let rating = document.getElementById('flex-thumbs');
 
       if(error) {
+          console.log(error.response);
           if ('entrance' in error.response.data.errors) {
               this.addElement(parent[0], error.response.data.errors.entrance);
           }

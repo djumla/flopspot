@@ -26,7 +26,7 @@
       <!-- Auto injection here -->
     </section>
   </div>
-  <div id="copyright">Copyright 2016 - flopspot</div>
+  <div id="copyright">Copyright 2017 - flopspot</div>
 </footer>
 </template>
 

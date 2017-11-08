@@ -1,15 +1,17 @@
+
 @import '../variables.less';
 
 .description {
 	box-sizing: border-box;
 	position: absolute;
 	background: @darkBlue;
-	padding: 10px;
+	padding: 25px;
 	color: @white;
 	text-align: center;
 	border-radius: 5px;
-	width: 100%;
+	width: 60%;
 	margin-top: 40px;
+	left: 20%;
 
 	&:after {
 		bottom: 100%;
@@ -35,5 +37,8 @@
 		font-family: @notoSerif;
 		font-size: 16px;
 		font-style: italic;
+	}
+	@media(max-width: 850px) {
+		padding: 0px;
 	}
 }
