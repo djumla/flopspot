@@ -233,16 +233,17 @@ export default {
      */
     create(error) {
       let parent = document.getElementById('flex-form').children;
-      console.log(error.response.data.errors);
 
-      if ('entrance' in error.response.data.errors) {
-        this.addElement(parent[0], error.response.data.errors.entrance);
-      }
-      if ('exit' in error.response.data.errors) {
-        this.addElement(parent[1], error.response.data.errors.exit);
-      }
-      if ('trainNumber' in error.response.data.errors) {
-        this.addElement(parent[2], error.response.data.errors.trainNumber);
+      if(error) {
+          if ('entrance' in error.response.data.errors) {
+              this.addElement(parent[0], error.response.data.errors.entrance);
+          }
+          if ('exit' in error.response.data.errors) {
+              this.addElement(parent[1], error.response.data.errors.exit);
+          }
+          if ('trainNumber' in error.response.data.errors) {
+              this.addElement(parent[2], error.response.data.errors.trainNumber);
+          }
       }
     },
 
@@ -275,7 +276,7 @@ export default {
     },
 
     /**
-     * @return {void} 
+     * @return {void}
      */
     removeElement() {
       for (let i = 0; i < document.getElementById('flex-form').children.length - 1; i++) {

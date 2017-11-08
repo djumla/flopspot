@@ -28,7 +28,7 @@ class StoreRating extends FormRequest
             'entrance' => 'required|string',
             'exit' => 'required|string',
             'trainNumber' => 'required|string|regex:/(^[A-Za-z0-9 ]+$)+/',
-            'rating' => 'required|integer|regex:^\d{3}$'
+            'rating' => 'required'
         ];
     }
 
@@ -42,8 +42,7 @@ class StoreRating extends FormRequest
           'exit.required'  => 'Ausstieg kann nicht leer sein.',
           'trainNumber.required' => 'Zugnummer kann nicht leer sein.',
           'trainNumber.regex' => 'Ungülitges Format.',
-          'rating.required' => 'Rating kann nicht leer sein.',
-          'rating.regex' => 'Ungültiges Format.'
+          'rating.required' => 'Rating kann nicht leer sein.'
         ];
     }
 }

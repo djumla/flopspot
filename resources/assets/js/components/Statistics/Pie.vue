@@ -47,6 +47,7 @@ export default {
 
       let options = {
         responsive: true,
+          segmentShowStroke: true,
         tooltips: {
           enabled: false
         },
