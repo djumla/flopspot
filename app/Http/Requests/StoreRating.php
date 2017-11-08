@@ -23,11 +23,11 @@ class StoreRating extends FormRequest
      * @return array
      */
     public function rules()
-    {#
+    {
         return [
             'entrance' => 'required|string',
             'exit' => 'required|string',
-            'trainNumber' => 'required|string|regex:/(^[A-Za-z0-9 ]+$)+/',
+            'trainNumber' => 'required|string|regex:[ICE \d]',
             'rating' => 'required|integer|regex:/[1-3]/'
         ];
     }
@@ -42,7 +42,7 @@ class StoreRating extends FormRequest
           'exit.required'  => 'Ausstieg kann nicht leer sein.',
           'trainNumber.required' => 'Zugnummer kann nicht leer sein.',
           'trainNumber.regex' => 'Ungülitges Format.',
-          'rating.required' => 'Rating kann nicht leer sein.',
+          'rating.required' => 'Bitte geben Sie Ihre Zufriedenheit an.',
           'rating.regex' => 'Ungültiges Format.'
         ];
     }

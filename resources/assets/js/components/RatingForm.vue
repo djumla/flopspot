@@ -233,6 +233,7 @@ export default {
      */
     create(error) {
       let parent = document.getElementById('flex-form').children;
+      let rating = document.getElementById('flex-thumbs');
 
       if(error) {
           if ('entrance' in error.response.data.errors) {
@@ -244,9 +245,11 @@ export default {
           if ('trainNumber' in error.response.data.errors) {
               this.addElement(parent[2], error.response.data.errors.trainNumber);
           }
+          if('rating' in error.response.data.errors) {
+            this.addElement(rating, error.response.data.errors.rating);
+          }
       }
     },
-
     /**
      * @param {object} parent
      *
@@ -255,24 +258,34 @@ export default {
     addElement(parent, message) {
       let element = document.createElement('div');
       let msg = document.createTextNode(message);
-      let ids = parent.getAttribute('id');
 
-      element.appendChild(msg);
+      if(parent.getAttribute('class') === "inputs") {
+          element.appendChild(msg);
 
-      element.className = "error";
+          element.className = "error";
 
-      switch (ids) {
-        case 'entrance-container':
-          element.id = "entrance-error";
-          break;
-        case 'exit-container':
-          element.id = "exit-error";
-          break;
-        case 'trainNumber-container':
-          element.id = "trainNumber-error";
-          break;
+          switch (parent.getAttribute('id')) {
+              case 'entrance-container':
+                  element.id = "entrance-error";
+                  break;
+              case 'exit-container':
+                  element.id = "exit-error";
+                  break;
+              case 'trainNumber-container':
+                  element.id = "trainNumber-error";
+                  break;
+          }
+          parent.appendChild(element);
       }
-      parent.appendChild(element);
+
+      if(parent.getAttribute('id') === "flex-thumbs") {
+          element.appendChild(msg);
+
+          element.className = "error";
+          element.id = "rating-error";
+
+          parent.appendChild(element);
+      }
     },
 
     /**

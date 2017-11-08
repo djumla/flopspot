@@ -688,7 +688,7 @@ a:target {
 #flex-form label {
   display: block;
 }
-@media (max-width: 550px) {
+@media (max-width: 800px) {
   #flex-form label {
     width: 100%;
   }
@@ -696,7 +696,7 @@ a:target {
     width: 100%;
   }
   #flex-form .error {
-    width: 73%;
+    width: 100%;
   }
 }
 .description {
@@ -870,6 +870,9 @@ main #satisfaction {
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
 }
+main #rating {
+  position: relative;
+}
 main form > input[type="submit"] {
   width: 350px;
   height: 50px;
@@ -1027,29 +1030,54 @@ main form > input[type="submit"] {
   margin: 0 auto;
   padding-top: 60px;
 }
-@media (max-width: 750px) {
+@media (max-width: 1000px) {
+  #rating-section .chart-container {
+    width: 700px;
+    height: 700px;
+  }
+}
+@media (max-width: 850px) {
   #rating-section .chart-container {
     width: 650px;
     height: 650px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 780px) {
   #rating-section .chart-container {
-    width: 400px;
+    width: 550px;
     height: 550px;
   }
 }
+@media (max-width: 700px) {
+  #rating-section .chart-container {
+    width: 480px;
+    height: 480px;
+  }
+}
+@media (max-width: 550px) {
+  #rating-section .chart-container {
+    width: 400px;
+    height: 400px;
+  }
+}
+@media (max-width: 480px) {
+  #rating-section .chart-container {
+    width: 340px;
+    height: 340px;
+  }
+}
 .error {
-  box-sizing: border-box;
+  box-sizing: content-box;
   position: absolute;
   background: #D80B55;
-  padding: 20px;
+  padding: 10px 0px 10px 0px;
   color: #fff;
+  width: 10%;
   text-align: center;
   border-radius: 5px;
-  width: 25%;
   z-index: 100000;
-  margin-top: 20px;
+  margin-top: 15px;
+  padding: 30px;
 }
 .error:after {
   bottom: 100%;
@@ -1062,12 +1090,14 @@ main form > input[type="submit"] {
   pointer-events: none;
   border-bottom-color: #D80B55;
   border-width: 15px;
-  margin-left: -30px;
 }
-@media (max-width: 550px) {
-  .error {
-    width: 30%;
-  }
+#rating-error {
+  width: 10%;
+  padding: 30px;
+  left: -10%;
+}
+#rating-error:after {
+  left: 75%;
 }
 #imprint {
   background-color: #004b72;
@@ -1170,30 +1200,55 @@ main form > input[type="submit"] {
   margin: 0 auto;
   padding-top: 60px;
 }
-@media (max-width: 750px) {
+@media (max-width: 1000px) {
+  #rating-section .chart-container {
+    width: 700px;
+    height: 700px;
+  }
+}
+@media (max-width: 850px) {
   #rating-section .chart-container {
     width: 650px;
     height: 650px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 780px) {
+  #rating-section .chart-container {
+    width: 550px;
+    height: 550px;
+  }
+}
+@media (max-width: 700px) {
+  #rating-section .chart-container {
+    width: 480px;
+    height: 480px;
+  }
+}
+@media (max-width: 550px) {
   #rating-section .chart-container {
     width: 400px;
-    height: 550px;
+    height: 400px;
+  }
+}
+@media (max-width: 480px) {
+  #rating-section .chart-container {
+    width: 340px;
+    height: 340px;
   }
 }
 
 .error {
-  box-sizing: border-box;
+  box-sizing: content-box;
   position: absolute;
   background: #D80B55;
-  padding: 20px;
+  padding: 10px 0px 10px 0px;
   color: #fff;
+  width: 10%;
   text-align: center;
   border-radius: 5px;
-  width: 25%;
   z-index: 100000;
-  margin-top: 20px;
+  margin-top: 15px;
+  padding: 30px;
 }
 .error:after {
   bottom: 100%;
@@ -1206,12 +1261,14 @@ main form > input[type="submit"] {
   pointer-events: none;
   border-bottom-color: #D80B55;
   border-width: 15px;
-  margin-left: -30px;
 }
-@media (max-width: 550px) {
-  .error {
-    width: 30%;
-  }
+#rating-error {
+  width: 10%;
+  padding: 30px;
+  left: -10%;
+}
+#rating-error:after {
+  left: 75%;
 }
 
 footer {
@@ -1336,6 +1393,9 @@ main #satisfaction {
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
 }
+main #rating {
+  position: relative;
+}
 
 header {
   font-family: 'Poppins', sans-serif;
@@ -1394,7 +1454,7 @@ header img {
 #flex-form label {
   display: block;
 }
-@media (max-width: 550px) {
+@media (max-width: 800px) {
   #flex-form label {
     width: 100%;
   }
@@ -1402,7 +1462,7 @@ header img {
     width: 100%;
   }
   #flex-form .error {
-    width: 73%;
+    width: 100%;
   }
 }
 

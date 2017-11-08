@@ -79,13 +79,14 @@ class RatingController extends Controller
         $entrance = \App\Station::where('station', '=', $request->entrance)->first();
         $exit = \App\Station::where('station', '=', $request->exit)->first();
         $trainNumber = \App\TrainNumber::where('trainNumber', '=', $request->trainNumber)->first();
+        return $entrance;
 
-        $rating = new Rating;
+        /*$rating = new Rating;
         $rating->entrance = $entrance->id;
         $rating->exit = $exit->id;
         $rating->trainNumber = $trainNumber->id;
         $rating->rating = $request->rating; // Rating
 
-        $rating->save();
+        $rating->save();*/
     }
 }
