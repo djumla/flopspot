@@ -41,7 +41,7 @@
                     Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files,
                     die Ihr Browser automatisch an uns übermittelt. Dies sind:
                 </p>
-                <ul>
+                <ul id="server-logs-files-list">
                     <li>Browsertyp/ Browserversion</li>
                     <li>verwendetes Betriebssystem</li>
                     <li>Referrer URL</li>

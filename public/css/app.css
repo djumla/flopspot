@@ -1105,6 +1105,11 @@ main form > input[type="submit"] {
 #rating-error:after {
   left: 75%;
 }
+#server-logs-files-list {
+  list-style-type: circle;
+  margin: 15px 0px 15px 0px;
+  padding: 0px 0px 0px 30px;
+}
 .layout-header {
   background-color: #004b72;
   color: #fff;
@@ -1688,6 +1693,11 @@ header img {
   font-size: 20px;
 }
 
+#server-logs-files-list {
+  list-style-type: circle;
+  margin: 15px 0px 15px 0px;
+  padding: 0px 0px 0px 30px;
+}
 
 
 /* ==========================================================================
