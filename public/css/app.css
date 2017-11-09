@@ -1105,14 +1105,19 @@ main form > input[type="submit"] {
 #rating-error:after {
   left: 75%;
 }
-#imprint {
+.layout-header {
   background-color: #004b72;
-  padding: 10px;
-}
-#imprint address,
-#imprint h2,
-#imprint p {
   color: #fff;
+}
+.layout-header > div {
+  padding: 30px;
+}
+.layout-content {
+  background-color: #fff;
+}
+.layout-content > div {
+  padding: 30px;
+  font-size: 20px;
 }
 
 
@@ -1667,14 +1672,20 @@ header img {
 }
 
 
-#imprint {
+
+.layout-header {
   background-color: #004b72;
-  padding: 10px;
-}
-#imprint address,
-#imprint h2,
-#imprint p {
   color: #fff;
+}
+.layout-header > div {
+  padding: 30px;
+}
+.layout-content {
+  background-color: #fff;
+}
+.layout-content > div {
+  padding: 30px;
+  font-size: 20px;
 }
 
 

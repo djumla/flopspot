@@ -10,7 +10,7 @@ crossorigin="anonymous"
 <script src="./js/observer.js"></script>
 @endsection
 
-@section('content')
+@section('body')
 <div id="app">
   <flopspot-header></flopspot-header>
   <flopspot-form></flopspot-form>

@@ -8,7 +8,7 @@ crossorigin="anonymous"
 ></script>
 @endsection
 
-@section('content')
+@section('body')
   <div id="app">
     <flopspot-header></flopspot-header>
     <flopspot-pie></flopspot-pie>

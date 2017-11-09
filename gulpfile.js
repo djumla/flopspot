@@ -9,5 +9,6 @@ require('laravel-elixir-vue-2');
 elixir(function(mix) {
   mix.webpack('app.js');
   mix.webpack('statistics.js');
+  mix.webpack('layout.js');
   mix.less(['styles.less', 'variables.less', '/modules/*.less', '/layouts/*.less', '/base/*.less']);
 })
