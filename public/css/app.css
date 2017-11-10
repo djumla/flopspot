@@ -473,7 +473,7 @@ a:target {
   display: block;
   width: 50px;
   border-bottom: 1px solid #fff;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .active {
   color: #fff;
@@ -481,6 +481,7 @@ a:target {
 .wrapper {
   width: 85%;
   margin: 0 auto;
+  max-width: 1600px;
 }
 ::-webkit-input-placeholder {
   color: #004b72;
@@ -597,6 +598,7 @@ a:target {
 #flex-thumbs .container {
   position: relative;
   width: 33%;
+  box-sizing: border-box;
 }
 #flex-thumbs .container #insufficient-label {
   background-image: url("/assets/bad.svg");
@@ -628,10 +630,10 @@ a:target {
 }
 @media (max-width: 950px) {
   #flex-thumbs .container {
-    border-right: 2px solid #004b72;
-  }
-  #flex-thumbs .container:last-child {
     border-right: none;
+  }
+  #flex-thumbs .container:not(.satisfactory) {
+    border-right: 2px solid #004b72;
   }
   #flex-thumbs .container .description {
     background-color: #fff;
@@ -644,10 +646,13 @@ a:target {
     content: none;
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   #flex-thumbs .container {
     border: none;
     width: 100%;
+  }
+  #flex-thumbs .container:not(.satisfactory) {
+    border: none;
   }
 }
 #flex-form {
@@ -732,9 +737,16 @@ a:target {
   font-size: 16px;
   font-style: italic;
 }
-@media (max-width: 850px) {
+@media (max-width: 860px) {
   .description {
-    padding: 0px;
+    left: 0;
+    width: 100%;
+    padding: 40px 40px 40px 40px;
+  }
+}
+@media (max-width: 650px) {
+  .description {
+    padding: 30px 30px 30px 30px;
   }
 }
 footer {
@@ -753,14 +765,10 @@ footer #copyright {
 footer #service {
   width: 85%;
   margin: 0 auto;
-  height: 750px;
   display: -webkit-box;
   display: flex;
-}
-@media (max-width: 1000px) {
-  footer #service {
-    height: 850px;
-  }
+  padding: 30px;
+  max-width: 1600px;
 }
 footer #service #flex-service {
   width: 50%;
@@ -808,7 +816,6 @@ footer #service #tweets {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     flex-direction: column;
-    height: 1650px;
   }
   footer #service h1 {
     margin-top: 50px;
@@ -1021,6 +1028,7 @@ main form > input[type="submit"] {
 }
 #rating-section {
   width: 85%;
+  max-width: 1600px;
   height: 700px;
   margin: 0 auto;
   background-color: #004b72;
@@ -1081,11 +1089,11 @@ main form > input[type="submit"] {
   width: 30%;
   text-align: center;
   border-radius: 5px;
-  z-index: 100000;
+  z-index: 999;
   margin-top: 15px;
   padding: 10px 5px 10px 0px;
 }
-.error:after {
+.error:before {
   bottom: 100%;
   left: 50%;
   border: solid transparent;
@@ -1098,12 +1106,18 @@ main form > input[type="submit"] {
   border-width: 13px;
 }
 #rating-error {
-  width: 10%;
-  padding: 30px;
-  left: -10%;
+  width: 40%;
+  padding: 25px;
+}
+#rating-error:before {
+  left: 50px;
 }
 #rating-error:after {
-  left: 75%;
+  position: absolute;
+  content: 'x';
+  color: #fff;
+  right: 20px;
+  top: 0px;
 }
 #server-logs-files-list {
   list-style-type: circle;
@@ -1115,14 +1129,20 @@ main form > input[type="submit"] {
   color: #fff;
 }
 .layout-header > div {
-  padding: 30px;
+  padding: 50px;
 }
 .layout-content {
   background-color: #fff;
 }
 .layout-content > div {
-  padding: 30px;
-  font-size: 20px;
+  width: 70%;
+  padding: 50px;
+}
+.layout-content article > .underlined:after {
+  border-color: #004b72;
+}
+.layout-content p > .underlined:after {
+  border-color: #004b72;
 }
 
 
@@ -1201,6 +1221,7 @@ main form > input[type="submit"] {
 
 #rating-section {
   width: 85%;
+  max-width: 1600px;
   height: 700px;
   margin: 0 auto;
   background-color: #004b72;
@@ -1262,11 +1283,11 @@ main form > input[type="submit"] {
   width: 30%;
   text-align: center;
   border-radius: 5px;
-  z-index: 100000;
+  z-index: 999;
   margin-top: 15px;
   padding: 10px 5px 10px 0px;
 }
-.error:after {
+.error:before {
   bottom: 100%;
   left: 50%;
   border: solid transparent;
@@ -1279,12 +1300,18 @@ main form > input[type="submit"] {
   border-width: 13px;
 }
 #rating-error {
-  width: 10%;
-  padding: 30px;
-  left: -10%;
+  width: 40%;
+  padding: 25px;
+}
+#rating-error:before {
+  left: 50px;
 }
 #rating-error:after {
-  left: 75%;
+  position: absolute;
+  content: 'x';
+  color: #fff;
+  right: 20px;
+  top: 0px;
 }
 
 footer {
@@ -1303,14 +1330,10 @@ footer #copyright {
 footer #service {
   width: 85%;
   margin: 0 auto;
-  height: 750px;
   display: -webkit-box;
   display: flex;
-}
-@media (max-width: 1000px) {
-  footer #service {
-    height: 850px;
-  }
+  padding: 30px;
+  max-width: 1600px;
 }
 footer #service #flex-service {
   width: 50%;
@@ -1358,7 +1381,6 @@ footer #service #tweets {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     flex-direction: column;
-    height: 1650px;
   }
   footer #service h1 {
     margin-top: 50px;
@@ -1515,9 +1537,16 @@ header img {
   font-size: 16px;
   font-style: italic;
 }
-@media (max-width: 850px) {
+@media (max-width: 860px) {
   .description {
-    padding: 0px;
+    left: 0;
+    width: 100%;
+    padding: 40px 40px 40px 40px;
+  }
+}
+@media (max-width: 650px) {
+  .description {
+    padding: 30px 30px 30px 30px;
   }
 }
 
@@ -1622,6 +1651,7 @@ header img {
 #flex-thumbs .container {
   position: relative;
   width: 33%;
+  box-sizing: border-box;
 }
 #flex-thumbs .container #insufficient-label {
   background-image: url("/assets/bad.svg");
@@ -1653,10 +1683,10 @@ header img {
 }
 @media (max-width: 950px) {
   #flex-thumbs .container {
-    border-right: 2px solid #004b72;
-  }
-  #flex-thumbs .container:last-child {
     border-right: none;
+  }
+  #flex-thumbs .container:not(.satisfactory) {
+    border-right: 2px solid #004b72;
   }
   #flex-thumbs .container .description {
     background-color: #fff;
@@ -1669,10 +1699,13 @@ header img {
     content: none;
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   #flex-thumbs .container {
     border: none;
     width: 100%;
+  }
+  #flex-thumbs .container:not(.satisfactory) {
+    border: none;
   }
 }
 
@@ -1683,14 +1716,20 @@ header img {
   color: #fff;
 }
 .layout-header > div {
-  padding: 30px;
+  padding: 50px;
 }
 .layout-content {
   background-color: #fff;
 }
 .layout-content > div {
-  padding: 30px;
-  font-size: 20px;
+  width: 70%;
+  padding: 50px;
+}
+.layout-content article > .underlined:after {
+  border-color: #004b72;
+}
+.layout-content p > .underlined:after {
+  border-color: #004b72;
 }
 
 #server-logs-files-list {
@@ -2244,7 +2283,7 @@ a:target {
   display: block;
   width: 50px;
   border-bottom: 1px solid #fff;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .active {
   color: #fff;
@@ -2252,6 +2291,7 @@ a:target {
 .wrapper {
   width: 85%;
   margin: 0 auto;
+  max-width: 1600px;
 }
 ::-webkit-input-placeholder {
   color: #004b72;

@@ -4,15 +4,27 @@
   background-color: @darkBlue;
   color: @white;
   >div {
-    padding: 30px;
+    padding: 50px;
   }
 }
 
 .layout-content{
   background-color: @white;
   >div {
-    padding: 30px;
-    font-size: 20px;
+    width: 70%;
+    padding: 50px;
+  }
+  article {
+    >.underlined:after {
+      border-color: @darkBlue;
+    }
+  }
+  p {
+    >.underlined:after {
+      border-color: @darkBlue;
+    }
   }
 }
+
+
 

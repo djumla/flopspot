@@ -85,6 +85,7 @@ class RatingController extends Controller
         $rating->entrance = $entrance->id;
         $rating->exit = $exit->id;
         $rating->trainNumber = $trainNumber->id;
+        $rating->date = $request->date;
         $rating->rating = $request->rating;
 
         $rating->save();

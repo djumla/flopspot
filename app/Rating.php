@@ -12,6 +12,7 @@ class Rating extends Model
       'entrance',
       'exit',
       'trainNumber',
+      'date',
       'rating'
     ];
 }

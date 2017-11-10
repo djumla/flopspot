@@ -31,6 +31,7 @@
   .container {
     position: relative;
     width: 33%;
+    box-sizing: border-box;
 
     #insufficient-label {
       background-image: url("/assets/bad.svg");
@@ -69,10 +70,10 @@
       margin-top: 5px;
     }
     @media (max-width: 950px) {
-      border-right: 2px solid @darkBlue;
+      border-right: none;
 
-      &:last-child {
-        border-right: none;
+      &:not(.satisfactory) {
+        border-right: 2px solid @darkBlue;
       }
 
       .description {
@@ -87,7 +88,10 @@
         }
       }
     }
-    @media (max-width: 550px) {
+    @media (max-width: 650px) {
+      &:not(.satisfactory) {
+        border: none;
+      }
       border: none;
       width: 100%;
     }

@@ -3,14 +3,14 @@
 @section("content")
     <section class="layout-header wrapper">
         <div>
-            <h1>Datenschutz</h1>
+            <h1 class="underlined">Datenschutz</h1>
         </div>
     </section>
 
     <section class="layout-content wrapper">
         <div>
             <article>
-                <strong>Datenschutz</strong>
+                <strong class="underlined">Datenschutz</strong>
                 <p>
                     Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und
                     entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
@@ -26,7 +26,7 @@
                 </p>
                 </br>
                 <p>
-                    <strong>Auskunft, Löschung, Sperrung</strong>
+                    <strong class="underlined">Auskunft, Löschung, Sperrung</strong>
                 </p>
                 <p>
                     Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und
@@ -35,7 +35,7 @@
                 </p>
                 </br>
                 <p>
-                    <strong>Server-Log-Files</strong>
+                    <strong class="underlined">Server-Log-Files</strong>
                 </p>
                 <p>
                     Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files,

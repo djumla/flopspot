@@ -46,6 +46,7 @@
       <label for="date">
           Reisedatum
           <datepicker
+          id="datepicker"
           :value="state.date"
           format="dd.MM.yyyy">
           </datepicker>
@@ -75,7 +76,7 @@
           <div class="text">Der Hotspot war ausreichend für meine Bedürfnisse.</div>
         </div>
       </div>
-      <div class="container">
+      <div class="satisfactory container">
         <label id="satisfactory-label" for="satisfactory">
             Sehr Zufrieden
             <input type="radio" id="satisfactory" name="rate"/>
@@ -100,7 +101,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 let state = {
-  date: new Date()
+    date: new Date()
 };
 
 export default {
@@ -177,13 +178,17 @@ export default {
       let entrance = document.getElementById('entrance').value;
       let exit = document.getElementById('exit').value;
       let trainNumber = document.getElementById('trainNumber').value;
+      let date = document.getElementById('datepicker').value;
       let rating = this.getSelectedRating();
       let self = this;
+
+      let iso = this.dateFormat(date);
 
       Axios.post('api/rating/save', {
           entrance: entrance,
           exit: exit,
           trainNumber: trainNumber,
+          date: iso,
           rating: rating
         })
         .then(function(response) {
@@ -217,7 +222,7 @@ export default {
     },
 
     /**
-     * @param  {object} error reponse of the error
+     * @param  {object} error response
      *
      * @return {void}
      */
@@ -294,7 +299,7 @@ export default {
      */
     removeElement() {
       for (let i = 0; i < document.getElementById('flex-form').children.length - 1; i++) {
-        document.querySelectorAll(".autocomplete-input")[i].onchange = function() {
+        document.querySelectorAll(".autocomplete-input")[i].onkeyup = function() {
           let parent = document.getElementById('flex-form').children[i];
 
           if (parent.getAttribute('id') == 'entrance-container' && document.getElementById('entrance-error')) {
@@ -308,6 +313,19 @@ export default {
           }
         }
       }
+
+      document.getElementById('rating-error').onclick = function() {
+          document.getElementById('rating-error').remove();
+      }
+    },
+      /**
+       *
+       * @param date
+       *
+       * @returns {string}
+       */
+    dateFormat(date) {
+        return date.substring(6,10)+"-"+date.substring(3,5)+"-"+date.substring(0,2);
     }
   }
 };

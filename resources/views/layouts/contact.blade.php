@@ -3,7 +3,7 @@
 @section("content")
     <section id="contact-description" class="layout-header wrapper">
         <div>
-            <h1>Kontaktieren Sie uns!</h1>
+            <h1 class="underlined">Kontaktieren Sie uns!</h1>
             <p>
                 Nicht bei Angeboten unter 10k
             </p>
@@ -12,7 +12,7 @@
     <section id="contact-details" class="layout-content wrapper">
         <div>
             <p>
-                <strong>Anschrift:</strong>
+                <strong class="underlined">Anschrift:</strong>
                 </br>
                 djumla GmbH
             </p>
@@ -26,7 +26,7 @@
             </p>
             </br>
             <p>
-                <strong>Kontakt</strong>
+                <strong class="underlined">Kontakt</strong>
                 </br>
                 E-Mail: info@djumla.de
             </p>

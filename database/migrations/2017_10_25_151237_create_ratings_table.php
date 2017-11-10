@@ -18,13 +18,13 @@ class CreateRatingsTable extends Migration
             $table->integer('entrance')->unsigned();
             $table->integer('exit')->unsigned();
             $table->integer('trainNumber')->unsigned();
+            $table->date('date');
             $table->integer('rating')->unsigned();
             $table->timestamps();
 
             $table->foreign('entrance')->references('id')->on('train_stations')->onDelete('cascade');
             $table->foreign('exit')->references('id')->on('train_stations')->onDelete('cascade');
             $table->foreign('trainNumber')->references('id')->on('train_numbers')->onDelete('cascade');
-            $table->foreign('rating')->references('id')->on('ratings')->onDelete('cascade');
         });
     }
 
