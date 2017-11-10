@@ -31,9 +31,9 @@
             <p>
                 <strong class="underlined">Registereintrag:</strong>
                 </br>
-                Eintragung im Vereinsregister.
+                Eintragung im Handelsregister
                 </br>
-                Registergericht:Amtsgericht Aachen
+                Registergericht: Amtsgericht Köln
                 </br>
                 Registernummer: HRB 85984
             </p>
@@ -43,22 +43,6 @@
                 Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:
                 </br>
                 DE269200460
-            </p>
-            <p>
-                <strong class="underlined">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong>
-                <br/>
-                David Jardin
-                <br/>
-                Alte Wallgasse 6
-                <br/>
-                50672 Köln
-                <br/>
-                Quelle: http://www.e-recht24.de
-            </p>
-            <p>
-                Online Dispute Resolution (ODR)
-                Hiermit informieren wir Sie über die Online Dispute Resolution (ODR) – einer Streitschlichtungsplattform der EU.
-                Weitere Informationen erhalten Sie unter folgendem Link: http://ec.europa.eu/consumers/odr/
             </p>
         </div>
     </section>

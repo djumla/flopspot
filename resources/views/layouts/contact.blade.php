@@ -4,9 +4,6 @@
     <section id="contact-description" class="layout-header wrapper">
         <div>
             <h1 class="underlined">Kontaktieren Sie uns!</h1>
-            <p>
-                Nicht bei Angeboten unter 10k
-            </p>
         </div>
     </section>
     <section id="contact-details" class="layout-content wrapper">

@@ -46,6 +46,7 @@
       <label for="date">
           Reisedatum
           <datepicker
+          calendar-class="calendar"
           id="datepicker"
           :value="state.date"
           format="dd.MM.yyyy">
@@ -330,3 +331,9 @@ export default {
   }
 };
 </script>
+<style>
+    .calendar {
+        z-index: 1000;
+        width:100%;
+    }
+</style>

@@ -1124,6 +1124,9 @@ main form > input[type="submit"] {
   right: 20px;
   top: 0px;
 }
+.calendar {
+  z-index: 1000 !important;
+}
 .layout-header {
   background-color: #004b72;
   color: #fff;
@@ -1272,6 +1275,10 @@ main form > input[type="submit"] {
     width: 340px;
     height: 340px;
   }
+}
+
+.calendar {
+  z-index: 1000 !important;
 }
 
 .error {
