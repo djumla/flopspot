@@ -9,6 +9,7 @@ use Illuminate\Http\Response;
 use App\Http\Requests;
 use App\Station;
 use App\TrainNumber;
+use App\Rating;
 
 class RatingController extends Controller
 {

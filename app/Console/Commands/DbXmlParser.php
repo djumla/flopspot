@@ -14,17 +14,14 @@ class DbXmlParser extends Command
      *
      * @var string
      */
-    /**
-     * The path parameter is completly useless because this parser can't parse everything its directed to.
-     * This class should be more named like "DbXmlParser" (DB = Deutsche Bahn)
-    */
     protected $signature = 'xml:parse';
 
     /**
       * Specify the path, in which the parser should go to
       * Feel free to change the path if the folder structure has changed!
+     *
+     * @var string
     */
-
     private $path = 'Services/DBTrainInfo/';
 
     /**
@@ -83,10 +80,6 @@ class DbXmlParser extends Command
     */
 
     /**
-     * This method and the same for getTrainName iterate through the entire XML files
-     * This needs to be done because the XML files are nested as fuck. Like every tag is nested in another and so on..
-     * In fact, those two methods(getStation, getTrainName) iterate through the entire XML files unless they found the information they need
-     *
      * @param  string $path path to xml files
      *
      * @return array
@@ -110,8 +103,10 @@ class DbXmlParser extends Command
                             }
                         }
 
-                        if (strlen($destination->destinationName) !== 0) {
-                            $stations[trim((string) $destination->destinationName)] = (string) $destination->destinationName;
+                        $destinationName = (string) $destination->destinationName;
+
+                        if (strlen($destinationName) !== 0) {
+                            $stations[trim($destinationName)] = $destinationName;
                         }
                     }
                 }

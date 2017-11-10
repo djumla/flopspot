@@ -16,10 +16,22 @@ class Rating extends Model
       'rating'
     ];
 
-    public function getCombinedRatings($start, $end) {
-        $insufficient = \App\Rating::select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 1)->count();
-        $satisfying = \App\Rating::select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 2)->count();
-        $satisfactory = \App\Rating::select('rating')->whereMonth('created_at', '>', $start, 'and', '<', $end)->where('rating', '=', 3)->count();
+    public function getCombinedRatings($start, $end)
+    {
+        $insufficient = $this->select('rating')
+            ->whereMonth('created_at', '>', $start, 'and', '<', $end)
+            ->where('rating', '=', 1)
+            ->count();
+        
+        $satisfying = $this->select('rating')
+            ->whereMonth('created_at', '>', $start, 'and', '<', $end)
+            ->where('rating', '=', 2)
+            ->count();
+        
+        $satisfactory = $this->select('rating')
+            ->whereMonth('created_at', '>', $start, 'and', '<', $end)
+            ->where('rating', '=', 3)
+            ->count();
 
         /**
          * Every value in $ratings has a specific key. (insufficient => $insufficient)
