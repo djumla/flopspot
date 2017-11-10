@@ -20,7 +20,7 @@ const app = new Vue({
     el: '#app',
 
     components: {
-        'app-header': Header,
-        'app-footer': Footer
+        'flopspot-header': Header,
+        'flopspot-footer': Footer
     }
-})
+});

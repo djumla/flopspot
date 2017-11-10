@@ -26,4 +26,4 @@ const app = new Vue({
     'flopspot-form': Form,
     'flopspot-service': Service
   }
-})
+});

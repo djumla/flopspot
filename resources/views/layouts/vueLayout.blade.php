@@ -1,10 +1,10 @@
-@extends("layouts.layout")
+@extends("layouts.headLayout")
 
 @section("body")
     <div id="app">
-        <app-header></app-header>
+        <flopspot-header></flopspot-header>
         @yield("content")
-        <app-footer></app-footer>
+        <flopspot-footer></flopspot-footer>
     </div>
     <script src="{{ asset('js/layout.js') }}"></script>
 @endsection

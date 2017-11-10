@@ -456,11 +456,6 @@ h2 {
   font-weight: normal;
   font-family: 'Noto Serif', sans-serif;
 }
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
 a {
   color: #49b2d7;
   text-decoration: none;
@@ -754,6 +749,11 @@ footer {
   width: 100%;
   margin-top: 50px;
 }
+footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 footer #copyright {
   height: 45px;
   background-color: #00354C;
@@ -840,6 +840,11 @@ header {
   font-size: 18px;
   padding-top: 25px;
   padding-bottom: 15px;
+}
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 header nav > ul > li {
   display: inline-block;
@@ -1119,11 +1124,6 @@ main form > input[type="submit"] {
   right: 20px;
   top: 0px;
 }
-#server-logs-files-list {
-  list-style-type: circle;
-  margin: 15px 0px 15px 0px;
-  padding: 0px 0px 0px 30px;
-}
 .layout-header {
   background-color: #004b72;
   color: #fff;
@@ -1319,6 +1319,11 @@ footer {
   width: 100%;
   margin-top: 50px;
 }
+footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 footer #copyright {
   height: 45px;
   background-color: #00354C;
@@ -1440,6 +1445,11 @@ header {
   font-size: 18px;
   padding-top: 25px;
   padding-bottom: 15px;
+}
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 header nav > ul > li {
   display: inline-block;
@@ -1709,8 +1719,6 @@ header img {
   }
 }
 
-
-
 .layout-header {
   background-color: #004b72;
   color: #fff;
@@ -1731,13 +1739,6 @@ header img {
 .layout-content p > .underlined:after {
   border-color: #004b72;
 }
-
-#server-logs-files-list {
-  list-style-type: circle;
-  margin: 15px 0px 15px 0px;
-  padding: 0px 0px 0px 30px;
-}
-
 
 /* ==========================================================================
    Helper classes
@@ -2265,11 +2266,6 @@ h2 {
   font-style: italic;
   font-weight: normal;
   font-family: 'Noto Serif', sans-serif;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 a {
   color: #49b2d7;

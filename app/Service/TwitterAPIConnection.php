@@ -7,12 +7,15 @@ use GuzzleHttp\Subscriber\Oauth\Oauth1;
 
 class TwitterAPIConnection
 {
+    /**
+     * @return \GuzzleHttp\Client
+     */
     public function connection()
     {
-        $consumerKey = env('CONSUMER_KEY');
-        $consumerSecret = env('CONSUMER_SECRET');
-        $token = env('TOKEN');
-        $tokenSecret = env('TOKEN_SECRET');
+        $consumerKey = env('TWITTER_CONSUMER_KEY');
+        $consumerSecret = env('TWITTER_CONSUMER_SECRET');
+        $token = env('TWITTER_TOKEN');
+        $tokenSecret = env('TWITTER_TOKEN_SECRET');
         $stack = HandlerStack::create();
 
         $middleware = new Oauth1([

@@ -44,8 +44,10 @@ class StoreRating extends FormRequest
           'exit.required'  => 'Ausstieg kann nicht leer sein.',
           'exit.exists' => 'Ausstieg wurde nicht gefunden.',
           'trainNumber.required' => 'Zugnummer kann nicht leer sein.',
-          'trainNumber.regex' => 'Ungülitges Format.',
-          'trainNumber.exists' => 'Zugnummer wurde nicht gefunden',
+          'trainNumber.regex' => 'Ungültiges Format.',
+          'trainNumber.exists' => 'Zugnummer wurde nicht gefunden.',
+          'date.required' => 'Datum kann nicht leer sein.',
+          'date.date_format' => 'Ungültiges Format.',
           'rating.required' => 'Bitte geben Sie Ihre Zufriedenheit an.',
           'rating.regex' => 'Ungültiges Format.'
         ];

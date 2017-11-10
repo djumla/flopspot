@@ -36,8 +36,6 @@ class DbXmlParser extends Command
 
     /**
      * Create a new command instance.
-     *
-     * @return void
      */
 
     public function __construct()
@@ -111,6 +109,7 @@ class DbXmlParser extends Command
                                 $stations[trim((string) $via)] = (string) $via;
                             }
                         }
+
                         if (strlen($destination->destinationName) !== 0) {
                             $stations[trim((string) $destination->destinationName)] = (string) $destination->destinationName;
                         }
@@ -136,16 +135,16 @@ class DbXmlParser extends Command
         foreach ($xmls as $xml) {
             foreach ($xml->xpath("//tracks/track/trains/train") as $train) {
                 if ((string) $train->traintypes->traintype === "ICE") {
-                    $numbers = $train->trainNumbers->trainNumber;
+                    $number = $train->trainNumbers->trainNumber;
 
-                    $types = $train->traintypes->traintype;
+                    $type = $train->traintypes->traintype;
 
                     /**
                       * This line is based on the database structure
                       * There is no table for train types because there is just the ICE which supports Wifi in trains
                       * In this case, train type and number gonna be stored as a whole (Type + Number = ICE 200)
                     */
-                    $trainNumbers[] = $types." ".$numbers;
+                    $trainNumbers[] = $type ." ". $number;
                 }
             }
         }
@@ -169,6 +168,7 @@ class DbXmlParser extends Command
             $db->station= $station;
             $db->save();
         }
+
         foreach ($trainNumbers as $trainNumber) {
             $db = new TrainNumber;
             $db->trainNumber = $trainNumber;

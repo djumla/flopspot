@@ -24,7 +24,7 @@
                     Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann.
                     Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
                 </p>
-                </br>
+                <br/>
                 <p>
                     <strong class="underlined">Auskunft, Löschung, Sperrung</strong>
                 </p>
@@ -33,7 +33,7 @@
                     den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.
                     Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.
                 </p>
-                </br>
+                <br/>
                 <p>
                     <strong class="underlined">Server-Log-Files</strong>
                 </p>
@@ -41,7 +41,7 @@
                     Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files,
                     die Ihr Browser automatisch an uns übermittelt. Dies sind:
                 </p>
-                <ul id="server-logs-files-list">
+                <ul>
                     <li>Browsertyp/ Browserversion</li>
                     <li>verwendetes Betriebssystem</li>
                     <li>Referrer URL</li>

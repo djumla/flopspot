@@ -11,21 +11,21 @@
             <p>
                 <h2 class="underlined">djumla GmbH</h2>
                 Alte Wallgasse 6
-                </br>
+                <br/>
                 50672 Köln
             </p>
             <p>
                 <strong class="underlined">Vertreten durch:</strong>
-                </br>
+                <br/>
                 Herr David Jardin
             </p>
             <p>
                 <strong class="underlined">
                     Kontakt:
                 </strong>
-                </br>
+                <br/>
                 Telefon: +49 221 677 863 52 0
-                </br>
+                <br/>
                 E-Mail:	info@djumla.de
             </p>
             <p>
@@ -39,20 +39,20 @@
             </p>
             <p>
                 <strong class="underlined">Umsatzsteuer-ID:</strong>
-                </br>
+                <br/>
                 Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:
                 </br>
                 DE269200460
             </p>
             <p>
                 <strong class="underlined">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong>
-                </br>
+                <br/>
                 David Jardin
-                </br>
+                <br/>
                 Alte Wallgasse 6
-                </br>
+                <br/>
                 50672 Köln
-                </br>
+                <br/>
                 Quelle: http://www.e-recht24.de
             </p>
             <p>

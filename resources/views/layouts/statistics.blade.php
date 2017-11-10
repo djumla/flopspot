@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends("layouts.headLayout")
 
 @section('scripts')
 <script
