@@ -892,8 +892,9 @@ main #rating {
   position: relative;
 }
 main form > input[type="submit"] {
-  width: 350px;
-  height: 50px;
+  width: 100%;
+  max-width: 350px;
+  padding: 5px;
   display: block;
   margin: 0 auto;
   background-color: #004b72;
@@ -903,12 +904,6 @@ main form > input[type="submit"] {
   font-family: 'Noto Serif', sans-serif;
   font-size: 24px;
   font-style: italic;
-}
-@media (max-width: 950px) {
-  main form > input[type="submit"] {
-    width: 300px;
-    height: 40px;
-  }
 }
 #info {
   display: -webkit-box;
@@ -1203,8 +1198,9 @@ main form > input[type="submit"] {
 }
 
 main form > input[type="submit"] {
-  width: 350px;
-  height: 50px;
+  width: 100%;
+  max-width: 350px;
+  padding: 5px;
   display: block;
   margin: 0 auto;
   background-color: #004b72;
@@ -1214,12 +1210,6 @@ main form > input[type="submit"] {
   font-family: 'Noto Serif', sans-serif;
   font-size: 24px;
   font-style: italic;
-}
-@media (max-width: 950px) {
-  main form > input[type="submit"] {
-    width: 300px;
-    height: 40px;
-  }
 }
 
 #rating-section {
