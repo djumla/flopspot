@@ -94,12 +94,10 @@
 </template>
 
 <script>
-import Vue from 'vue';
 import Autocomplete from 'vue2-autocomplete-js';
 import Datepicker from 'vuejs-datepicker';
 import Axios from 'axios';
-import VueRouter from 'vue-router';
-Vue.use(VueRouter);
+
 
 let state = {
     date: new Date()
@@ -331,9 +329,3 @@ export default {
   }
 };
 </script>
-<style>
-    .calendar {
-        z-index: 1000;
-        width:100%;
-    }
-</style>

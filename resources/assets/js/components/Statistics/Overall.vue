@@ -1,5 +1,5 @@
 <template>
-<section id="rating-section">
+<section id="rating-section" class="wrapper">
   <h1>Gesamtstatistik der letzten sechs Monate</h1>
   <div class="chart-container">
     <canvas id="history"></canvas>
@@ -56,9 +56,13 @@ export default {
           display: true,
           labels: {
             fontColor: '#fff',
-            fontSize: 18,
+            fontSize: 16,
           }
         }
+      }
+
+      if(window.innerWidth == 900) {
+          return options.legend.display.false;
       }
 
       let chart = new Chart(ctx, {

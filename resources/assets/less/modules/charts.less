@@ -1,46 +1,28 @@
 @import '../variables.less';
 
-#rating-section {
-  width: 85%;
-  max-width: 1600px;
-  height: 700px;
-  margin: 0 auto;
-  background-color: @darkBlue;
 
+#rating-section {
   h1 {
     text-align: center;
     color: @white;
-    padding-top: 35px;
+    padding: 30px;
   }
 
+  position: relative;
+  background-color: @darkBlue;
+
   .chart-container {
-    width: 800px;
-    height: 800px;
-    margin: 0 auto;
-    padding-top: 60px;
-    @media(max-width: 1000px) {
-      width: 700px;
-      height: 700px;
+    padding-top: 50px;
+    padding-bottom: 200px;
+    margin: auto;
+    position: relative;
+
+    @media(min-width: 1680px) {
+      width: 65vw;
     }
-    @media(max-width: 850px) {
-      width: 650px;
-      height: 650px;
-    }
-    @media(max-width: 780px) {
-      width: 550px;
-      height: 550px;
-    }
+
     @media(max-width: 700px) {
-      width: 480px;
-      height: 480px;
-    }
-    @media(max-width: 550px) {
-      width: 400px;
-      height: 400px;
-    }
-    @media(max-width: 480px) {
-      width: 340px;
-      height: 340px;
+      width: 85vw;
     }
   }
 }

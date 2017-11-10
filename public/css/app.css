@@ -1027,57 +1027,28 @@ main form > input[type="submit"] {
   font-size: 13px;
 }
 #rating-section {
-  width: 85%;
-  max-width: 1600px;
-  height: 700px;
-  margin: 0 auto;
+  position: relative;
   background-color: #004b72;
 }
 #rating-section h1 {
   text-align: center;
   color: #fff;
-  padding-top: 35px;
+  padding: 30px;
 }
 #rating-section .chart-container {
-  width: 800px;
-  height: 800px;
-  margin: 0 auto;
-  padding-top: 60px;
+  padding-top: 50px;
+  padding-bottom: 200px;
+  margin: auto;
+  position: relative;
 }
-@media (max-width: 1000px) {
+@media (min-width: 1680px) {
   #rating-section .chart-container {
-    width: 700px;
-    height: 700px;
-  }
-}
-@media (max-width: 850px) {
-  #rating-section .chart-container {
-    width: 650px;
-    height: 650px;
-  }
-}
-@media (max-width: 780px) {
-  #rating-section .chart-container {
-    width: 550px;
-    height: 550px;
+    width: 65vw;
   }
 }
 @media (max-width: 700px) {
   #rating-section .chart-container {
-    width: 480px;
-    height: 480px;
-  }
-}
-@media (max-width: 550px) {
-  #rating-section .chart-container {
-    width: 400px;
-    height: 400px;
-  }
-}
-@media (max-width: 480px) {
-  #rating-section .chart-container {
-    width: 340px;
-    height: 340px;
+    width: 85vw;
   }
 }
 .error {
@@ -1213,57 +1184,28 @@ main form > input[type="submit"] {
 }
 
 #rating-section {
-  width: 85%;
-  max-width: 1600px;
-  height: 700px;
-  margin: 0 auto;
+  position: relative;
   background-color: #004b72;
 }
 #rating-section h1 {
   text-align: center;
   color: #fff;
-  padding-top: 35px;
+  padding: 30px;
 }
 #rating-section .chart-container {
-  width: 800px;
-  height: 800px;
-  margin: 0 auto;
-  padding-top: 60px;
+  padding-top: 50px;
+  padding-bottom: 200px;
+  margin: auto;
+  position: relative;
 }
-@media (max-width: 1000px) {
+@media (min-width: 1680px) {
   #rating-section .chart-container {
-    width: 700px;
-    height: 700px;
-  }
-}
-@media (max-width: 850px) {
-  #rating-section .chart-container {
-    width: 650px;
-    height: 650px;
-  }
-}
-@media (max-width: 780px) {
-  #rating-section .chart-container {
-    width: 550px;
-    height: 550px;
+    width: 65vw;
   }
 }
 @media (max-width: 700px) {
   #rating-section .chart-container {
-    width: 480px;
-    height: 480px;
-  }
-}
-@media (max-width: 550px) {
-  #rating-section .chart-container {
-    width: 400px;
-    height: 400px;
-  }
-}
-@media (max-width: 480px) {
-  #rating-section .chart-container {
-    width: 340px;
-    height: 340px;
+    width: 85vw;
   }
 }
 
