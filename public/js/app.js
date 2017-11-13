@@ -13528,19 +13528,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
 
 
-var state = {
-  date: new Date()
-};
+/*let state = {
+    date: new Date()
+};*/
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth();
+    var year = date.getFullYear();
+    console.log(day);
     return {
-      state: state
+      state: {
+        date: new Date(),
+        disabled: {
+          to: new Date(year, month - 3),
+          from: new Date(year, month, day)
+        }
+      }
     };
   },
 
@@ -13615,7 +13627,7 @@ var state = {
       var date = document.getElementById('datepicker').value;
       var rating = this.getSelectedRating();
       var self = this;
-
+      console.log(this.disableDateAfter());
       var iso = this.dateFormat(date);
 
       __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('api/rating/save', {
@@ -14641,7 +14653,8 @@ var render = function() {
                   "calendar-class": "calendar",
                   id: "datepicker",
                   value: _vm.state.date,
-                  format: "dd.MM.yyyy"
+                  format: "dd.MM.yyyy",
+                  disabled: _vm.state.disabled
                 }
               })
             ],

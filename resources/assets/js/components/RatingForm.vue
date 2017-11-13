@@ -49,7 +49,8 @@
           calendar-class="calendar"
           id="datepicker"
           :value="state.date"
-          format="dd.MM.yyyy">
+          format="dd.MM.yyyy"
+          :disabled="state.disabled">
           </datepicker>
         </label>
     </div>
@@ -99,15 +100,27 @@ import Datepicker from 'vuejs-datepicker';
 import Axios from 'axios';
 
 
-let state = {
+/*let state = {
     date: new Date()
-};
+};*/
+
 
 export default {
   data() {
-    return {
-      state
-    }
+      let date = new Date();
+      let day = date.getDate();
+      let month = date.getMonth();
+      let year = date.getFullYear();
+        console.log(day);
+      return{
+          state: {
+              date: new Date(),
+              disabled: {
+                  to: new Date(year, month-3),
+                  from: new Date(year, month, day)
+              }
+          }
+      }
   },
   components: {
     Autocomplete,
@@ -180,7 +193,7 @@ export default {
       let date = document.getElementById('datepicker').value;
       let rating = this.getSelectedRating();
       let self = this;
-
+        console.log(this.disableDateAfter());
       let iso = this.dateFormat(date);
 
       Axios.post('api/rating/save', {
