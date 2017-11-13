@@ -207,7 +207,7 @@ export default {
             self.showSucceed();
             setTimeout(function () {
                 window.location.replace("/statistic");
-            }, 2000);
+            }, 2500);
         })
         .catch(function(error) {
           self.showError(error);
@@ -345,13 +345,18 @@ export default {
 
     showSucceed() {
         let div = document.createElement('div');
-        let msg = document.createTextNode('Vielen Dank für deine Abstimmung!');
+        let msg = document.createTextNode(
+            'Vielen Dank für deine Abstimmung! Sie werden jeden Moment weitergeleitet!'
+        );
+        let blackScreen = document.createElement('div');
 
         div.id = "succeed";
+        blackScreen.id = "blackScreen";
 
         div.appendChild(msg);
 
-        document.getElementById('rating').appendChild(div);
+        document.body.appendChild(div);
+        document.body.appendChild(blackScreen);
     }
   }
 };

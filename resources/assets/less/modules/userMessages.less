@@ -43,7 +43,7 @@
 }
 
 #succeed {
-  width: 100%;
+  width: 50vw;
   background-color: #00ed97;
   text-align: center;
   color: @white;
@@ -52,4 +52,30 @@
   position: absolute;
   box-sizing: border-box;
   top: 50%;
+  z-index: 1000;
+  font-family: @poppins;
+  font-size: 20px;
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  @media(max-width: 850px) {
+    width: 75vw;
+  }
 }
+
+#blackScreen {
+  content: ' ';
+  height: 100%;
+  width: 100%;
+  background-color: @darkBlue;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  position: fixed;
+}
+

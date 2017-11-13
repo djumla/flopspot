@@ -450,6 +450,7 @@ body {
   background-color: #0093BC;
   font-size: 18px;
   font-family: 'Open Sans:300', sans-serif;
+  position: relative;
 }
 h1 {
   font-weight: normal;
@@ -1121,7 +1122,7 @@ main form > input[type="submit"] {
   top: 0px;
 }
 #succeed {
-  width: 100%;
+  width: 50vw;
   background-color: #00ed97;
   text-align: center;
   color: #fff;
@@ -1131,6 +1132,31 @@ main form > input[type="submit"] {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   top: 50%;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+@media (max-width: 850px) {
+  #succeed {
+    width: 75vw;
+  }
+}
+#blackScreen {
+  content: ' ';
+  height: 100%;
+  width: 100%;
+  background-color: #004b72;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  position: fixed;
 }
 .calendar {
   z-index: 1000 !important;
