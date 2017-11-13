@@ -3,7 +3,7 @@
 @section("body")
     <div id="app">
         <header class="wrapper">
-            <img src="/assets/logo_rgb_inverted_dark.svg"></img>
+            <a href="/"> <img src="/assets/logo_rgb_inverted_dark.svg"/></a>
             <nav>
                 <ul>
                     <li><a id="home" href="/">Startseite</a></li>
