@@ -193,7 +193,7 @@ export default {
       let date = document.getElementById('datepicker').value;
       let rating = this.getSelectedRating();
       let self = this;
-        console.log(this.disableDateAfter());
+
       let iso = this.dateFormat(date);
 
       Axios.post('api/rating/save', {
