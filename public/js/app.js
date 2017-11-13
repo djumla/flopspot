@@ -13627,7 +13627,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var date = document.getElementById('datepicker').value;
       var rating = this.getSelectedRating();
       var self = this;
-      console.log(this.disableDateAfter());
+
       var iso = this.dateFormat(date);
 
       __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('api/rating/save', {
