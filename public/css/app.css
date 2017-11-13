@@ -911,6 +911,7 @@ main #rating {
 main form > input[type="submit"] {
   width: 100%;
   max-width: 350px;
+  padding: 5px;
   display: block;
   margin: 0 auto;
   background-color: #004b72;
@@ -960,6 +961,7 @@ main form > input[type="submit"] {
 #info #about-me div {
   width: 85%;
   line-height: 1.5em;
+  font-family: 'Poppins', sans-serif;
 }
 #info #statistics {
   width: 20%;
