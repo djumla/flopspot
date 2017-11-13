@@ -117,7 +117,7 @@ export default {
               date: new Date(),
               disabled: {
                   to: new Date(year, month-3),
-                  from: new Date(year, month, day)
+                  from: new Date(year, month, day+1)
               }
           }
       }
