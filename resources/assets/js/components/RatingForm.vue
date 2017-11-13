@@ -111,7 +111,7 @@ export default {
       let day = date.getDate();
       let month = date.getMonth();
       let year = date.getFullYear();
-        console.log(day);
+
       return{
           state: {
               date: new Date(),
@@ -330,12 +330,12 @@ export default {
           document.getElementById('rating-error').remove();
       }
     },
-      /**
-       *
-       * @param date
-       *
-       * @returns {string}
-       */
+  /**
+   *
+   * @param date
+   *
+   * @returns {string}
+   */
     dateFormat(date) {
         return date.substring(6,10)+"-"+date.substring(3,5)+"-"+date.substring(0,2);
     }

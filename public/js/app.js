@@ -13544,7 +13544,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     var day = date.getDate();
     var month = date.getMonth();
     var year = date.getFullYear();
-    console.log(day);
+
     return {
       state: {
         date: new Date(),
