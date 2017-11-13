@@ -10,7 +10,15 @@ crossorigin="anonymous"
 
 @section('body')
   <div id="app">
-    <flopspot-header></flopspot-header>
+    <header class="wrapper">
+      <img src="/assets/logo_rgb_inverted_dark.svg"></img>
+      <nav>
+        <ul>
+          <li><a id="home" href="/">Startseite</a></li>
+          <li><a class="active" id="statistic" href="/statistic">Statistiken</a></li>
+        </ul>
+      </nav>
+    </header>
     <flopspot-overall></flopspot-overall>
     <flopspot-footer></flopspot-footer>
   </div>

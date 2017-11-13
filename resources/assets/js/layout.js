@@ -22,14 +22,12 @@ Vue.config.debug = false;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 
 const app = new Vue({
     el: '#app',
 
     components: {
-        'flopspot-header': Header,
         'flopspot-footer': Footer
     }
 });

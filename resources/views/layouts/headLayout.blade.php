@@ -13,6 +13,7 @@
 
     @yield('scripts')
   </head>
+
   <body>
     @yield('body')
   </body>

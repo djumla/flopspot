@@ -11954,146 +11954,9 @@ exports.clearImmediate = clearImmediate;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(8)))
 
 /***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(4)
-/* script */
-var __vue_script__ = __webpack_require__(20)
-/* template */
-var __vue_template__ = __webpack_require__(21)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Header.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1d126904", Component.options)
-  } else {
-    hotAPI.reload("data-v-1d126904", Component.options)
-' + '  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 20 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    this.setActiveLink();
-  },
-
-  methods: {
-    /**
-     * Class active will change the current navigation link color
-     * 
-     * @return {void}
-     */
-    setActiveLink: function setActiveLink() {
-      var active = void 0;
-
-      switch (window.location.pathname) {
-        case "/statistic":
-          active = document.getElementById("statistic").classList.add("active");
-          break;
-
-        case "/":
-          active = document.getElementById("home").classList.add("active");
-          break;
-        default:
-      }
-    }
-  }
-});
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("header", { staticClass: "wrapper" }, [
-      _c("img", { attrs: { src: "/assets/logo_rgb_inverted_dark.svg" } }),
-      _vm._v(" "),
-      _c("nav", [
-        _c("ul", [
-          _c("li", [
-            _c("a", { attrs: { id: "home", href: "/" } }, [
-              _vm._v("Startseite")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { id: "statistic", href: "/statistic" } }, [
-              _vm._v("Statistiken")
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1d126904", module.exports)
-  }
-}
-
-/***/ }),
+/* 19 */,
+/* 20 */,
+/* 21 */,
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13326,14 +13189,12 @@ module.exports = __webpack_require__(172);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Header_vue__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Header_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Header_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Footer_vue__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Footer_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_RatingForm_vue__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_RatingForm_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_RatingForm_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_AboutMe_vue__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_AboutMe_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_AboutMe_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Footer_vue__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Footer_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_RatingForm_vue__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_RatingForm_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_RatingForm_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_AboutMe_vue__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_AboutMe_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_AboutMe_vue__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -13361,15 +13222,13 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.debug = false;
 
 
 
-
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   el: '#app',
 
   components: {
-    'flopspot-header': __WEBPACK_IMPORTED_MODULE_1__components_Header_vue___default.a,
-    'flopspot-form': __WEBPACK_IMPORTED_MODULE_3__components_RatingForm_vue___default.a,
-    'flopspot-service': __WEBPACK_IMPORTED_MODULE_4__components_AboutMe_vue___default.a,
-    'flopspot-footer': __WEBPACK_IMPORTED_MODULE_2__components_Footer_vue___default.a
+    'flopspot-form': __WEBPACK_IMPORTED_MODULE_2__components_RatingForm_vue___default.a,
+    'flopspot-service': __WEBPACK_IMPORTED_MODULE_3__components_AboutMe_vue___default.a,
+    'flopspot-footer': __WEBPACK_IMPORTED_MODULE_1__components_Footer_vue___default.a
   }
 });
 

@@ -21,14 +21,12 @@ Vue.config.debug = false;
  */
 
 import Overall from './components/Statistics/Overall.vue';
-import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 
 const app = new Vue({
   el: '#app',
 
   components: {
-    'flopspot-header': Header,
     'flopspot-overall': Overall,
     'flopspot-footer': Footer
   }

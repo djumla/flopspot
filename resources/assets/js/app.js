@@ -21,7 +21,6 @@ Vue.config.debug = false;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 import Form from './components/RatingForm.vue';
 import Service from './components/AboutMe.vue';
@@ -30,7 +29,6 @@ const app = new Vue({
   el: '#app',
 
   components: {
-    'flopspot-header': Header,
     'flopspot-form': Form,
     'flopspot-service': Service,
     'flopspot-footer': Footer

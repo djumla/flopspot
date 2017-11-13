@@ -11,8 +11,17 @@
 @endsection
 
 @section('body')
+
   <div id="app">
-    <flopspot-header></flopspot-header>
+    <header class="wrapper">
+      <img src="/assets/logo_rgb_inverted_dark.svg"></img>
+      <nav>
+        <ul>
+          <li><a class="active" id="home" href="/">Startseite</a></li>
+          <li><a id="statistic" href="/statistic">Statistiken</a></li>
+        </ul>
+      </nav>
+    </header>
     <flopspot-form></flopspot-form>
     <flopspot-service></flopspot-service>
     <flopspot-footer></flopspot-footer>
