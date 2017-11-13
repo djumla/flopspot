@@ -13635,7 +13635,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).then(function (response) {
         self.showSucceed();
         setTimeout(function () {
-          window.location.replace("/statistic");
+          window.location.href = "/statistic";
         }, 2500);
       }).catch(function (error) {
         self.showError(error);
@@ -13780,6 +13780,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     dateFormat: function dateFormat(date) {
       return date.substring(6, 10) + "-" + date.substring(3, 5) + "-" + date.substring(0, 2);
     },
+
+
+    /**
+     * Called after form was successful submitted
+     *
+     * @return {void}
+     */
     showSucceed: function showSucceed() {
       var div = document.createElement('div');
       var msg = document.createTextNode('Vielen Dank für deine Abstimmung! Sie werden jeden Moment weitergeleitet!');

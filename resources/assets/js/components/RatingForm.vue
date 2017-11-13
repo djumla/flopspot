@@ -200,7 +200,7 @@ export default {
         .then(function(response) {
             self.showSucceed();
             setTimeout(function () {
-                window.location.replace("/statistic");
+                window.location.href = "/statistic";
             }, 2500);
         })
         .catch(function(error) {
@@ -337,7 +337,13 @@ export default {
         return date.substring(6,10)+"-"+date.substring(3,5)+"-"+date.substring(0,2);
     },
 
-    showSucceed() {
+
+      /**
+       * Called after form was successful submitted
+       *
+       * @return {void}
+       */
+      showSucceed() {
         let div = document.createElement('div');
         let msg = document.createTextNode(
             'Vielen Dank für deine Abstimmung! Sie werden jeden Moment weitergeleitet!'
@@ -351,7 +357,7 @@ export default {
 
         document.body.appendChild(div);
         document.body.appendChild(blackScreen);
-    }
+      }
   }
 };
 </script>
