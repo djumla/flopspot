@@ -13344,6 +13344,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /**
+ * Production config
+ * May set false to true in development
+ */
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.productionTip = false;
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.devtools = false;
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.config.debug = false;
+
+/**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
@@ -13609,7 +13617,7 @@ var state = {
       var self = this;
 
       var iso = this.dateFormat(date);
-
+      console.log("hi");
       __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('api/rating/save', {
         entrance: entrance,
         exit: exit,

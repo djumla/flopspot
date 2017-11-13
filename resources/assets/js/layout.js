@@ -7,6 +7,15 @@
 //require('./bootstrap');
 import Vue from 'vue';
 
+
+/**
+ * Production config
+ * May set false to true in development
+ */
+Vue.config.productionTip = false;
+Vue.config.devtools = false;
+Vue.config.debug = false;
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
