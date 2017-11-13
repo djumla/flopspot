@@ -99,12 +99,6 @@ import Autocomplete from 'vue2-autocomplete-js';
 import Datepicker from 'vuejs-datepicker';
 import Axios from 'axios';
 
-
-/*let state = {
-    date: new Date()
-};*/
-
-
 export default {
   data() {
       let date = new Date();

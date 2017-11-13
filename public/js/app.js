@@ -13534,10 +13534,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-/*let state = {
-    date: new Date()
-};*/
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var date = new Date();
