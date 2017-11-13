@@ -204,7 +204,10 @@ export default {
           rating: rating
         })
         .then(function(response) {
-          window.location.replace("/statistic");
+            self.showSucceed();
+            setTimeout(function () {
+                window.location.replace("/statistic");
+            }, 2000);
         })
         .catch(function(error) {
           self.showError(error);
@@ -330,14 +333,25 @@ export default {
           document.getElementById('rating-error').remove();
       }
     },
-  /**
-   *
-   * @param date
-   *
-   * @returns {string}
-   */
+      /**
+       *
+       * @param date
+       *
+       * @returns {string}
+       */
     dateFormat(date) {
         return date.substring(6,10)+"-"+date.substring(3,5)+"-"+date.substring(0,2);
+    },
+
+    showSucceed() {
+        let div = document.createElement('div');
+        let msg = document.createTextNode('Vielen Dank für deine Abstimmung!');
+
+        div.id = "succeed";
+
+        div.appendChild(msg);
+
+        document.getElementById('rating').appendChild(div);
     }
   }
 };
