@@ -991,16 +991,14 @@ main form > input[type="submit"] {
   color: #fff;
 }
 @media (max-width: 950px) {
+  #info #statistics {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 950px) {
   #info #about-me,
   #info #statistics {
     width: 100%;
-  }
-  #info #statistics {
-    margin-top: 20px;
-  }
-  #info #statistics img {
-    width: 80%;
-    margin-top: 10px;
   }
 }
 .autocomplete,

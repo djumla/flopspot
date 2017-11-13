@@ -103,10 +103,8 @@ class DbXmlParser extends Command
                             }
                         }
 
-                        $destinationName = (string) $destination->destinationName;
-
-                        if (strlen($destinationName) !== 0) {
-                            $stations[trim($destinationName)] = $destinationName;
+                        if (strlen($destination->destinationName) !== 0) {
+                            $stations[trim((string) $destination->destinationName)] = (string) $destination->destinationName;
                         }
                     }
                 }

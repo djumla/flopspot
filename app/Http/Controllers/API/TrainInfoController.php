@@ -18,7 +18,7 @@ class TrainInfoController extends Controller
      */
     public function getStations(Request $request)
     {
-        return \App\Station::where('station', 'like', $request->station.'%')->limit(8)->get();
+        return \App\Station::where('station', 'like', '%'.$request->station.'%')->limit(8)->get();
     }
 
     /**
