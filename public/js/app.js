@@ -13617,7 +13617,7 @@ var state = {
       var self = this;
 
       var iso = this.dateFormat(date);
-      console.log("hi");
+
       __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('api/rating/save', {
         entrance: entrance,
         exit: exit,

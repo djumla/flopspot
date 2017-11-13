@@ -182,7 +182,7 @@ export default {
       let self = this;
 
       let iso = this.dateFormat(date);
-        console.log("hi");
+
       Axios.post('api/rating/save', {
           entrance: entrance,
           exit: exit,
