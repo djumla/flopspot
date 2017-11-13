@@ -13,7 +13,7 @@ import Vue from 'vue';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import Pie from './components/Statistics/Overall.vue';
+import Overall from './components/Statistics/Overall.vue';
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 
@@ -22,7 +22,7 @@ const app = new Vue({
 
   components: {
     'flopspot-header': Header,
-    'flopspot-pie': Pie,
+    'flopspot-overall': Overall,
     'flopspot-footer': Footer
   }
 });

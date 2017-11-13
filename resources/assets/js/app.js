@@ -20,10 +20,12 @@ import Service from './components/AboutMe.vue';
 
 const app = new Vue({
   el: '#app',
+
   components: {
     'flopspot-header': Header,
-    'flopspot-footer': Footer,
     'flopspot-form': Form,
-    'flopspot-service': Service
+    'flopspot-service': Service,
+    'flopspot-footer': Footer
   }
 });
+

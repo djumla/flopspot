@@ -11,7 +11,7 @@ crossorigin="anonymous"
 @section('body')
   <div id="app">
     <flopspot-header></flopspot-header>
-    <flopspot-pie></flopspot-pie>
+    <flopspot-overall></flopspot-overall>
     <flopspot-footer></flopspot-footer>
   </div>
   <script src="{{ asset('js/statistics.js') }}"></script>
