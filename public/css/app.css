@@ -1042,7 +1042,7 @@ main form > input[type="submit"] {
   display: block;
   background: #f8f8f8;
   color: #2b2b2b;
-  padding: 5px 5px 5px 10px;
+  padding: 10px;
 }
 .autocomplete ul li a:hover,
 .autocomplete ul li.focus-list a {
@@ -1051,10 +1051,14 @@ main form > input[type="submit"] {
 }
 .autocomplete ul li a span,
 .autocomplete ul li a .autocomplete-anchor-label {
+  /*
+  * Enable if you want to show the label.
+  *
   display: block;
   margin-top: 3px;
   color: grey;
-  font-size: 13px;
+  font-size: 13px;*/
+  display: none;
 }
 #rating-section {
   position: relative;
