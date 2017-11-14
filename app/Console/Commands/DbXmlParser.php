@@ -131,7 +131,6 @@ class DbXmlParser extends Command
                     $number = $train->trainNumbers->trainNumber;
 
                     $type = $train->traintypes->traintype;
-
                     /**
                       * This line is based on the database structure
                       * There is no table for train types because there is just the ICE which supports Wifi in trains
@@ -142,7 +141,7 @@ class DbXmlParser extends Command
             }
         }
 
-        return $trainNumbers;
+        return array_unique($trainNumbers);
     }
 
     /**
