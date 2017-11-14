@@ -23,10 +23,9 @@
             <br/>
             <p>
                 <strong class="underlined">Kontakt</strong>
-                </br>
+                <br/>
                 E-Mail: info@djumla.de
             </p>
-            <br/>
             <p>
                 Telefon: +49 221 677 863 52 0
                 </br>
