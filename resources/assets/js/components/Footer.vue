@@ -10,7 +10,7 @@
         <h1 class="underlined">Werde ein Fan von flopspot</h1>
         <div>
           <h2>Folge uns auf Facebook oder Twitter</h2>
-          <a href="#"><img src="/assets/facebook.png"></img></a>
+          <a href="https://www.facebook.com/Flopspot-160124607925841/"><img src="/assets/facebook.png"></img></a>
           <a href="https://twitter.com/FlopspotDE/"><img src="/assets/twitter.png"></img></a>
         </div>
       </section>

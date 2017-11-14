@@ -73,10 +73,14 @@ footer {
       color: @white;
     }
 
+    #flex-service {
+      width: 50%;
+      //padding-right: 50px;
+    }
+
     #flex-service,
     #tweets {
       margin-top: 45px;
-      padding-right: 50px;
     }
     @media (max-width: 805px) {
       flex-direction: column;
@@ -85,20 +89,15 @@ footer {
         margin-top: 50px;
       }
 
-      #flex-service {
-        height: 100%;
-      }
-
-      #flex-service,
-      #tweets {
-        width: 100%;
-      }
-
       #tweets {
         disply: flex;
         order: -1;
         margin-top: 20px;
         margin-left: 0;
+      }
+
+      #tweets, #flex-service {
+        width: 100%;
       }
     }
   }

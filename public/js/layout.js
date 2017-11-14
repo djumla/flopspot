@@ -12636,9 +12636,15 @@ var staticRenderFns = [
             _c("div", [
               _c("h2", [_vm._v("Folge uns auf Facebook oder Twitter")]),
               _vm._v(" "),
-              _c("a", { attrs: { href: "#" } }, [
-                _c("img", { attrs: { src: "/assets/facebook.png" } })
-              ]),
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "https://www.facebook.com/Flopspot-160124607925841/"
+                  }
+                },
+                [_c("img", { attrs: { src: "/assets/facebook.png" } })]
+              ),
               _vm._v(" "),
               _c("a", { attrs: { href: "https://twitter.com/FlopspotDE/" } }, [
                 _c("img", { attrs: { src: "/assets/twitter.png" } })

@@ -821,10 +821,12 @@ footer #service #tweets {
   width: 50%;
   color: #fff;
 }
+footer #service #flex-service {
+  width: 50%;
+}
 footer #service #flex-service,
 footer #service #tweets {
   margin-top: 45px;
-  padding-right: 50px;
 }
 @media (max-width: 805px) {
   footer #service {
@@ -836,13 +838,6 @@ footer #service #tweets {
   footer #service h1 {
     margin-top: 50px;
   }
-  footer #service #flex-service {
-    height: 100%;
-  }
-  footer #service #flex-service,
-  footer #service #tweets {
-    width: 100%;
-  }
   footer #service #tweets {
     disply: flex;
     -webkit-box-ordinal-group: 0;
@@ -850,6 +845,10 @@ footer #service #tweets {
             order: -1;
     margin-top: 20px;
     margin-left: 0;
+  }
+  footer #service #tweets,
+  footer #service #flex-service {
+    width: 100%;
   }
 }
 header {
@@ -908,6 +907,12 @@ main #satisfaction {
 }
 main #rating {
   position: relative;
+}
+@media (max-width: 650px) {
+  main h2 {
+    font-size: 24px;
+    line-height: 1.5em;
+  }
 }
 main form > input[type="submit"] {
   width: 100%;
