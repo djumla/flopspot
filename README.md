@@ -1,4 +1,4 @@
-# flopspot
+![flopspot Logo](/public/assets/logo.svg)
 
 # Overview 
 
