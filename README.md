@@ -1,3 +1,5 @@
+![flopspot Logo](/public/assets/logo.svg)
+
 # flopspot
 
 # Overview 
