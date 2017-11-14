@@ -1,7 +1,5 @@
 ![flopspot Logo](/public/assets/logo.svg)
 
-# flopspot
-
 # Overview 
 
 This is an **open-source** project mainly written in **Laravel/Vue.js**. flopspot provides the opportunity to rate the WiFi functionality 
