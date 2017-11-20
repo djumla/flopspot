@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
-use App\Service\TwitterAPIConnection;
 use App\Http\Controllers\Controller;
+use App\Service\TwitterAPIConnection;
 
 class TwitterController extends Controller
 {

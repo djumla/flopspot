@@ -2,10 +2,9 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
 use App\Station;
 use App\TrainNumber;
+use Illuminate\Console\Command;
 
 class DbXmlParser extends Command
 {
@@ -17,11 +16,11 @@ class DbXmlParser extends Command
     protected $signature = 'xml:parse';
 
     /**
-      * Specify the path, in which the parser should go to
-      * Feel free to change the path if the folder structure has changed!
+     * Specify the path, in which the parser should go to
+     * Feel free to change the path if the folder structure has changed!
      *
      * @var string
-    */
+     */
     private $path = 'Services/DBTrainInfo/';
 
     /**
@@ -51,10 +50,10 @@ class DbXmlParser extends Command
     }
 
     /**
-    * @param  string $path  path to XMLs
-    *
-    * @return array
-    **/
+     * @param  string $path path to XMLs
+     *
+     * @return array
+     **/
     public function parse($path)
     {
         $xmls = [];
@@ -76,8 +75,7 @@ class DbXmlParser extends Command
     }
 
     /**
-
-    */
+     */
 
     /**
      * @param  string $path path to xml files
@@ -93,18 +91,18 @@ class DbXmlParser extends Command
         foreach ($xmls as $xml) {
             foreach ($xml->xpath("//tracks/track/trains/train") as $train) {
                 // Check if train type is equals ICE because thats the only train type which supports WiFi in trains
-                if ((string) $train->traintypes->traintype === "ICE") {
+                if ((string)$train->traintypes->traintype === "ICE") {
                     foreach ($train->xpath("//subtrains/subtrain/destination") as $destination) {
                         $vias = $destination->destinationVia;
 
                         foreach ($vias as $via) {
                             if (strlen($via) !== 0) {
-                                $stations[trim((string) $via)] = (string) $via;
+                                $stations[trim((string)$via)] = (string)$via;
                             }
                         }
 
                         if (strlen($destination->destinationName) !== 0) {
-                            $stations[trim((string) $destination->destinationName)] = (string) $destination->destinationName;
+                            $stations[trim((string)$destination->destinationName)] = (string)$destination->destinationName;
                         }
                     }
                 }
@@ -127,16 +125,16 @@ class DbXmlParser extends Command
 
         foreach ($xmls as $xml) {
             foreach ($xml->xpath("//tracks/track/trains/train") as $train) {
-                if ((string) $train->traintypes->traintype === "ICE") {
+                if ((string)$train->traintypes->traintype === "ICE") {
                     $number = $train->trainNumbers->trainNumber;
 
                     $type = $train->traintypes->traintype;
                     /**
-                      * This line is based on the database structure
-                      * There is no table for train types because there is just the ICE which supports Wifi in trains
-                      * In this case, train type and number gonna be stored as a whole (Type + Number = ICE 200)
-                    */
-                    $trainNumbers[] = $type ." ". $number;
+                     * This line is based on the database structure
+                     * There is no table for train types because there is just the ICE which supports Wifi in trains
+                     * In this case, train type and number gonna be stored as a whole (Type + Number = ICE 200)
+                     */
+                    $trainNumbers[] = $type . " " . $number;
                 }
             }
         }
@@ -157,7 +155,7 @@ class DbXmlParser extends Command
 
         foreach ($stations as $station) {
             $db = new Station;
-            $db->station= $station;
+            $db->station = $station;
             $db->save();
         }
 

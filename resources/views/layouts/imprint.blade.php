@@ -9,7 +9,7 @@
     <section class="layout-content wrapper">
         <div>
             <p>
-                <h2 class="underlined">djumla GmbH</h2>
+                <strong class="underlined">djumla GmbH</strong>
                 Alte Wallgasse 6
                 <br/>
                 50672 Köln
@@ -26,7 +26,7 @@
                 <br/>
                 Telefon: +49 221 677 863 52 0
                 <br/>
-                E-Mail:	info@djumla.de
+                E-Mail: info@djumla.de
             </p>
             <p>
                 <strong class="underlined">Registereintrag:</strong>

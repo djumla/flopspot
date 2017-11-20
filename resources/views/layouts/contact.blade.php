@@ -15,7 +15,7 @@
             </p>
             <br/>
             <p>
-                Alte Wallgasse 6<br />
+                Alte Wallgasse 6<br/>
                 50672 Köln
                 </br>
                 Deutschland

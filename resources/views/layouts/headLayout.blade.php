@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>flopspot - Bewerte das WLAN der DB</title>
     <meta name="description" content="flopspot - Bewerte das WLAN der DB">
@@ -9,11 +9,11 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif|Open+Sans|Poppins" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
 
-    <link rel="stylesheet" href="/css/app.css" >
+    <link rel="stylesheet" href="/css/app.css">
     @yield('captcha')
-  </head>
+</head>
 
-  <body>
-    @yield('body')
-  </body>
+<body>
+@yield('body')
+</body>
 </html>

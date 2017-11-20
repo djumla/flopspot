@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Response;
 use App\Http\Requests;
-use App\Station;
-use App\TrainNumber;
 use App\Rating;
-use GuzzleHttp\Client;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class RatingController extends Controller
 {
@@ -51,7 +47,7 @@ class RatingController extends Controller
      */
     public function pastSixMonth(\App\Rating $model)
     {
-        return $model->getCombinedRatings(date("n")-6, date("n"));
+        return $model->getCombinedRatings(date("n") - 6, date("n"));
     }
 
     /**

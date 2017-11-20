@@ -39,17 +39,17 @@ class StoreRating extends FormRequest
     public function messages()
     {
         return [
-          'entrance.required' => 'Einstieg kann nicht leer sein.',
-          'entrance.exists' => 'Einstieg wurde nicht gefunden.',
-          'exit.required'  => 'Ausstieg kann nicht leer sein.',
-          'exit.exists' => 'Ausstieg wurde nicht gefunden.',
-          'trainNumber.required' => 'Zugnummer kann nicht leer sein.',
-          'trainNumber.regex' => 'Ungültiges Format.',
-          'trainNumber.exists' => 'Zugnummer wurde nicht gefunden.',
-          'date.required' => 'Datum kann nicht leer sein.',
-          'date.date_format' => 'Ungültiges Format.',
-          'rating.required' => 'Bitte geben Sie Ihre Zufriedenheit an.',
-          'rating.regex' => 'Ungültiges Format.'
+            'entrance.required' => 'Einstieg kann nicht leer sein.',
+            'entrance.exists' => 'Einstieg wurde nicht gefunden.',
+            'exit.required' => 'Ausstieg kann nicht leer sein.',
+            'exit.exists' => 'Ausstieg wurde nicht gefunden.',
+            'trainNumber.required' => 'Zugnummer kann nicht leer sein.',
+            'trainNumber.regex' => 'Ungültiges Format.',
+            'trainNumber.exists' => 'Zugnummer wurde nicht gefunden.',
+            'date.required' => 'Datum kann nicht leer sein.',
+            'date.date_format' => 'Ungültiges Format.',
+            'rating.required' => 'Bitte geben Sie Ihre Zufriedenheit an.',
+            'rating.regex' => 'Ungültiges Format.'
         ];
     }
 }
