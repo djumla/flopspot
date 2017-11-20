@@ -215,7 +215,7 @@ export default {
 
     getValidationStatus(token) {
         let self = this;
-
+        console.log("before post");
         Axios.post('api/rating/reCaptchaHandler', {
             response: token
         })
@@ -223,6 +223,8 @@ export default {
                 if(response.data.success === true) {
                     grecaptcha.reset();
                     self.sendRating();
+                } else {
+                    console.log("else");
                 }
             })
             .catch(function(error) {
@@ -250,6 +252,7 @@ export default {
           });
 
           grecaptcha.execute();
+          console.log("executed");
 
       },
 
