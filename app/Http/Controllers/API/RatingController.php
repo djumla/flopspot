@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Station;
 use App\TrainNumber;
 use App\Rating;
+use GuzzleHttp\Client;
 
 class RatingController extends Controller
 {
@@ -74,5 +75,19 @@ class RatingController extends Controller
         $rating->rating = $request->rating;
 
         $rating->save();
+    }
+
+    public function reCaptchaHandler(Request $request)
+    {
+        $client = new \GuzzleHttp\Client();
+
+        $res = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
+            'form_params' => [
+                'secret' => env('RECAPTCHA_SECRET'),
+                'response' => $request->response
+            ]
+        ]);
+
+        return $res->getBody();
     }
 }

@@ -2,7 +2,7 @@
 <main class="wrapper">
   <h1 class="underlined">Hotspot Bewerten</h1>
   <h2>Bitte geben Sie die Daten zu Ihrer Zugverbindung an und bewerten Sie anschließend die Qualität Ihres Hotspots.</h2>
-  <form id="rating" v-on:submit.prevent="send($event)">
+  <form id="rating" v-on:submit.prevent="renderCaptcha()">
     <div id="flex-form">
       <div id="entrance-container" class="inputs">
         <label for="entrance">
@@ -43,16 +43,18 @@
           </autocomplete>
         </label>
       </div>
-      <label for="date">
-          Reisedatum
-          <datepicker
-          calendar-class="calendar"
-          id="datepicker"
-          :value="state.date"
-          format="dd.MM.yyyy"
-          :disabled="state.disabled">
-          </datepicker>
-        </label>
+      <div id="date-container" class="inputs">
+          <label for="date">
+              Reisedatum
+              <datepicker
+              calendar-class="calendar"
+              id="datepicker"
+              :value="state.date"
+              format="dd.MM.yyyy"
+              :disabled="state.disabled">
+              </datepicker>
+          </label>
+      </div>
     </div>
     <div id="satisfaction">Zufriedenheit</div>
     <div id="flex-thumbs">
@@ -89,12 +91,13 @@
         </div>
       </div>
     </div>
-    <input type="submit" value="Bewertung abgeben" />
+      <input id="ratingButton" type="submit" value="Abschicken" />
   </form>
 </main>
 </template>
 
 <script>
+import Vue from 'vue';
 import Autocomplete from 'vue2-autocomplete-js';
 import Datepicker from 'vuejs-datepicker';
 import Axios from 'axios';
@@ -120,6 +123,7 @@ export default {
     Autocomplete,
     Datepicker
   },
+
   methods: {
     /**
      * @param  {string} value
@@ -180,33 +184,76 @@ export default {
     /**
      * @return {void}
      */
-    send(event) {
-      let entrance = document.getElementById('entrance').value;
-      let exit = document.getElementById('exit').value;
-      let trainNumber = document.getElementById('trainNumber').value;
-      let date = document.getElementById('datepicker').value;
-      let rating = this.getSelectedRating();
-      let self = this;
 
-      let iso = this.dateFormat(date);
+    sendRating() {
+        let entrance = document.getElementById('entrance').value;
+        let exit = document.getElementById('exit').value;
+        let trainNumber = document.getElementById('trainNumber').value;
+        let date = document.getElementById('datepicker').value;
+        let rating = this.getSelectedRating();
+        let self = this;
 
-      Axios.post('api/rating/save', {
-          entrance: entrance,
-          exit: exit,
-          trainNumber: trainNumber,
-          date: iso,
-          rating: rating
+        let iso = this.dateFormat(date);
+
+        Axios.post('api/rating/save', {
+            entrance: entrance,
+            exit: exit,
+            trainNumber: trainNumber,
+            date: iso,
+            rating: rating
         })
-        .then(function(response) {
-            self.showSucceed();
-            setTimeout(function () {
-                window.location.href = "/statistic";
-            }, 2500);
-        })
-        .catch(function(error) {
-          self.showError(error);
-        });
+            .then(function(response) {
+                self.showSucceed();
+                setTimeout(function () {
+                    window.location.href = "/statistic";
+                }, 2500);
+            })
+            .catch(function(error) {
+                self.showError(error);
+            });
     },
+
+    getValidationStatus(token) {
+        let self = this;
+
+        Axios.post('api/rating/reCaptchaHandler', {
+            response: token
+        })
+            .then(function(response) {
+                if(response.data.success === true) {
+                    self.sendRating();
+                }
+            })
+            .catch(function(error) {
+                console.log(error);
+            })
+    },
+
+
+      resetCaptcha() {
+        grecatpcha.reset('recaptcha');
+      },
+
+      renderCaptcha() {
+
+          let element = document.createElement('div');
+
+          element.className = "recaptcha";
+
+          document.getElementById('rating').appendChild(element);
+
+          grecaptcha.render(element, {
+              'sitekey': '6LeYLjkUAAAAALRN_2VcXmaSC5i_adKckj5I3c7g',
+              'size':'invisible',
+              'callback': this.getValidationStatus,
+              'expired-callback': this.resetCaptcha
+          });
+
+          grecaptcha.execute();
+
+      },
+
+
 
     /**
      * @return {integer}

@@ -10,6 +10,7 @@
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
 
     <link rel="stylesheet" href="/css/app.css" >
+    @yield('captcha')
   </head>
 
   <body>

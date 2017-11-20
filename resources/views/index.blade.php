@@ -1,5 +1,8 @@
 @extends("layouts.headLayout")
 
+@section('captcha')
+@endsection
+
 @section('body')
 
   <div id="app">
@@ -25,4 +28,5 @@
   </script>
   <script src="js/responsive.js"></script>
   <script src="js/observer.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
 @endsection
