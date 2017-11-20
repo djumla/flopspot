@@ -13277,311 +13277,308 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        var date = new Date();
-        var day = date.getDate();
-        var month = date.getMonth();
-        var year = date.getFullYear();
+  data: function data() {
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth();
+    var year = date.getFullYear();
 
-        return {
-            state: {
-                date: new Date(),
-                disabled: {
-                    to: new Date(year, month - 3),
-                    from: new Date(year, month, day + 1)
-                }
-            }
-        };
-    },
-
-    components: {
-        Autocomplete: __WEBPACK_IMPORTED_MODULE_1_vue2_autocomplete_js___default.a,
-        Datepicker: __WEBPACK_IMPORTED_MODULE_2_vuejs_datepicker___default.a
-    },
-
-    methods: {
-        /**
-         * @param  {string} value
-         *
-         * @return {void}
-         */
-        getStations: function getStations(value) {
-            return new Promise(function (resolve, reject) {
-                var ajax = new XMLHttpRequest();
-                var params = {
-                    "station": value
-                };
-
-                ajax.open('POST', "/api/get/stations", true);
-
-                ajax.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-                ajax.addEventListener('loadend', function (e) {
-                    var responseText = e.target.responseText;
-
-                    var response = JSON.parse(responseText);
-
-                    resolve(response);
-                });
-
-                ajax.send(JSON.stringify(params));
-            });
-        },
-
-
-        /**
-         * @param  {string} value
-         *
-         * @return {void}
-         */
-        getTrainNumbers: function getTrainNumbers(value) {
-            return new Promise(function (resolve, reject) {
-                var ajax = new XMLHttpRequest();
-                var params = {
-                    "trainNumber": value
-                };
-
-                ajax.open('POST', "/api/get/trainNumbers", true);
-
-                ajax.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-                ajax.addEventListener('loadend', function (e) {
-                    var responseText = e.target.responseText;
-
-
-                    var response = JSON.parse(responseText);
-
-                    resolve(response);
-                });
-
-                ajax.send(JSON.stringify(params));
-            });
-        },
-
-        /**
-         * @return {void}
-         */
-
-        sendRating: function sendRating() {
-            var entrance = document.getElementById('entrance').value;
-            var exit = document.getElementById('exit').value;
-            var trainNumber = document.getElementById('trainNumber').value;
-            var date = document.getElementById('datepicker').value;
-            var rating = this.getSelectedRating();
-            var self = this;
-
-            var iso = this.dateFormat(date);
-
-            __WEBPACK_IMPORTED_MODULE_3_axios___default.a.post('api/rating/save', {
-                entrance: entrance,
-                exit: exit,
-                trainNumber: trainNumber,
-                date: iso,
-                rating: rating
-            }).then(function (response) {
-                self.showSucceed();
-                setTimeout(function () {
-                    window.location.href = "/statistic";
-                }, 2500);
-            }).catch(function (error) {
-                self.showError(error);
-            });
-        },
-        getValidationStatus: function getValidationStatus(token) {
-            var self = this;
-            console.log("before post");
-            __WEBPACK_IMPORTED_MODULE_3_axios___default.a.post('api/rating/reCaptchaHandler', {
-                response: token
-            }).then(function (response) {
-                if (response.data.success === true) {
-                    grecaptcha.reset();
-                    self.sendRating();
-                } else {
-                    console.log("else");
-                }
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-        resetCaptcha: function resetCaptcha() {
-            grecaptcha.reset();
-        },
-        renderCaptcha: function renderCaptcha() {
-
-            var element = document.createElement('div');
-
-            element.className = "recaptcha";
-
-            document.getElementById('rating').appendChild(element);
-
-            grecaptcha.render(element, {
-                'sitekey': '6LeYLjkUAAAAALRN_2VcXmaSC5i_adKckj5I3c7g',
-                'size': 'invisible',
-                'callback': this.getValidationStatus,
-                'expired-callback': this.resetCaptcha
-            });
-
-            grecaptcha.execute();
-            console.log("executed");
-        },
-
-
-        /**
-         * @return {integer}
-         */
-        getSelectedRating: function getSelectedRating() {
-            var insufficient = document.getElementById('insufficient');
-            var satisfying = document.getElementById('satisfying');
-            var satisfactory = document.getElementById('satisfactory');
-            var rating = void 0;
-
-            if (insufficient.checked) {
-                rating = 1;
-            }
-            if (satisfying.checked) {
-                rating = 2;
-            }
-            if (satisfactory.checked) {
-                rating = 3;
-            }
-
-            return rating;
-        },
-
-
-        /**
-         * @param  {object} error response
-         *
-         * @return {void}
-         */
-        showError: function showError(error) {
-            this.create(error);
-            this.removeElement();
-        },
-
-
-        /**
-         * @param  {object} error add element to the parent
-         *
-         * @return {void}
-         */
-        create: function create(error) {
-            var parent = document.getElementById('flex-form').children;
-            var rating = document.getElementById('flex-thumbs');
-
-            if (error) {
-                console.log(error.response);
-                if ('entrance' in error.response.data.errors) {
-                    this.addElement(parent[0], error.response.data.errors.entrance);
-                }
-                if ('exit' in error.response.data.errors) {
-                    this.addElement(parent[1], error.response.data.errors.exit);
-                }
-                if ('trainNumber' in error.response.data.errors) {
-                    this.addElement(parent[2], error.response.data.errors.trainNumber);
-                }
-                if ('rating' in error.response.data.errors) {
-                    this.addElement(rating, error.response.data.errors.rating);
-                }
-            }
-        },
-
-        /**
-         * @param {object} parent
-         *
-         * @param {string} message
-         */
-        addElement: function addElement(parent, message) {
-            var element = document.createElement('div');
-            var msg = document.createTextNode(message);
-
-            if (parent.getAttribute('class') === "inputs") {
-                element.appendChild(msg);
-
-                element.className = "error";
-
-                switch (parent.getAttribute('id')) {
-                    case 'entrance-container':
-                        element.id = "entrance-error";
-                        break;
-                    case 'exit-container':
-                        element.id = "exit-error";
-                        break;
-                    case 'trainNumber-container':
-                        element.id = "trainNumber-error";
-                        break;
-                }
-                parent.appendChild(element);
-            }
-
-            if (parent.getAttribute('id') === "flex-thumbs") {
-                element.appendChild(msg);
-
-                element.className = "error";
-                element.id = "rating-error";
-
-                parent.appendChild(element);
-            }
-        },
-
-
-        /**
-         * @return {void}
-         */
-        removeElement: function removeElement() {
-            var _loop = function _loop(i) {
-                document.querySelectorAll(".autocomplete-input")[i].onkeyup = function () {
-                    var parent = document.getElementById('flex-form').children[i];
-
-                    if (parent.getAttribute('id') == 'entrance-container' && document.getElementById('entrance-error')) {
-                        parent.removeChild(document.getElementById('entrance-error'));
-                    }
-                    if (parent.getAttribute('id') == 'exit-container' && document.getElementById('exit-error')) {
-                        parent.removeChild(document.getElementById('exit-error'));
-                    }
-                    if (parent.getAttribute('id') == 'trainNumber-container' && document.getElementById('trainNumber-error')) {
-                        parent.removeChild(document.getElementById('trainNumber-error'));
-                    }
-                };
-            };
-
-            for (var i = 0; i < document.getElementById('flex-form').children.length - 1; i++) {
-                _loop(i);
-            }
-
-            document.getElementById('rating-error').onclick = function () {
-                document.getElementById('rating-error').remove();
-            };
-        },
-
-        /**
-         *
-         * @param date
-         *
-         * @returns {string}
-         */
-        dateFormat: function dateFormat(date) {
-            return date.substring(6, 10) + "-" + date.substring(3, 5) + "-" + date.substring(0, 2);
-        },
-
-
-        /**
-         * Called after form was successful submitted
-         *
-         * @return {void}
-         */
-        showSucceed: function showSucceed() {
-            var div = document.createElement('div');
-            var msg = document.createTextNode('Vielen Dank für deine Abstimmung! Sie werden jeden Moment weitergeleitet!');
-            var blackScreen = document.createElement('div');
-
-            div.id = "succeed";
-            blackScreen.id = "blackScreen";
-
-            div.appendChild(msg);
-
-            document.body.appendChild(div);
-            document.body.appendChild(blackScreen);
+    return {
+      state: {
+        date: new Date(),
+        disabled: {
+          to: new Date(year, month - 3),
+          from: new Date(year, month, day + 1)
         }
+      }
+    };
+  },
+
+  components: {
+    Autocomplete: __WEBPACK_IMPORTED_MODULE_1_vue2_autocomplete_js___default.a,
+    Datepicker: __WEBPACK_IMPORTED_MODULE_2_vuejs_datepicker___default.a
+  },
+
+  methods: {
+    /**
+     * @param  {string} value
+     *
+     * @return {void}
+     */
+    getStations: function getStations(value) {
+      return new Promise(function (resolve, reject) {
+        var ajax = new XMLHttpRequest();
+        var params = {
+          "station": value
+        };
+
+        ajax.open('POST', "/api/get/stations", true);
+
+        ajax.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+        ajax.addEventListener('loadend', function (e) {
+          var responseText = e.target.responseText;
+
+          var response = JSON.parse(responseText);
+
+          resolve(response);
+        });
+
+        ajax.send(JSON.stringify(params));
+      });
+    },
+
+
+    /**
+     * @param  {string} value
+     *
+     * @return {void}
+     */
+    getTrainNumbers: function getTrainNumbers(value) {
+      return new Promise(function (resolve, reject) {
+        var ajax = new XMLHttpRequest();
+        var params = {
+          "trainNumber": value
+        };
+
+        ajax.open('POST', "/api/get/trainNumbers", true);
+
+        ajax.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+        ajax.addEventListener('loadend', function (e) {
+          var responseText = e.target.responseText;
+
+
+          var response = JSON.parse(responseText);
+
+          resolve(response);
+        });
+
+        ajax.send(JSON.stringify(params));
+      });
+    },
+
+    /**
+     * @return {void}
+     */
+
+    sendRating: function sendRating() {
+      var entrance = document.getElementById('entrance').value;
+      var exit = document.getElementById('exit').value;
+      var trainNumber = document.getElementById('trainNumber').value;
+      var date = document.getElementById('datepicker').value;
+      var rating = this.getSelectedRating();
+      var self = this;
+
+      var iso = this.dateFormat(date);
+
+      __WEBPACK_IMPORTED_MODULE_3_axios___default.a.post('api/rating/save', {
+        entrance: entrance,
+        exit: exit,
+        trainNumber: trainNumber,
+        date: iso,
+        rating: rating
+      }).then(function (response) {
+        self.showSucceed();
+        setTimeout(function () {
+          window.location.href = "/statistic";
+        }, 2500);
+      }).catch(function (error) {
+        self.showError(error);
+      });
+    },
+    getValidationStatus: function getValidationStatus(token) {
+      var self = this;
+
+      __WEBPACK_IMPORTED_MODULE_3_axios___default.a.post('api/rating/reCaptchaHandler', {
+        response: token
+      }).then(function (response) {
+        if (response.data.success === true) {
+          grecaptcha.reset();
+          self.sendRating();
+        }
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    resetCaptcha: function resetCaptcha() {
+      grecaptcha.reset();
+    },
+    renderCaptcha: function renderCaptcha() {
+
+      var element = document.createElement('div');
+
+      element.className = "recaptcha";
+
+      document.getElementById('rating').appendChild(element);
+
+      grecaptcha.render(element, {
+        'sitekey': '6LeYLjkUAAAAALRN_2VcXmaSC5i_adKckj5I3c7g',
+        'size': 'invisible',
+        'callback': this.getValidationStatus,
+        'expired-callback': this.resetCaptcha
+      });
+
+      grecaptcha.execute();
+    },
+
+
+    /**
+     * @return {integer}
+     */
+    getSelectedRating: function getSelectedRating() {
+      var insufficient = document.getElementById('insufficient');
+      var satisfying = document.getElementById('satisfying');
+      var satisfactory = document.getElementById('satisfactory');
+      var rating = void 0;
+
+      if (insufficient.checked) {
+        rating = 1;
+      }
+      if (satisfying.checked) {
+        rating = 2;
+      }
+      if (satisfactory.checked) {
+        rating = 3;
+      }
+
+      return rating;
+    },
+
+
+    /**
+     * @param  {object} error response
+     *
+     * @return {void}
+     */
+    showError: function showError(error) {
+      this.create(error);
+      this.removeElement();
+    },
+
+
+    /**
+     * @param  {object} error add element to the parent
+     *
+     * @return {void}
+     */
+    create: function create(error) {
+      var parent = document.getElementById('flex-form').children;
+      var rating = document.getElementById('flex-thumbs');
+
+      if (error) {
+        console.log(error.response);
+        if ('entrance' in error.response.data.errors) {
+          this.addElement(parent[0], error.response.data.errors.entrance);
+        }
+        if ('exit' in error.response.data.errors) {
+          this.addElement(parent[1], error.response.data.errors.exit);
+        }
+        if ('trainNumber' in error.response.data.errors) {
+          this.addElement(parent[2], error.response.data.errors.trainNumber);
+        }
+        if ('rating' in error.response.data.errors) {
+          this.addElement(rating, error.response.data.errors.rating);
+        }
+      }
+    },
+
+    /**
+     * @param {object} parent
+     *
+     * @param {string} message
+     */
+    addElement: function addElement(parent, message) {
+      var element = document.createElement('div');
+      var msg = document.createTextNode(message);
+
+      if (parent.getAttribute('class') === "inputs") {
+        element.appendChild(msg);
+
+        element.className = "error";
+
+        switch (parent.getAttribute('id')) {
+          case 'entrance-container':
+            element.id = "entrance-error";
+            break;
+          case 'exit-container':
+            element.id = "exit-error";
+            break;
+          case 'trainNumber-container':
+            element.id = "trainNumber-error";
+            break;
+        }
+        parent.appendChild(element);
+      }
+
+      if (parent.getAttribute('id') === "flex-thumbs") {
+        element.appendChild(msg);
+
+        element.className = "error";
+        element.id = "rating-error";
+
+        parent.appendChild(element);
+      }
+    },
+
+
+    /**
+     * @return {void}
+     */
+    removeElement: function removeElement() {
+      var _loop = function _loop(i) {
+        document.querySelectorAll(".autocomplete-input")[i].onkeyup = function () {
+          var parent = document.getElementById('flex-form').children[i];
+
+          if (parent.getAttribute('id') == 'entrance-container' && document.getElementById('entrance-error')) {
+            parent.removeChild(document.getElementById('entrance-error'));
+          }
+          if (parent.getAttribute('id') == 'exit-container' && document.getElementById('exit-error')) {
+            parent.removeChild(document.getElementById('exit-error'));
+          }
+          if (parent.getAttribute('id') == 'trainNumber-container' && document.getElementById('trainNumber-error')) {
+            parent.removeChild(document.getElementById('trainNumber-error'));
+          }
+        };
+      };
+
+      for (var i = 0; i < document.getElementById('flex-form').children.length - 1; i++) {
+        _loop(i);
+      }
+
+      document.getElementById('rating-error').onclick = function () {
+        document.getElementById('rating-error').remove();
+      };
+    },
+
+    /**
+     *
+     * @param date
+     *
+     * @returns {string}
+     */
+    dateFormat: function dateFormat(date) {
+      return date.substring(6, 10) + "-" + date.substring(3, 5) + "-" + date.substring(0, 2);
+    },
+
+
+    /**
+     * Called after form was successful submitted
+     *
+     * @return {void}
+     */
+    showSucceed: function showSucceed() {
+      var div = document.createElement('div');
+      var msg = document.createTextNode('Vielen Dank für deine Abstimmung! Sie werden jeden Moment weitergeleitet!');
+      var blackScreen = document.createElement('div');
+
+      div.id = "succeed";
+      blackScreen.id = "blackScreen";
+
+      div.appendChild(msg);
+
+      document.body.appendChild(div);
+      document.body.appendChild(blackScreen);
     }
+  }
 });
 
 /***/ }),
