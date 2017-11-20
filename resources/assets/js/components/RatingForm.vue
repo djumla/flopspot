@@ -216,13 +216,12 @@ export default {
     getValidationStatus(token) {
         let self = this;
 
-        grecaptcha.reset();
-
         Axios.post('api/rating/reCaptchaHandler', {
             response: token
         })
             .then(function(response) {
                 if(response.data.success === true) {
+                    grecaptcha.reset();
                     self.sendRating();
                 }
             })
