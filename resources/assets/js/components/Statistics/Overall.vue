@@ -59,7 +59,7 @@ export default {
             fontSize: 16,
           }
         }
-      }
+      };
 
       if(window.innerWidth == 900) {
           return options.legend.display.false;
