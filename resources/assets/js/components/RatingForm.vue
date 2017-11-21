@@ -236,7 +236,6 @@
             },
 
             renderCaptcha() {
-
                 let element = document.createElement('div');
 
                 element.className = "recaptcha";

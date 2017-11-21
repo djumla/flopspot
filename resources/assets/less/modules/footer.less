@@ -3,6 +3,23 @@ footer {
   width: 100%;
   margin-top: 50px;
 
+  @media (max-width: 280px) {
+    h2 > a {
+      font-size: 0.8em;
+    }
+
+    @media (max-width: 230px) {
+      font-size: 0.8em;
+      h2 {
+        font-size: 0.9em;
+      }
+
+      h2 > a {
+        font-size: 0.6em;
+      }
+    }
+  }
+
   ul {
     list-style-type: none;
     margin: 0;
@@ -75,6 +92,20 @@ footer {
 
     #flex-service {
       width: 50%;
+
+      @media (max-width: 335px) {
+        nav {
+          width: auto;
+          margin-top: 50px;
+          ul {
+            margin: 0 auto;
+          }
+          ul > li {
+            display: block;
+            padding-top: 20px;
+          }
+        }
+      }
     }
 
     #flex-service,
@@ -98,6 +129,9 @@ footer {
       #tweets, #flex-service {
         width: 100%;
       }
+    }
+    @media (max-width: 805px) {
+      width: auto;
     }
   }
 }
