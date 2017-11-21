@@ -185,7 +185,6 @@
             /**
              * @return {void}
              */
-
             sendRating() {
                 let entrance = document.getElementById('entrance').value;
                 let exit = document.getElementById('exit').value;
@@ -211,9 +210,11 @@
                     })
                     .catch(function (error) {
                         self.showError(error);
+                        if(document.body.offsetWidth < 800) {
+                            document.body.scrollIntoView();
+                        }
                     });
             },
-
             getValidationStatus(token) {
                 let self = this;
 

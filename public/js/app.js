@@ -13361,7 +13361,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         /**
          * @return {void}
          */
-
         sendRating: function sendRating() {
             var entrance = document.getElementById('entrance').value;
             var exit = document.getElementById('exit').value;
@@ -13385,6 +13384,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }, 2500);
             }).catch(function (error) {
                 self.showError(error);
+                if (document.body.offsetWidth < 800) {
+                    document.body.scrollIntoView();
+                }
             });
         },
         getValidationStatus: function getValidationStatus(token) {
