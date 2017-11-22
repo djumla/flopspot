@@ -15,7 +15,7 @@ class RatingController extends Controller
      */
     public function total()
     {
-        return \App\Rating::select('rating')->count();
+        return Rating::select('rating')->count();
     }
 
     /**
@@ -23,7 +23,7 @@ class RatingController extends Controller
      */
     public function getInsufficient()
     {
-        return \App\Rating::where('rating', '=', 1)->count();
+        return Rating::where('rating', '=', 1)->count();
     }
 
     /**
@@ -31,7 +31,7 @@ class RatingController extends Controller
      */
     public function getSatisfying()
     {
-        return \App\Rating::where('rating', '=', 2)->count();
+        return Rating::where('rating', '=', 2)->count();
     }
 
     /**
@@ -39,29 +39,31 @@ class RatingController extends Controller
      */
     public function getSatisfactory()
     {
-        return \App\Rating::where('rating', '=', 3)->count();
+        return Rating::where('rating', '=', 3)->count();
     }
 
     /**
+     * @param \App\Rating
+     *
      * @return array
      */
-    public function pastSixMonth(\App\Rating $model)
+    public function pastSixMonth(Rating $ratingModel)
     {
-        return $model->getCombinedRatings(date("n") - 6, date("n"));
+        return $ratingModel->getCombinedRatings(date("n") - 6, date("n"));
     }
 
     /**
      * Called when form was submitted in frontend
      *
-     * @param  Request $request
+     * @param  Requests\StoreRating $request
      *
      * @return void|Response
      */
     public function store(Requests\StoreRating $request)
     {
-        $entrance = \App\Station::where('station', '=', $request->entrance)->first();
-        $exit = \App\Station::where('station', '=', $request->exit)->first();
-        $trainNumber = \App\TrainNumber::where('trainNumber', '=', $request->trainNumber)->first();
+        $entrance = Station::where('station', '=', $request->entrance)->first();
+        $exit = Station::where('station', '=', $request->exit)->first();
+        $trainNumber = TrainNumber::where('trainNumber', '=', $request->trainNumber)->first();
 
         $rating = new Rating;
         $rating->entrance = $entrance->id;
@@ -73,17 +75,8 @@ class RatingController extends Controller
         $rating->save();
     }
 
-    public function reCaptchaHandler(Request $request)
+    public function getTrackSection(Rating $ratingModel)
     {
-        $client = new \GuzzleHttp\Client();
-
-        $res = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
-            'form_params' => [
-                'secret' => env('RECAPTCHA_SECRET'),
-                'response' => $request->response
-            ]
-        ]);
-
-        return $res->getBody();
+        return $ratingModel->getEquallySections();
     }
 }

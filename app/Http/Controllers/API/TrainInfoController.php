@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Station;
+use App\TrainNumber;
 
 class TrainInfoController extends Controller
 {
@@ -14,7 +16,7 @@ class TrainInfoController extends Controller
      */
     public function getStations(Request $request)
     {
-        return \App\Station::where('station', 'like', '%' . $request->station . '%')->limit(8)->get();
+        return Station::where('station', 'like', '%' . $request->station . '%')->limit(8)->get();
     }
 
     /**
@@ -24,6 +26,6 @@ class TrainInfoController extends Controller
      */
     public function getTrainNumbers(Request $request)
     {
-        return \App\TrainNumber::where('trainNumber', 'like', $request->trainNumber . '%')->limit(8)->get();
+        return TrainNumber::where('trainNumber', 'like', $request->trainNumber . '%')->limit(8)->get();
     }
 }

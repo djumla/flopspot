@@ -29,7 +29,8 @@ class StoreRating extends FormRequest
             'exit' => 'required|string|exists:train_stations,station',
             'trainNumber' => 'required|string|regex:[ICE \d]|exists:train_numbers,trainNumber',
             'date' => 'required|date_format:Y-m-d',
-            'rating' => 'required|integer|regex:/[1-3]/'
+            'rating' => 'required|integer|regex:/[1-3]/',
+            'response' => 'required|recaptcha'
         ];
     }
 
@@ -49,7 +50,8 @@ class StoreRating extends FormRequest
             'date.required' => 'Datum kann nicht leer sein.',
             'date.date_format' => 'Ungültiges Format.',
             'rating.required' => 'Bitte geben Sie Ihre Zufriedenheit an.',
-            'rating.regex' => 'Ungültiges Format.'
+            'rating.regex' => 'Ungültiges Format.',
+            'response.recaptcha' => 'Bitte verifizieren Sie sich als Mensch.'
         ];
     }
 }

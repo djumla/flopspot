@@ -46,5 +46,3 @@ Route::get('api/get/tweets', 'API\TwitterController@getTweets');
 // TrainInfoController
 Route::post('api/get/stations', 'API\TrainInfoController@getStations');
 Route::post('api/get/trainNumbers', 'API\TrainInfoController@getTrainNumbers');
-
-Route::post('api/rating/reCaptchaHandler', 'API\RatingController@reCaptchaHandler');

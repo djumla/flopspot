@@ -13,7 +13,7 @@ class DbXmlParser extends Command
      *
      * @var string
      */
-    protected $signature = 'xml:parse';
+    protected $signature = 'db:parse';
 
     /**
      * Specify the path, in which the parser should go to
@@ -73,9 +73,6 @@ class DbXmlParser extends Command
 
         return $xmls;
     }
-
-    /**
-     */
 
     /**
      * @param  string $path path to xml files

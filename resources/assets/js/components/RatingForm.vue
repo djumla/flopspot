@@ -185,7 +185,7 @@
             /**
              * @return {void}
              */
-            sendRating() {
+            sendRating(token) {
                 let entrance = document.getElementById('entrance').value;
                 let exit = document.getElementById('exit').value;
                 let trainNumber = document.getElementById('trainNumber').value;
@@ -196,6 +196,7 @@
                 let iso = this.dateFormat(date);
 
                 Axios.post('api/rating/save', {
+                    response: token,
                     entrance: entrance,
                     exit: exit,
                     trainNumber: trainNumber,
@@ -210,28 +211,11 @@
                     })
                     .catch(function (error) {
                         self.showError(error);
-                        if(document.body.offsetWidth < 800) {
+                        if (document.body.offsetWidth < 800) {
                             document.body.scrollIntoView();
                         }
                     });
             },
-            getValidationStatus(token) {
-                let self = this;
-
-                Axios.post('api/rating/reCaptchaHandler', {
-                    response: token
-                })
-                    .then(function (response) {
-                        if (response.data.success === true) {
-                            grecaptcha.reset();
-                            self.sendRating();
-                        }
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    })
-            },
-
             resetCaptcha() {
                 grecaptcha.reset();
             },
@@ -246,7 +230,7 @@
                 grecaptcha.render(element, {
                     'sitekey': '6LeYLjkUAAAAALRN_2VcXmaSC5i_adKckj5I3c7g',
                     'size': 'invisible',
-                    'callback': this.getValidationStatus,
+                    'callback': this.sendRating,
                     'expired-callback': this.resetCaptcha
                 });
 

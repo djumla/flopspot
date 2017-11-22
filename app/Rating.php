@@ -42,4 +42,9 @@ class Rating extends Model
 
         return $ratings;
     }
+
+    public function getEquallySections()
+    {
+
+    }
 }
