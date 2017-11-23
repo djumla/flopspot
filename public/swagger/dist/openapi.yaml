@@ -1,0 +1,72 @@
+openapi: 3.0.0
+
+info:
+  title: flopspot
+  description: "This is an open-source project mainly written in Laravel/Vue.js. flopspot provides the opportunity
+  to rate the WiFi functionality in DB trains only. The satisfaction of the user will be represented as a statistic
+  using Chart.js."
+  contact:
+    name: API Support
+    email: s.ahrens@djumla.de
+  version: 1.0.1
+
+servers:
+- url: https://www.flopspot.de/{basePath}
+  description: Staging Server
+  variables:
+    basePath:
+      default: api
+- url: http://localhost{port}/{basePath}
+  description: Local Server
+  variables:
+    port:
+      enum:
+        - :8000
+        - :80
+        - :81
+        -
+      default: :8000
+    basePath:
+      default: api
+
+paths:
+  /get/tweets:
+    get:
+      description: Returns an object of db tweets
+      responses:
+        200:
+          description: Object of tweets
+  /rating/insufficient:
+      get:
+        description: Returns an integer
+        responses:
+          200:
+            description: Number of insufficient ratings
+  /rating/satisfying:
+      get:
+        description: Returns an integer
+        responses:
+          200:
+            description: Number of satisfying ratings
+
+  /rating/satisfactory:
+      get:
+        description: Returns an integer
+        responses:
+          200:
+            description: Number of satisfactory ratings
+
+  /rating/total:
+      get:
+        description: Returns an integer
+        responses:
+          200:
+            description: Returns the total of insufficient, satisfying and satisfactory ratings
+
+  /rating/pastSixMonth:
+      get:
+        description: Returns an array
+        responses:
+          200:
+            description: Returns total of insufficient, satisfying and satisfactory
+
