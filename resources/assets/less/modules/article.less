@@ -11,8 +11,9 @@
     box-sizing: border-box;
     padding: 50px;
 
-    @media (max-width: 200px) {
-      padding: 10px;
+    @media (max-width: 165px) {
+      padding: 20px;
+      overflow: scroll;
     }
 
     h1 {
@@ -56,7 +57,11 @@
     justify-content: center;
     box-sizing: border-box;
     padding: 25px;
-
+    figure {
+      @media (max-width: 165px) {
+        overflow: scroll;
+      }
+    }
     img {
       display: block;
       margin: 0 auto;

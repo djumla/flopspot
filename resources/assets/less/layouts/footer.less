@@ -7,10 +7,6 @@ footer {
     font-size: 0.8em;
   }
 
-  @media (max-width: 165px) {
-    overflow: scroll;
-  }
-
   h1 {
     color: @white;
     font-family: @poppins;
@@ -53,6 +49,10 @@ footer {
     display: flex;
     padding: 30px;
     max-width: 1600px;
+
+    @media (max-width: 165px) {
+      overflow: scroll;
+    }
 
     @media (max-width: 190px) {
       padding: 10px;
@@ -139,6 +139,10 @@ footer {
       height: auto;
       padding: 10px;
       text-align: center;
+    }
+
+    @media (max-width: 165px) {
+      overflow: scroll;
     }
   }
 }

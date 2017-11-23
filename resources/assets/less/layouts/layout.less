@@ -16,6 +16,11 @@
 .layout-header {
   background-color: @darkBlue;
   color: @white;
+
+  @media (max-width: 165px) {
+    overflow:scroll;
+  }
+
   > div {
     padding: 50px;
 
@@ -35,6 +40,11 @@
 
 .layout-content {
   background-color: @white;
+
+  @media (max-width: 165px) {
+    overflow:scroll;
+  }
+
   > div {
     box-sizing: border-box;
     width: 70%;
