@@ -26,8 +26,8 @@ You may want to generate some fake ratings
 php artisan db:seed --class=RatingTableSeeder
 ```
 
-
 # Links
 
 [Twitter](https://twitter.com/FlopspotDE)
 [Facebook](https://www.facebook.com/Flopspot-160124607925841/)
+[flopspot API](https://www.flopspot.de/swagger/dist/index.html)
