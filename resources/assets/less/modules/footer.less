@@ -3,18 +3,35 @@ footer {
   width: 100%;
   margin-top: 50px;
 
-  @media (max-width: 280px) {
-    h2 > a {
-      font-size: 0.8em;
+  @media (max-width: 230px) {
+    font-size: 0.8em;
+  }
+
+  h1 {
+    color: @white;
+    font-family: @poppins;
+    font-size: 18px;
+    font-style: italic;
+    margin: 0;
+
+    @media (max-width: 805px) {
+      margin-top: 50px;
+    }
+  }
+
+  h2 {
+    color: @white;
+    font-size: 24px;
+    font-family: @notoSerif;
+    > a {
+      @media (max-width: 280px) {
+        font-size: 0.8em;
+      }
     }
 
     @media (max-width: 230px) {
-      font-size: 0.8em;
-      h2 {
-        font-size: 0.9em;
-      }
-
-      h2 > a {
+      font-size: 0.9em;
+      > a {
         font-size: 0.6em;
       }
     }
@@ -26,15 +43,6 @@ footer {
     padding: 0;
   }
 
-  #copyright {
-    height: 45px;
-    background-color: @altDarkBlue;
-    color: @white;
-    text-align: right;
-    padding-right: 30px;
-    padding-top: 25px;
-  }
-
   #service {
     width: 85%;
     margin: 0 auto;
@@ -42,21 +50,20 @@ footer {
     padding: 30px;
     max-width: 1600px;
 
+    @media (max-width: 190px) {
+      padding: 10px;
+    }
+
+    @media (max-width: 805px) {
+      flex-direction: column;
+      width: auto;
+    }
+
     #flex-service {
       width: 50%;
 
-      h1 {
-        color: @white;
-        font-family: @poppins;
-        font-size: 18px;
-        font-style: italic;
-        margin: 0;
-      }
-
-      h2 {
-        color: @white;
-        font-size: 24px;
-        font-family: @notoSerif;
+      @media (max-width: 805px) {
+        width: 100%;
       }
 
       #social-media {
@@ -76,6 +83,19 @@ footer {
             border-bottom: 0;
             border-top: 1px solid @white;
           }
+
+          @media (max-width: 335px) {
+            width: auto;
+            margin-top: 50px;
+
+            ul {
+              margin: 0 auto;
+              > li {
+                display: block;
+                padding-top: 20px;
+              }
+            }
+          }
         }
 
         li {
@@ -88,23 +108,13 @@ footer {
     #tweets {
       width: 50%;
       color: @white;
-    }
 
-    #flex-service {
-      width: 50%;
-
-      @media (max-width: 335px) {
-        nav {
-          width: auto;
-          margin-top: 50px;
-          ul {
-            margin: 0 auto;
-          }
-          ul > li {
-            display: block;
-            padding-top: 20px;
-          }
-        }
+      @media (max-width: 805px) {
+        disply: flex;
+        order: -1;
+        margin-top: 20px;
+        margin-left: 0;
+        width: 100%;
       }
     }
 
@@ -112,26 +122,19 @@ footer {
     #tweets {
       margin-top: 45px;
     }
-    @media (max-width: 805px) {
-      flex-direction: column;
+  }
 
-      h1 {
-        margin-top: 50px;
-      }
+  #copyright {
+    background-color: @altDarkBlue;
+    color: @white;
+    height: auto;
+    text-align: right;
+    padding: 20px;
 
-      #tweets {
-        disply: flex;
-        order: -1;
-        margin-top: 20px;
-        margin-left: 0;
-      }
-
-      #tweets, #flex-service {
-        width: 100%;
-      }
-    }
-    @media (max-width: 805px) {
-      width: auto;
+    @media (max-width: 260px) {
+      height: auto;
+      padding: 10px;
+      text-align: center;
     }
   }
 }

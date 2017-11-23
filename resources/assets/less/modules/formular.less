@@ -3,15 +3,8 @@ main {
   box-sizing: border-box;
   padding: 30px;
 
-  h2 {
-    font-size: 30px;
-    font-family: @notoSerif;
-    color: @black;
-  }
-
-  h1,
-  h2 {
-    text-align: center;
+  @media(max-width: 210px) {
+    padding: 10px;
   }
 
   h1 {
@@ -28,26 +21,33 @@ main {
     }
   }
 
+  h2 {
+    font-size: 30px;
+    font-family: @notoSerif;
+    color: @black;
+
+    @media (max-width: 650px) {
+      font-size: 24px;
+      line-height: 1.5em;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 1.1em;
+    }
+  }
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+
   #satisfaction {
     margin-top: 30px;
     color: @darkBlue;
     font-family: @poppins;
-    font-size: 18px;
   }
 
   #rating {
     position: relative;
-  }
-
-  @media (max-width: 650px) {
-    h2 {
-      font-size: 24px;
-      line-height: 1.5em;
-    }
-  }
-  @media (max-width: 350px) {
-    h2 {
-      font-size: 1.1em;
-    }
   }
 }

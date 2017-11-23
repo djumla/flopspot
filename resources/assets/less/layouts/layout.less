@@ -1,16 +1,48 @@
+/**
+  Layout for imprint, contact and privacy policy
+ */
+
+.layout-header,
+.layout-content.wrapper {
+  @media (max-width: 240px) {
+    width: 100%;
+    > div {
+      font-size: 0.8em;
+    }
+  }
+}
+
 .layout-header {
   background-color: @darkBlue;
   color: @white;
   > div {
     padding: 50px;
+
+    @media (max-width: 330px) {
+      padding: 10px;
+      text-align: center;
+
+      .underlined {
+        &:after {
+          margin: 0 auto;
+          padding-top: 10px;
+        }
+      }
+    }
   }
 }
 
 .layout-content {
   background-color: @white;
   > div {
+    box-sizing: border-box;
     width: 70%;
     padding: 50px;
+
+    @media (max-width: 300px) {
+      width: 100%;
+      padding: 10px;
+    }
   }
   article {
     > .underlined:after {
@@ -20,6 +52,7 @@
   p {
     > .underlined:after {
       border-color: @darkBlue;
+      margin-top: 10px;
     }
   }
 }

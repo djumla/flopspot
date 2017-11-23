@@ -9,6 +9,7 @@
   width: 60%;
   margin-top: 40px;
   left: 20%;
+  display: none;
 
   &:after {
     bottom: 100%;
@@ -24,6 +25,32 @@
     margin-left: -30px;
   }
 
+  @media (max-width: 860px) {
+    left: 0;
+    width: 100%;
+    padding: 40px 40px 40px 40px;
+  }
+  @media (max-width: 650px) {
+    padding: 30px 30px 30px 30px;
+  }
+
+  @media (max-width: 950px) {
+    background-color: @white;
+    color: @darkBlue;
+    display: block;
+    position: relative;
+    margin: 0;
+
+    &:after {
+      content: none;
+    }
+
+    @media (max-width: 230px) {
+      font-size: 0.8em;
+      padding: 0;
+    }
+  }
+
   .underlined {
     &:after {
       margin: 0 auto;
@@ -33,14 +60,5 @@
   .title {
     font-family: @notoSerif;
     font-style: italic;
-  }
-
-  @media (max-width: 860px) {
-    left: 0;
-    width: 100%;
-    padding: 40px 40px 40px 40px;
-  }
-  @media (max-width: 650px) {
-    padding: 30px 30px 30px 30px;
   }
 }

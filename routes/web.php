@@ -39,6 +39,7 @@ Route::get('api/rating/monthly', 'API\RatingController@getMonthly');
 Route::get('api/rating/total', 'API\RatingController@total');
 Route::get('api/rating/pastSixMonth', 'API\RatingController@pastSixMonth');
 Route::post('api/rating/save', 'API\RatingController@store');
+Route::post('api/rating/getUserSpecificSection', 'API\RatingController@getUserSpecificSection');
 
 // TwitterController
 Route::get('api/get/tweets', 'API\TwitterController@getTweets');

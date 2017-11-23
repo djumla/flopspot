@@ -49,10 +49,6 @@
       background-size: cover;
     }
 
-    .description {
-      display: none;
-    }
-
     &:hover {
       .description {
         display: block;
@@ -73,29 +69,14 @@
       &:not(.satisfactory) {
         border-right: 2px solid @darkBlue;
       }
-
-      .description {
-        background-color: @white;
-        color: @darkBlue;
-        display: block;
-        position: relative;
-        margin: 0;
-
-        &:after {
-          content: none;
-        }
-        @media (max-width: 230px) {
-          font-size: 0.8em;
-        }
-      }
     }
     @media (max-width: 650px) {
+      border: none;
+      width: 100%;
+
       &:not(.satisfactory) {
         border: none;
       }
-
-      border: none;
-      width: 100%;
     }
   }
 }

@@ -1,12 +1,18 @@
 #rating-section {
+  position: relative;
+  background-color: @darkBlue;
+
+  @media (max-width: 450px) {
+    &.wrapper {
+      width: 100%;
+    }
+  }
+
   h1 {
     text-align: center;
     color: @white;
     padding: 30px;
   }
-
-  position: relative;
-  background-color: @darkBlue;
 
   .chart-container {
     padding-top: 50px;

@@ -10,6 +10,7 @@
         <div>
             <p>
                 <strong class="underlined">djumla GmbH</strong>
+                <br/>
                 Alte Wallgasse 6
                 <br/>
                 50672 Köln

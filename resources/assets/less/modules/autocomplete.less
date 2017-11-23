@@ -9,55 +9,55 @@
   -o-transition: all 0.3s ease-out;
 }
 
-.autocomplete ul {
-  font-family: sans-serif;
-  position: absolute;
-  list-style: none;
-  background: #f8f8f8;
-  padding: 10px 0;
-  margin: 0;
-  display: inline-block;
-  min-width: 15%;
-  margin-top: 10px;
-  z-index: 10000;
-}
+.autocomplete {
+  ul {
+    font-family: sans-serif;
+    position: absolute;
+    list-style: none;
+    background: #f8f8f8;
+    padding: 10px 0;
+    margin: 0;
+    display: inline-block;
+    min-width: 15%;
+    margin-top: 10px;
+    z-index: 10000;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 0;
+      width: 0;
+      border: 10px solid transparent;
+      border-bottom: 10px solid #f8f8f8;
+      left: 46%;
+      top: -20px;
+    }
+  }
 
-.autocomplete ul:before {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 0;
-  width: 0;
-  border: 10px solid transparent;
-  border-bottom: 10px solid #f8f8f8;
-  left: 46%;
-  top: -20px;
-}
+  ul > li > a {
+    text-decoration: none;
+    display: block;
+    background: #f8f8f8;
+    color: #2b2b2b;
+    padding: 10px;
+    &:hover {
+      color: white;
+      background: #2F9AF7;
+    }
+    span, .autocomplete-anchor-label {
+      /*
+      * Enable if you want to show the label.
+      *
+      display: block;
+      margin-top: 3px;
+      color: grey;
+      font-size: 13px;*/
 
-.autocomplete ul li a {
-  text-decoration: none;
-  display: block;
-  background: #f8f8f8;
-  color: #2b2b2b;
-  padding: 10px;
-}
-
-.autocomplete ul li a:hover,
-.autocomplete ul li.focus-list a {
-  color: white;
-  background: #2F9AF7;
-}
-
-.autocomplete ul li a span,
-  /*backwards compat*/
-.autocomplete ul li a .autocomplete-anchor-label {
-  /*
-  * Enable if you want to show the label.
-  *
-  display: block;
-  margin-top: 3px;
-  color: grey;
-  font-size: 13px;*/
-
-  display: none;
+      display: none;
+    }
+  }
+  ul li.focus-list a {
+    color: white;
+    background: #2F9AF7;
+  }
 }
