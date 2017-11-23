@@ -8,11 +8,24 @@ in **DB** trains only. The satisfaction of the user will be represented as a sta
 # Getting started
 ```
 git clone https://github.com/djumla/flopspot.git
+```
 
+```
 composer install
+```
 
+```
 npm install
 ```
+Parses the db xml files and stores stations and train numbers into the database
+```
+php artisan db:parse
+```
+You may want to generate some fake ratings
+```
+php artisan db:seed --class=RatingTableSeeder
+```
+
 
 # Links
 
