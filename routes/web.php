@@ -35,7 +35,6 @@ Route::get('/privacyPolicy', function () {
 Route::get('api/rating/insufficient', 'API\RatingController@getInsufficient');
 Route::get('api/rating/satisfying', 'API\RatingController@getSatisfying');
 Route::get('api/rating/satisfactory', 'API\RatingController@getSatisfactory');
-Route::get('api/rating/monthly', 'API\RatingController@getMonthly');
 Route::get('api/rating/total', 'API\RatingController@total');
 Route::get('api/rating/pastSixMonth', 'API\RatingController@pastSixMonth');
 Route::post('api/rating/save', 'API\RatingController@store');
