@@ -43,6 +43,11 @@ a {
   width: 85%;
   margin: 0 auto;
   max-width: 1600px;
+
+  @media (max-width: 165px) {
+    width: 100%;
+    overflow: scroll;
+  }
 }
 
 ::-webkit-input-placeholder {
