@@ -1,4 +1,4 @@
-@extends("layouts.headLayout")
+@extends("layouts.basicHtmlLayout")
 
 @section('body')
     <div id="app">
@@ -12,7 +12,7 @@
             </nav>
         </header>
         <flopspot-form></flopspot-form>
-        <flopspot-service></flopspot-service>
+        <flopspot-article></flopspot-article>
         <flopspot-footer></flopspot-footer>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>

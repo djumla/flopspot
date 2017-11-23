@@ -1,4 +1,4 @@
-@extends('layouts.vueLayout')
+@extends('layouts.basicVueLayout')
 
 @section("content")
     <section class="layout-header wrapper">

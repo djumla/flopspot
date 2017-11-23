@@ -23,14 +23,14 @@ Vue.config.debug = false;
 
 import Footer from './components/Footer.vue';
 import Form from './components/RatingForm.vue';
-import Service from './components/AboutMe.vue';
+import Article from './components/Article.vue';
 
 const app = new Vue({
   el: '#app',
 
   components: {
     'flopspot-form': Form,
-    'flopspot-service': Service,
+    'flopspot-article': Article,
     'flopspot-footer': Footer
   }
 });

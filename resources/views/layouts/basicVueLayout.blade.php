@@ -1,4 +1,4 @@
-@extends("layouts.headLayout")
+@extends("layouts.basicHtmlLayout")
 
 @section("body")
     <div id="app">

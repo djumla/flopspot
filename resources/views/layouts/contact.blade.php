@@ -1,12 +1,12 @@
-@extends('layouts.vueLayout')
+@extends('layouts.basicVueLayout')
 
 @section("content")
-    <section id="contact-description" class="layout-header wrapper">
+    <section class="layout-header wrapper">
         <div>
             <h1 class="underlined">Kontaktieren Sie uns!</h1>
         </div>
     </section>
-    <section id="contact-details" class="layout-content wrapper">
+    <section class="layout-content wrapper">
         <div>
             <p>
                 <strong class="underlined">Anschrift:</strong>
@@ -15,7 +15,7 @@
             </p>
             <br/>
             <p>
-                Alte Wallgasse 6<br/>
+                Alte Wallgasse 6 <br/>
                 50672 Köln
                 </br>
                 Deutschland
