@@ -17,7 +17,7 @@ composer install
 ```
 npm install
 ```
-Parses the db xml files and stores stations and train numbers into the database
+Parses the xml files provided by Deutsche Bahn and stores containing stations and train numbers into the database
 ```
 php artisan db:parse
 ```
