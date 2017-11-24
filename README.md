@@ -17,7 +17,7 @@ composer install
 ```
 npm install
 ```
-Parses the xml files provided by Deutsche Bahn and stores containing stations and train numbers into the database
+Parses the xml files provided by the Open-Data-Portal [Deutsche Bahn](http://data.deutschebahn.com/dataset/data-wagenreihungsplan-soll-daten) and stores containing stations and train numbers into the database
 ```
 php artisan db:parse
 ```
