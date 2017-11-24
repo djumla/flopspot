@@ -17,7 +17,7 @@ composer install
 ```
 npm install
 ```
-Parses the db xml files and stores stations and train numbers into the database
+Parses the xml files provided by the Open-Data-Portal [Deutsche Bahn](http://data.deutschebahn.com/dataset/data-wagenreihungsplan-soll-daten) and stores containing stations and train numbers into the database
 ```
 php artisan db:parse
 ```
@@ -26,8 +26,8 @@ You may want to generate some fake ratings
 php artisan db:seed --class=RatingTableSeeder
 ```
 
-
 # Links
 
 [Twitter](https://twitter.com/FlopspotDE)
 [Facebook](https://www.facebook.com/Flopspot-160124607925841/)
+[flopspot API](https://www.flopspot.de/swagger/dist/index.html)
