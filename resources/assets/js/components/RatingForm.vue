@@ -138,7 +138,7 @@
                         "station": value
                     };
 
-                    ajax.open('POST', "/api/get/stations", true);
+                    ajax.open('POST', "/api/stations", true);
 
                     ajax.setRequestHeader('Content-type', 'application/json; charset=utf-8');
                     ajax.addEventListener('loadend', (e) => {
@@ -166,7 +166,7 @@
                         "trainNumber": value
                     };
 
-                    ajax.open('POST', "/api/get/trainNumbers", true);
+                    ajax.open('POST', "/api/trainNumbers", true);
 
                     ajax.setRequestHeader('Content-type', 'application/json; charset=utf-8');
                     ajax.addEventListener('loadend', (e) => {

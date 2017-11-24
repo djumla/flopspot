@@ -30,43 +30,82 @@ servers:
       default: api
 
 paths:
-  /get/tweets:
+  /tweets:
     get:
-      description: Returns an object of db tweets
+      description: Returns tweets of the db as an object with several informations
       responses:
         200:
-          description: Object of tweets
+          description: OK
   /rating/insufficient:
       get:
-        description: Returns an integer
+        description: Returns a total of all insufficient ratings
         responses:
           200:
-            description: Number of insufficient ratings
+            description: OK
   /rating/satisfying:
       get:
-        description: Returns an integer
+        description: Returns a total of all satisfying ratings
         responses:
           200:
-            description: Number of satisfying ratings
+            description: OK
 
   /rating/satisfactory:
       get:
-        description: Returns an integer
+        description: Returns a total of all satisfactory ratings
         responses:
           200:
-            description: Number of satisfactory ratings
+            description: OK
 
   /rating/total:
       get:
-        description: Returns an integer
+        description: Returns a total of all submitted ratings
         responses:
           200:
-            description: Returns the total of insufficient, satisfying and satisfactory ratings
+            description: OK
 
   /rating/pastSixMonth:
       get:
         description: Returns an array
         responses:
           200:
-            description: Returns total of insufficient, satisfying and satisfactory
+            description: OK
+
+  /stations:
+    post:
+      description: Returns an array of stations
+      responses:
+        200:
+          description: OK
+      requestBody:
+        description: "Enter a valid station for instance: Berlin Hbf"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                station:
+                  type: string
+              required:
+                - station
+
+  /trainNumbers:
+    post:
+      description: Returns an array of train numbers
+      responses:
+        200:
+          description: OK
+      requestBody:
+        description: "Enter a valid train number for instance: ICE 23"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                trainNumber:
+                  type: string
+              required:
+                - trainNumber
+
 

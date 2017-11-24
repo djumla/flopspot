@@ -46,7 +46,7 @@
              * @return {void}
              */
             createTweets: function () {
-                Axios.get('/api/get/tweets')
+                Axios.get('/api/tweets')
                     .then(function (response) {
                         response.data.statuses.forEach(function (val, key) {
                             let postDate = val.created_at.replace('+0000', "");
