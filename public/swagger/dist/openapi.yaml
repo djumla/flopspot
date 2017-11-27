@@ -65,7 +65,7 @@ paths:
 
   /rating/pastSixMonth:
       get:
-        description: Returns an array
+        description: Returns all submitted ratings in the past six month
         responses:
           200:
             description: OK

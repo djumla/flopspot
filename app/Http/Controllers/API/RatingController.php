@@ -74,20 +74,4 @@ class RatingController extends Controller
 
         $rating->save();
     }
-    /*
-     * TODO: Make this function great again!
-     */
-    public function getTrackSection(Rating $ratingModel)
-    {
-        return $ratingModel->getEquallySections();
-    }
-
-    /*
-     * Search for a specific track and get its rating!
-     * Currently working on.
-     */
-    public function getUserSpecificSection(Rating $ratingModel, Request $request)
-    {
-        return $ratingModel->getStationRatings($request);
-    }
 }

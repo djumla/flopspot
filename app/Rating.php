@@ -42,13 +42,4 @@ class Rating extends Model
 
         return $ratings;
     }
-
-    public function getEquallyTrackSections($request){}
-
-    public function getStationRatings($request)
-    {
-        return $this->leftJoin('train_stations', 'entrance', '=', 'train_stations.id', 'AND', 'exit', '=', 'train_stations.id')
-            ->where('train_stations.station', '=', $request->entrance, 'AND', 'train_stations.station', '=', $request->exit)
-            ->get();
-    }
 }

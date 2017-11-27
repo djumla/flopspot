@@ -3,7 +3,7 @@
         <h1 class="underlined">Hotspot Bewerten</h1>
         <h2>
             Bitte geben Sie die Daten zu Ihrer Zugverbindung an und bewerten Sie anschließend die Qualität Ihres Hotspots.</h2>
-        <form id="rating" v-on:submit.prevent="renderCaptcha()">
+        <form id="rating" @submit.prevent="renderCaptcha($event)">
             <div id="flex-form">
                 <div id="entrance-container" class="inputs">
                     <label for="entrance">
@@ -62,7 +62,7 @@
                 <div class="container">
                     <label id="insufficient-label" for="insufficient">
                         Unzufrieden
-                        <input type="radio" id="insufficient" name="rate"/>
+                        <input type="radio" id="insufficient" name="rate" value="insufficient" v-model="checked"/>
                     </label>
                     <div class="description">
                         <p class="title underlined">
@@ -74,7 +74,7 @@
                 <div class="container">
                     <label id="satisfying-label" for="satisfying">
                         Zufrieden
-                        <input type="radio" id="satisfying" name="rate"/>
+                        <input type="radio" id="satisfying" name="rate" value="satisfying" v-model="checked"/>
                     </label>
                     <div class="description">
                         <p class="title underlined">Befriedigend</p>
@@ -84,7 +84,7 @@
                 <div class="satisfactory container">
                     <label id="satisfactory-label" for="satisfactory">
                         Sehr Zufrieden
-                        <input type="radio" id="satisfactory" name="rate"/>
+                        <input type="radio" id="satisfactory" name="rate" value="satisfactory" v-model="checked" />
                     </label>
                     <div class="description">
                         <p class="title underlined">Sehr Zufrieden</p>
@@ -110,6 +110,7 @@
             let month = date.getMonth();
             let year = date.getFullYear();
 
+
             return {
                 state: {
                     date: new Date(),
@@ -117,7 +118,8 @@
                         to: new Date(year, month - 3),
                         from: new Date(year, month, day + 1)
                     }
-                }
+                },
+                checked: []
             }
         },
         components: {
@@ -182,26 +184,44 @@
                     ajax.send(JSON.stringify(params));
                 })
             },
+
+
+            /**
+             * @return {integer}
+             */
+            getSelectedRating() {
+                let rating;
+
+                switch (this.checked) {
+                    case 'insufficient':
+                        rating = 1;
+                        break;
+
+                    case 'satisfying':
+                        rating = 2;
+                        break;
+
+                    case 'satisfactory':
+                        rating = 3;
+                        break;
+                }
+
+                return rating;
+            },
+
             /**
              * @return {void}
              */
             sendRating(token) {
-                let entrance = document.getElementById('entrance').value;
-                let exit = document.getElementById('exit').value;
-                let trainNumber = document.getElementById('trainNumber').value;
-                let date = document.getElementById('datepicker').value;
-                let rating = this.getSelectedRating();
                 let self = this;
-
-                let iso = this.dateFormat(date);
 
                 Axios.post('api/rating/save', {
                     response: token,
-                    entrance: entrance,
-                    exit: exit,
-                    trainNumber: trainNumber,
-                    date: iso,
-                    rating: rating
+                    entrance: document.getElementById('entrance').value,
+                    exit: document.getElementById('exit').value,
+                    trainNumber: document.getElementById('trainNumber').value,
+                    date: this.dateFormat(document.getElementById('datepicker').value),
+                    rating: this.getSelectedRating()
                 })
                     .then(function (response) {
                         self.showSucceed();
@@ -237,29 +257,6 @@
                 });
 
                 grecaptcha.execute();
-            },
-
-
-            /**
-             * @return {integer}
-             */
-            getSelectedRating() {
-                let insufficient = document.getElementById('insufficient');
-                let satisfying = document.getElementById('satisfying');
-                let satisfactory = document.getElementById('satisfactory');
-                let rating;
-
-                if (insufficient.checked) {
-                    rating = 1;
-                }
-                if (satisfying.checked) {
-                    rating = 2;
-                }
-                if (satisfactory.checked) {
-                    rating = 3;
-                }
-
-                return rating;
             },
 
             /**

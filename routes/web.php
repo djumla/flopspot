@@ -38,10 +38,11 @@ Route::get('api/rating/satisfactory', 'API\RatingController@getSatisfactory');
 Route::get('api/rating/total', 'API\RatingController@total');
 Route::get('api/rating/pastSixMonth', 'API\RatingController@pastSixMonth');
 Route::post('api/rating/save', 'API\RatingController@store');
-Route::post('api/rating/getUserSpecificSection', 'API\RatingController@getUserSpecificSection');
 
 // TwitterController
 Route::get('api/tweets', 'API\TwitterController@getTweets');
+Route::get('api/tagRelatedTweets', 'API\TwitterController@findTagsRelatedTweets');
+Route::get('api/userStatus', 'API\TwitterController@getStatuses');
 
 // TrainInfoController
 Route::post('api/stations', 'API\TrainInfoController@getStations');
