@@ -61,6 +61,27 @@ class TwitterBot extends Command
     /**
      * @return void
      */
+    public function storeStatus()
+    {
+        $twitterController = new TwitterController($this->conn);
+
+        $statuses = $twitterController->getStatuses();
+
+        foreach ($statuses as $status) {
+            $db = new TwitterStatus;
+
+            if (!count($this->statusModel->checkIfUserRegistered('@' . $status['author']))) {
+                $db->status_id = $status['id'];
+                $db->status_author = '@' . $status['author'];
+
+                $db->save();
+            }
+        }
+    }
+
+    /**
+     * @return void
+     */
     public function pokeUser()
     {
         if (count($this->statusModel->getNotPoked())) {
@@ -88,26 +109,5 @@ class TwitterBot extends Command
     public function deleteStatus()
     {
         $this->statusModel->deleteStatus();
-    }
-
-    /**
-     * @return void
-     */
-    public function storeStatus()
-    {
-        $twitterController = new TwitterController();
-
-        $statuses = $twitterController->getStatuses();
-
-        foreach ($statuses as $status) {
-            $db = new TwitterStatus;
-
-            if (!count($this->statusModel->checkIfUserRegistered('@' . $status['author']))) {
-                $db->status_id = $status['id'];
-                $db->status_author = '@' . $status['author'];
-
-                $db->save();
-            }
-        }
     }
 }

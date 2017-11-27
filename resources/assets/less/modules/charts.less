@@ -8,10 +8,19 @@
     }
   }
 
+  @media (max-width: 180px) {
+    overflow: scroll;
+  }
+
   h1 {
     text-align: center;
     color: @white;
     padding: 30px;
+
+    @media (max-width: 280px) {
+      padding: 10px;
+      font-size: 1.2em;
+    }
   }
 
   .chart-container {

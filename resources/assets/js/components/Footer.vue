@@ -58,7 +58,7 @@
                                  * Tweet structure: Div > headline > text
                                  */
 
-                                    // Headline
+                                // Headline
                                 let span = document.createElement('span');
                                 let spanText = document.createTextNode(postDate);
 

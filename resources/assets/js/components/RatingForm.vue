@@ -84,7 +84,7 @@
                 <div class="satisfactory container">
                     <label id="satisfactory-label" for="satisfactory">
                         Sehr Zufrieden
-                        <input type="radio" id="satisfactory" name="rate" value="satisfactory" v-model="checked" />
+                        <input type="radio" id="satisfactory" name="rate" value="satisfactory" v-model="checked"/>
                     </label>
                     <div class="description">
                         <p class="title underlined">Sehr Zufrieden</p>
