@@ -53,9 +53,10 @@ class TwitterBot extends Command
      */
     public function handle()
     {
+        //$this->storeStatus();
+        //$this->pokeUser();
+        //$this->deleteStatus();
         $this->storeStatus();
-        $this->pokeUser();
-        $this->deleteStatus();
     }
 
     /**
@@ -109,10 +110,12 @@ class TwitterBot extends Command
 
         foreach ($statuses as $status) {
             if (!count($this->statusModel->checkIfUserRegistered('@' . $status['author']))) {
-                $this->statusModel->status_id = $status['id'];
-                $this->statusModel->status_author = '@' . $status['author'];
+                $model = new TwitterStatus;
 
-                $this->statusModel->save();
+                $model->status_id = $status['id'];
+                $model->status_author = '@' . $status['author'];
+
+                $model->save();
             }
         }
     }
