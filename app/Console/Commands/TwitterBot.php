@@ -53,10 +53,9 @@ class TwitterBot extends Command
      */
     public function handle()
     {
-        //$this->storeStatus();
-        //$this->pokeUser();
-        //$this->deleteStatus();
         $this->storeStatus();
+        $this->pokeUser();
+        $this->deleteStatus();
     }
 
     /**
