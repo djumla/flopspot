@@ -108,7 +108,7 @@ class TwitterBot extends Command
         $statuses = $this->getStatuses();
 
         foreach ($statuses as $status) {
-            if ($status['author'] === "@DB_Bahn") {
+            if ($status['author'] === "DB_Bahn") {
                 continue;
             }
 
