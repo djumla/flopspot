@@ -28,7 +28,7 @@ class StoreRating extends FormRequest
             'entrance' => 'required|string|exists:train_stations,station',
             'exit' => 'required|string|exists:train_stations,station',
             'trainNumber' => 'required|string|exists:train_numbers,trainNumber',
-            'trainNumber' => array('regex: /ICE|ice \d/ '),
+            'trainNumber' => array('regex: /^(ICE|ice) \d+$/ '),
             'date' => 'required|date_format:Y-m-d',
             'rating' => 'required|integer|regex:/[1-3]/',
             'response' => 'required|recaptcha'
