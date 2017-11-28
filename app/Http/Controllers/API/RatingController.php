@@ -7,6 +7,8 @@ use App\Http\Requests;
 use App\Rating;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Station;
+use App\TrainNumber;
 
 class RatingController extends Controller
 {

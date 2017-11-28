@@ -280,16 +280,16 @@
 
                 if (error) {
                     console.log(error.response);
-                    if ('entrance' in error.response.data.errors) {
+                    if (error.response.data.errors.entrance) {
                         this.addElement(parent[0], error.response.data.errors.entrance);
                     }
-                    if ('exit' in error.response.data.errors) {
+                    if (error.response.data.errors.exit) {
                         this.addElement(parent[1], error.response.data.errors.exit);
                     }
-                    if ('trainNumber' in error.response.data.errors) {
+                    if (error.response.data.errors.trainNumber) {
                         this.addElement(parent[2], error.response.data.errors.trainNumber);
                     }
-                    if ('rating' in error.response.data.errors) {
+                    if (error.response.data.errors.rating) {
                         this.addElement(rating, error.response.data.errors.rating);
                     }
                 }
