@@ -106,20 +106,14 @@ class TwitterBot extends Command
     public function storeStatus()
     {
         $statuses = $this->getStatuses();
-        $statusesClone = "";
 
-        for ($i = 0; $i < count($statuses); $i++) {
-            $key = array_search('DB_Bahn', $statuses[$i]);
-            if($key) {
-                unset($statuses[$i]);
-
-                $statusesClone = $statuses;
+        foreach ($statuses as $status) {
+            if ($status['author'] === "@DB_Bahn") {
+                continue;
             }
-        }
 
-       foreach ($statusesClone as $status) {
             if (!count($this->statusModel->checkIfUserRegistered('@' . $status['author']))) {
-                $model = new TwitterStatus;
+                $model = $this->statusModel->newInstance();
 
                 $model->status_id = $status['id'];
                 $model->status_author = '@' . $status['author'];
