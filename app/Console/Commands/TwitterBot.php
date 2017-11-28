@@ -59,27 +59,67 @@ class TwitterBot extends Command
     }
 
     /**
+     * Searches for tweets with specific tags like ice or WiFi.
+     *
+     * Returns response as json string
+     *
+     * @return string
+     */
+    public function findTagsRelatedTweets()
+    {
+        $response = $this->conn->connection()->request(
+            'GET',
+            'search/tweets.json?l=&q=ice%2C%20wlan%20OR%20deutsche%20bahn%2C%20OR%20db%2C%20OR%20wifi&src=typd',
+            ['auth' => 'oauth']
+        );
+
+        $body = (string)$response->getBody();
+
+        return $body;
+    }
+
+    /**
+     * Based on the response body, stores the status id and the screen_name of the author who wrote the status
+     *
+     * @return array
+     */
+    public function getStatuses()
+    {
+        $statuses = json_decode($this->findTagsRelatedTweets(), true);
+        $tweets = [];
+
+        foreach ($statuses["statuses"] as $status) {
+            $tweets[] = [
+                'author' => $status['user']['screen_name'],
+                'id' => $status['id']
+            ];
+        }
+
+        return $tweets;
+    }
+
+    /**
+     * Stores username and tweet id of the status author
+     *
      * @return void
      */
     public function storeStatus()
     {
-        $twitterController = new TwitterController($this->conn);
-
-        $statuses = $twitterController->getStatuses();
+        $statuses = $this->getStatuses();
 
         foreach ($statuses as $status) {
-            $db = new TwitterStatus;
-
             if (!count($this->statusModel->checkIfUserRegistered('@' . $status['author']))) {
-                $db->status_id = $status['id'];
-                $db->status_author = '@' . $status['author'];
+                $this->statusModel->status_id = $status['id'];
+                $this->statusModel->status_author = '@' . $status['author'];
 
-                $db->save();
+                $this->statusModel->save();
             }
         }
     }
 
     /**
+     * Pokes the user, if he has not already
+     *
      * @return void
      */
     public function pokeUser()
@@ -90,7 +130,7 @@ class TwitterBot extends Command
                         'auth' => 'oauth',
 
                         'form_params' => [
-                            'status' => $notPoked['status_author'] . ' Hallo, einfach ignorieren :D',
+                            'status' => $notPoked['status_author'] . ' ' . config('projectDescription.description'),
                             'in_reply_to_status_id' => $notPoked['status_id']
                         ]
                     ]
@@ -108,6 +148,6 @@ class TwitterBot extends Command
      */
     public function deleteStatus()
     {
-        $this->statusModel->deleteStatus();
+        $this->statusModel->deletePokedStatusEveryMonth();
     }
 }

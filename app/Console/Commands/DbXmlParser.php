@@ -50,10 +50,12 @@ class DbXmlParser extends Command
     }
 
     /**
-     * @param  string $path path to XMLs
+     * @param $path
      *
-     * @return array
-     **/
+     * @return array|void
+     *
+     * @throws \Exception
+     */
     public function parse($path)
     {
         $xmls = [];
@@ -61,7 +63,7 @@ class DbXmlParser extends Command
         $files = glob($path . "/*.xml");
 
         if (count($files) === 0) {
-            echo 'No XML files found';
+            throw new \Exception('No XML files found');
 
             return;
         }

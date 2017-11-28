@@ -15,33 +15,34 @@ class XmlParserTest extends TestCase
      * @return void
      */
 
-    private $path = 'tests/XMLs/';
-    private $pathToEmptyFile = 'tests/XMLs/EmptyOrUncomplete/Empty.xml';
+    private $path = 'tests/Mocks/XMLs/';
+    private $pathToEmptyFile = 'tests/Mocks/XMLs/EmptyOrUncomplete/Empty.xml';
+    private $xmlParser;
+    private $xmls;
 
-    public function testParser()
+    public function setUp()
     {
-        $obj = new DbXmlParser();
-        $xmls = $obj->parse($this->path);
-
-        $this->assertNotEmpty($xmls);
-        /**
-         * Must return an array full of SimpleXMLElement objects
-         */
-        $this->assertTrue(is_array($xmls));
-        /**
-         * Each file must contain objects of SimpleXMLElements.
-         */
-        $this->assertInternalType('object', $xmls[0]);
-        $this->assertInternalType('object', $xmls[1]);
+        $this->xmlParser = new DbXmlParser();
+        $this->xmls = $this->xmlParser->parse($this->path);
     }
 
-    public function testEmptyPaths()
+    public function testParserReturnsSimpleXmlObjects()
     {
-        $obj = new DbXmlParser();
-        $xmls = $obj->parse($this->pathToEmptyFile);
+        $this->assertInstanceOf('\SimpleXMLElement', $this->xmls[0]);
+        $this->assertInstanceOf('\SimpleXMLElement', $this->xmls[1]);
+    }
 
-        $this->assertEmpty($xmls);
+    public function testParserReturnsAnArray()
+    {
+        $this->assertTrue(is_array($this->xmls));
+    }
 
-        return $xmls;
+    /**
+     * @expectedException \Exception
+     * @expectedExceptionMessage No XML files found
+     */
+    public function testParserThrowsExceptionWithoutXmls()
+    {
+        $this->xmlParser->parse($this->pathToEmptyFile);
     }
 }

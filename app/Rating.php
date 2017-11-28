@@ -16,6 +16,12 @@ class Rating extends Model
       'rating'
     ];
 
+    /**
+     * @param $start
+     * @param $end
+     *
+     * @return array
+     */
     public function getCombinedRatings($start, $end)
     {
         $insufficient = $this->select('rating')

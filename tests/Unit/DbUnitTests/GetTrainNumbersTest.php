@@ -13,9 +13,9 @@ class GetTrainNumbersTest extends TestCase
      *
      * @return void
      */
-    private $path = 'tests/XMLs/';
+    private $path = 'tests/Mocks/XMLs/';
 
-    public function testGetTrainNumbers()
+    public function testAccuracyOfReturnedTrainNumbers()
     {
         $obj = new DbXmlParser;
         $trains = $obj->getTrainNumbers($this->path);

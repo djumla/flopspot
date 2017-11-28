@@ -16,6 +16,8 @@ class TwitterStatus extends Model
     ];
 
     /**
+     * Get only authors who has not been poked yet.
+     *
      * @return mixed
      */
     public function getNotPoked()
@@ -28,7 +30,7 @@ class TwitterStatus extends Model
     /**
      * @return mixed
      */
-    public function deleteStatus()
+    public function deletePokedStatusEveryMonth()
     {
         return $this->where('author_poked', '=', '1')
             ->whereRaw('DATEDIFF( NOW(), poked_date ) > 30')
@@ -36,7 +38,9 @@ class TwitterStatus extends Model
     }
 
     /**
-     * @param $username
+     * Set poked to 1(true) so he won't get poked again
+     *
+     * @param string $author
      *
      * @return mixed
      */
@@ -50,7 +54,9 @@ class TwitterStatus extends Model
     }
 
     /**
-     * @param $user
+     * Check if the author has already been registered
+     *
+     * @param string $author
      *
      * @return mixed
      */

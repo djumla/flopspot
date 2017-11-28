@@ -1,3 +1,4 @@
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -24,10 +25,10 @@ import Overall from './components/Statistics/Overall.vue';
 import Footer from './components/Footer.vue';
 
 const app = new Vue({
-  el: '#app',
+    el: '#app',
 
-  components: {
-    'flopspot-overall': Overall,
-    'flopspot-footer': Footer
-  }
+    components: {
+        'flopspot-overall': Overall,
+        'flopspot-footer': Footer
+    }
 });

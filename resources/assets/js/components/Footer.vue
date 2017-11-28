@@ -41,6 +41,7 @@
             })
         },
 
+
         methods: {
             /**
              * @return {void}
@@ -83,10 +84,6 @@
 
                     })
             },
-
-            dateFormatting: function (date) {
-                return date.replace("+0000");
-            }
         }
     }
 </script>

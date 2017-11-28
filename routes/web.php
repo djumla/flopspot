@@ -41,8 +41,6 @@ Route::post('api/rating/save', 'API\RatingController@store');
 
 // TwitterController
 Route::get('api/tweets', 'API\TwitterController@getTweets');
-Route::get('api/tagRelatedTweets', 'API\TwitterController@findTagsRelatedTweets');
-Route::get('api/userStatus', 'API\TwitterController@getStatuses');
 
 // TrainInfoController
 Route::post('api/stations', 'API\TrainInfoController@getStations');

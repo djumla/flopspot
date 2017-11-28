@@ -77,7 +77,6 @@
              */
             create: function () {
                 let self = this;
-
                 Axios.get('/api/rating/pastSixMonth')
                     .then(function (response) {
                         self.chart(response.data.insufficient, response.data.satisfying, response.data.satisfactory);

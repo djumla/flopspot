@@ -14,9 +14,9 @@ class GetStationsTest extends TestCase
      * @return void
      */
 
-    private $path = 'tests/XMLs';
+    private $path = 'tests/Mocks/XMLs';
 
-    public function testGetStations()
+    public function testAccuracyOfReturnedStations()
     {
         $obj = new DbXmlParser;
         $station = $obj->getStations($this->path);
