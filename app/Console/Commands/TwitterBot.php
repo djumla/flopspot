@@ -69,7 +69,7 @@ class TwitterBot extends Command
     {
         $response = $this->conn->connection()->request(
             'GET',
-            'search/tweets.json?l=&q=ice%2C%20wlan%20OR%20wifi%2C%20%20ice&src=typd',
+            'search/tweets.json?l=de&q=ice%2C%20wlan%20OR%20wifi%2C%20%20ice&src=typd',
             ['auth' => 'oauth']
         );
 

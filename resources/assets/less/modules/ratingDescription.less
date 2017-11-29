@@ -2,7 +2,7 @@
   box-sizing: border-box;
   position: absolute;
   background: @darkBlue;
-  padding: 25px;
+  padding: 10px;
   color: @white;
   text-align: center;
   border-radius: 5px;
@@ -10,6 +10,7 @@
   margin-top: 40px;
   left: 20%;
   display: none;
+  line-height: 1.5em;
 
   &:after {
     bottom: 100%;
@@ -28,7 +29,6 @@
   @media (max-width: 860px) {
     left: 0;
     width: 100%;
-    padding: 40px 40px 40px 40px;
   }
   @media (max-width: 650px) {
     padding: 30px 30px 30px 30px;
@@ -40,6 +40,7 @@
     display: block;
     position: relative;
     margin: 0;
+    padding: 15px;
 
     &:after {
       content: none;
