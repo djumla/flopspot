@@ -88,11 +88,11 @@
                     </label>
                     <div class="description">
                         <p class="title underlined">Sehr Zufrieden</p>
-                        <div class="text">Die WiFi Qualität war sehr zurfriedenstellend</div>
+                        <div class="text">Die WiFi-Qualität war sehr zurfriedenstellend</div>
                     </div>
                 </div>
             </div>
-            <input id="ratingButton" type="submit" value="Abschicken"/>
+            <input id="ratingButton" type="submit" value="Senden"/>
         </form>
     </main>
 </template>
