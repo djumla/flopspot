@@ -68,7 +68,7 @@
                         <p class="title underlined">
                             Unzufrieden!
                         </p>
-                        <div class="text">Die Leistungen der Bahn waren inakzeptabel und nicht zuverlässig!</div>
+                        <div class="text">Die Zuverlässigkeit und/oder Qualität des WiFi war nicht zufriedenstellend!</div>
                     </div>
                 </div>
                 <div class="container">
@@ -78,7 +78,7 @@
                     </label>
                     <div class="description">
                         <p class="title underlined">Befriedigend</p>
-                        <div class="text">Der Hotspot war ausreichend für meine Bedürfnisse.</div>
+                        <div class="text">Die Internetverbindung war befriedigend für meine Zwecke!</div>
                     </div>
                 </div>
                 <div class="satisfactory container">
@@ -88,7 +88,7 @@
                     </label>
                     <div class="description">
                         <p class="title underlined">Sehr Zufrieden</p>
-                        <div class="text">Der Hotspot funktioniere einwandfrei!</div>
+                        <div class="text">Die WiFi Qualität war sehr zurfriedenstellend</div>
                     </div>
                 </div>
             </div>
