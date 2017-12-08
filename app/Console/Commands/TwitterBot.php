@@ -53,9 +53,10 @@ class TwitterBot extends Command
      */
     public function handle()
     {
-        $this->storeStatus();
+        /*$this->storeStatus();
         $this->pokeUser();
-        $this->deleteStatus();
+        $this->deleteStatus();*/
+        $this->getStatuses();
     }
 
     /**
@@ -69,7 +70,7 @@ class TwitterBot extends Command
     {
         $response = $this->conn->connection()->request(
             'GET',
-            'search/tweets.json?l=de&q=ice%2C%20wlan%20OR%20wifi%2C%20%20ice&src=typd',
+            'search/tweets.json?q=ICE%2C%20WLAN%20OR%20WiFi%2C%20%20ICE&lang=de&result_type=recent&count=5',
             ['auth' => 'oauth']
         );
 
@@ -89,10 +90,12 @@ class TwitterBot extends Command
         $tweets = [];
 
         foreach ($statuses["statuses"] as $status) {
-            $tweets[] = [
-                'author' => $status['user']['screen_name'],
-                'id' => $status['id']
-            ];
+            if ($status['metadata']['iso_language_code'] === 'de' && $status['user']['lang'] === 'de') {
+                $tweets[] = [
+                  'author' => $status['user']['screen_name'],
+                  'id' => $status['id']
+              ];
+            }
         }
 
         return $tweets;
@@ -132,7 +135,10 @@ class TwitterBot extends Command
     {
         if (count($this->statusModel->getNotPoked())) {
             foreach ($this->statusModel->getNotPoked() as $notPoked) {
-                $response = $this->conn->connection()->request('POST', 'statuses/update.json', [
+                $response = $this->conn->connection()->request(
+                    'POST',
+                    'statuses/update.json',
+                    [
                         'auth' => 'oauth',
 
                         'form_params' => [
