@@ -3,7 +3,7 @@
         <h1 class="underlined">Hotspot Bewerten</h1>
         <h2>
             Bitte geben Sie die Daten zu Ihrer Zugverbindung an und bewerten Sie anschließend die Qualität Ihres Hotspots.</h2>
-        <form id="rating" @submit.prevent="renderCaptcha($event)">
+        <form id="rating" @submit.prevent="triggerWidget($event)">
             <div id="flex-form">
                 <div id="entrance-container" class="inputs">
                     <label for="entrance">
@@ -104,7 +104,7 @@
     import Axios from 'axios';
 
     export default {
-        data() {
+        data: function() {
             let date = new Date();
             let day = date.getDate();
             let month = date.getMonth();
@@ -119,12 +119,20 @@
                         from: new Date(year, month, day + 1)
                     }
                 },
-                checked: []
+                checked: [],
+                trigger: false,
+                widgetID: 0
             }
         },
         components: {
             Autocomplete,
             Datepicker
+        },
+
+        mounted: function() {
+            this.$nextTick(function () {
+                this.createWidget();
+            })
         },
 
         methods: {
@@ -133,7 +141,7 @@
              *
              * @return {void}
              */
-            getStations(value) {
+            getStations: function(value) {
                 return new Promise((resolve, reject) => {
                     let ajax = new XMLHttpRequest();
                     let params = {
@@ -161,7 +169,7 @@
              *
              * @return {void}
              */
-            getTrainNumbers(value) {
+            getTrainNumbers: function(value) {
                 return new Promise((resolve, reject) => {
                     let ajax = new XMLHttpRequest();
                     let params = {
@@ -189,7 +197,7 @@
             /**
              * @return {integer}
              */
-            getSelectedRating() {
+            getSelectedRating: function() {
                 let rating;
 
                 switch (this.checked) {
@@ -212,7 +220,7 @@
             /**
              * @return {void}
              */
-            sendRating(token) {
+            sendRating: function(token) {
                 let self = this;
 
                 Axios.post('api/rating/save', {
@@ -237,26 +245,28 @@
                     });
             },
 
-
-            resetCaptcha() {
-                grecaptcha.reset();
-            },
-
-            renderCaptcha() {
+            createWidget: function() {
                 let element = document.createElement('div');
 
                 element.className = "recaptcha";
 
                 document.getElementById('rating').appendChild(element);
 
-                grecaptcha.render(element, {
+                this.widgetID = grecaptcha.render(element, {
                     'sitekey': '6LeYLjkUAAAAALRN_2VcXmaSC5i_adKckj5I3c7g',
                     'size': 'invisible',
                     'callback': this.sendRating,
-                    'expired-callback': this.resetCaptcha
+                    'expired-callback': this.resetWidget
                 });
+            },
 
-                grecaptcha.execute();
+
+            resetWidget: function() {
+                grecaptcha.reset(this.widgetID);
+            },
+
+            triggerWidget: function() {
+                grecaptcha.execute(this.widgetID);
             },
 
             /**
@@ -264,9 +274,10 @@
              *
              * @return {void}
              */
-            showError(error) {
+            showError: function(error) {
                 this.create(error);
                 this.removeElement();
+                this.resetWidget();
             },
 
             /**
@@ -274,7 +285,7 @@
              *
              * @return {void}
              */
-            create(error) {
+            create: function(error) {
                 let parent = document.getElementById('flex-form').children;
                 let rating = document.getElementById('flex-thumbs');
 
@@ -299,7 +310,7 @@
              *
              * @param {string} message
              */
-            addElement(parent, message) {
+            addElement: function(parent, message) {
                 let element = document.createElement('div');
                 let msg = document.createTextNode(message);
 
@@ -335,7 +346,7 @@
             /**
              * @return {void}
              */
-            removeElement() {
+            removeElement: function() {
                 for (let i = 0; i < document.getElementById('flex-form').children.length - 1; i++) {
                     document.querySelectorAll(".autocomplete-input")[i].onkeyup = function () {
                         let parent = document.getElementById('flex-form').children[i];
@@ -362,7 +373,7 @@
              *
              * @returns {string}
              */
-            dateFormat(date) {
+            dateFormat: function(date) {
                 return date.substring(6, 10) + "-" + date.substring(3, 5) + "-" + date.substring(0, 2);
             },
 
@@ -372,7 +383,7 @@
              *
              * @return {void}
              */
-            showSucceed() {
+            showSucceed: function() {
                 let div = document.createElement('div');
                 let msg = document.createTextNode(
                     'Vielen Dank für deine Abstimmung! Sie werden jeden Moment weitergeleitet!'

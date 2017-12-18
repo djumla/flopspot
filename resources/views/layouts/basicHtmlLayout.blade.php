@@ -10,6 +10,7 @@
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
 
     <link rel="stylesheet" href="/css/app.css">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     @yield('captcha')
 </head>
 
