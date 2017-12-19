@@ -26,12 +26,12 @@ import Form from './components/RatingForm.vue';
 import Article from './components/Article.vue';
 
 const app = new Vue({
-  el: '#app',
+    el: '#app',
 
-  components: {
-    'flopspot-form': Form,
-    'flopspot-article': Article,
-    'flopspot-footer': Footer
-  }
+    components: {
+        'flopspot-form': Form,
+        'flopspot-article': Article,
+        'flopspot-footer': Footer
+    }
 });
 

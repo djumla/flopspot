@@ -1,9 +1,11 @@
 <template>
     <main class="wrapper">
+        <div id="recaptcha"></div>
         <h1 class="underlined">Hotspot Bewerten</h1>
         <h2>
-            Bitte geben Sie die Daten zu Ihrer Zugverbindung an und bewerten Sie anschließend die Qualität Ihres Hotspots.</h2>
-        <form id="rating" @submit.prevent="triggerWidget($event)">
+            Bitte geben Sie die Daten zu Ihrer Zugverbindung an und bewerten Sie anschließend die Qualität Ihres
+            Hotspots.</h2>
+        <form id="rating" @submit.prevent="trigger()">
             <div id="flex-form">
                 <div id="entrance-container" class="inputs">
                     <label for="entrance">
@@ -68,7 +70,8 @@
                         <p class="title underlined">
                             Unzufrieden!
                         </p>
-                        <div class="text">Die Zuverlässigkeit und/oder Qualität des WiFi war nicht zufriedenstellend!</div>
+                        <div class="text">Die Zuverlässigkeit und/oder Qualität des WiFi war nicht zufriedenstellend!
+                        </div>
                     </div>
                 </div>
                 <div class="container">
@@ -104,7 +107,7 @@
     import Axios from 'axios';
 
     export default {
-        data: function() {
+        data: function () {
             let date = new Date();
             let day = date.getDate();
             let month = date.getMonth();
@@ -120,18 +123,33 @@
                     }
                 },
                 checked: [],
-                trigger: false,
                 widgetID: 0
             }
         },
+
         components: {
             Autocomplete,
             Datepicker
         },
 
-        mounted: function() {
+        mounted() {
+            let self = this;
+
             this.$nextTick(function () {
-                this.createWidget();
+                window.addEventListener('load', () => {
+                    setTimeout(function () {
+                        const element = document.createElement('div');
+                        const parent = document.getElementById('rating');
+
+                        parent.appendChild(element);
+
+                        grecaptcha.render(element, {
+                            'sitekey': '6LeYLjkUAAAAALRN_2VcXmaSC5i_adKckj5I3c7g',
+                            'callback': self.sendRating,
+                            'size': 'invisible'
+                        });
+                    }, 100)
+                })
             })
         },
 
@@ -141,7 +159,7 @@
              *
              * @return {void}
              */
-            getStations: function(value) {
+            getStations: function (value) {
                 return new Promise((resolve, reject) => {
                     let ajax = new XMLHttpRequest();
                     let params = {
@@ -169,7 +187,7 @@
              *
              * @return {void}
              */
-            getTrainNumbers: function(value) {
+            getTrainNumbers: function (value) {
                 return new Promise((resolve, reject) => {
                     let ajax = new XMLHttpRequest();
                     let params = {
@@ -197,7 +215,7 @@
             /**
              * @return {integer}
              */
-            getSelectedRating: function() {
+            getSelectedRating: function () {
                 let rating;
 
                 switch (this.checked) {
@@ -218,9 +236,9 @@
             },
 
             /**
-             * @return {void}
+             * @return {object}
              */
-            sendRating: function(token) {
+            sendRating: function (token) {
                 let self = this;
 
                 Axios.post('api/rating/save', {
@@ -245,39 +263,15 @@
                     });
             },
 
-            createWidget: function() {
-                let element = document.createElement('div');
-
-                element.className = "recaptcha";
-
-                document.getElementById('rating').appendChild(element);
-
-                this.widgetID = grecaptcha.render(element, {
-                    'sitekey': '6LeYLjkUAAAAALRN_2VcXmaSC5i_adKckj5I3c7g',
-                    'size': 'invisible',
-                    'callback': this.sendRating,
-                    'expired-callback': this.resetWidget
-                });
-            },
-
-
-            resetWidget: function() {
-                grecaptcha.reset(this.widgetID);
-            },
-
-            triggerWidget: function() {
-                grecaptcha.execute(this.widgetID);
-            },
-
             /**
              * @param  {object} error response
              *
              * @return {void}
              */
-            showError: function(error) {
+            showError: function (error) {
+                this.reset();
                 this.create(error);
                 this.removeElement();
-                this.resetWidget();
             },
 
             /**
@@ -285,7 +279,7 @@
              *
              * @return {void}
              */
-            create: function(error) {
+            create: function (error) {
                 let parent = document.getElementById('flex-form').children;
                 let rating = document.getElementById('flex-thumbs');
 
@@ -310,7 +304,7 @@
              *
              * @param {string} message
              */
-            addElement: function(parent, message) {
+            addElement: function (parent, message) {
                 let element = document.createElement('div');
                 let msg = document.createTextNode(message);
 
@@ -346,7 +340,7 @@
             /**
              * @return {void}
              */
-            removeElement: function() {
+            removeElement: function () {
                 for (let i = 0; i < document.getElementById('flex-form').children.length - 1; i++) {
                     document.querySelectorAll(".autocomplete-input")[i].onkeyup = function () {
                         let parent = document.getElementById('flex-form').children[i];
@@ -373,7 +367,7 @@
              *
              * @returns {string}
              */
-            dateFormat: function(date) {
+            dateFormat: function (date) {
                 return date.substring(6, 10) + "-" + date.substring(3, 5) + "-" + date.substring(0, 2);
             },
 
@@ -383,7 +377,7 @@
              *
              * @return {void}
              */
-            showSucceed: function() {
+            showSucceed: function () {
                 let div = document.createElement('div');
                 let msg = document.createTextNode(
                     'Vielen Dank für deine Abstimmung! Sie werden jeden Moment weitergeleitet!'
@@ -397,7 +391,16 @@
 
                 document.body.appendChild(div);
                 document.body.appendChild(blackScreen);
+            },
+
+            trigger: function () {
+                grecaptcha.execute(this.widgetID);
+            },
+
+            reset: function () {
+                grecaptcha.reset(this.widgetID);
             }
         }
     };
 </script>
+
