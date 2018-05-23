@@ -17,11 +17,7 @@
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://www.google.com/recaptcha/api.js"> </script>
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous">
-    </script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/responsive.js"></script>
     <script src="js/observer.js"></script>
 @endsection

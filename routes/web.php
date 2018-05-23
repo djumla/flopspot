@@ -23,14 +23,6 @@ Route::get('/contact', function () {
     return view('/layouts/contact');
 });
 
-Route::get('/imprint', function () {
-    return view('/layouts/imprint');
-});
-
-Route::get('/privacyPolicy', function () {
-    return view('/layouts/privacyPolicy');
-});
-
 // RatingController
 Route::get('api/rating/insufficient', 'API\RatingController@getInsufficient');
 Route::get('api/rating/satisfying', 'API\RatingController@getSatisfying');
