@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 224);
+/******/ 	return __webpack_require__(__webpack_require__.s = 223);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -11607,10 +11607,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      tweets: []
+    };
+  },
+
+
   mounted: function mounted() {
     this.$nextTick(function () {
       this.createTweets();
@@ -11622,34 +11634,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
      * @returns {void}
      */
     createTweets: function createTweets() {
+      var self = this;
+
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/tweets').then(function (response) {
         response.data.statuses.forEach(function (val, key) {
           var postDate = val.created_at.replace('+0000', '');
-
           if (key < 5) {
-            /**
-             * Every tweet has its own div
-             * Also, of course, every tweet has a node and a headline
-             * Tweet structure: Div > headline > text
-             */
-
-            return { id: key, title: postDate, content: val.text
-              /*
-                // Headline
-              let span = document.createElement('span')
-              let spanText = document.createTextNode(postDate)
-               // Tweet itself
-              let p = document.createElement('p')
-              let pText = document.createTextNode(val.text)
-               let tweetContainer = document.createElement('div')
-               tweetContainer.className = 'tweet'
-              span.className = 'title underlined'
-               span.appendChild(spanText)
-              p.appendChild(pText)
-               document.getElementById('tweets').appendChild(tweetContainer)
-               tweetContainer.appendChild(span)
-              tweetContainer.appendChild(p)*/
-            };
+            self.tweets.push({ id: key, title: postDate, content: val.text });
           }
         });
       });
@@ -11747,15 +11738,15 @@ function isSlowBuffer (obj) {
 
 /***/ }),
 
-/***/ 224:
+/***/ 223:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(225);
+module.exports = __webpack_require__(224);
 
 
 /***/ }),
 
-/***/ 225:
+/***/ 224:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12604,75 +12595,77 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("footer", [
+    _c("div", { attrs: { id: "service" } }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "section",
+        { attrs: { id: "tweets" } },
+        _vm._l(_vm.tweets, function(tweet) {
+          return _c("div", { key: tweet.id, staticClass: "tweet" }, [
+            _c("span", { staticClass: "title underlined" }, [
+              _vm._v(_vm._s(tweet.title))
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(tweet.content))])
+          ])
+        })
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "copyright" } }, [
+      _vm._v("Copyright 2017 - flopspot")
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", [
-      _c("div", { attrs: { id: "service" } }, [
-        _c("div", { attrs: { id: "flex-service" } }, [
-          _c("section", { attrs: { id: "contact" } }, [
-            _c("h1", { staticClass: "underlined" }, [
-              _vm._v("Fragen oder Anregungen?")
-            ]),
-            _vm._v(" "),
-            _c("h2", [
-              _vm._v(" Schreib uns an "),
-              _c("a", { attrs: { href: "#" } }, [_vm._v("kontakt@flopspot.de")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "social-media" } }, [
-            _c("h1", { staticClass: "underlined" }, [
-              _vm._v("Werde ein Fan von flopspot")
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("h2", [_vm._v("Folge uns auf Facebook oder Twitter")]),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  attrs: {
-                    href: "https://www.facebook.com/Flopspot-160124607925841/"
-                  }
-                },
-                [_c("img", { attrs: { src: "/assets/facebook.png" } })]
-              ),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "https://twitter.com/FlopspotDE/" } }, [
-                _c("img", { attrs: { src: "/assets/twitter.png" } })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("nav", { staticClass: "underlined" }, [
-            _c("ul", [
-              _c("li", [
-                _c("a", { attrs: { href: "/imprint" } }, [_vm._v("Impressum")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "/contact" } }, [_vm._v("Kontakt")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "/privacyPolicy" } }, [
-                  _vm._v("Datenschutz")
-                ])
-              ])
-            ])
-          ])
+    return _c("div", { attrs: { id: "flex-service" } }, [
+      _c("section", { attrs: { id: "contact" } }, [
+        _c("h1", { staticClass: "underlined" }, [
+          _vm._v("Fragen oder Anregungen?")
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "tweets" } })
+        _c("h2", [
+          _vm._v(" Schreib uns an "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("kontakt@flopspot.de")])
+        ])
       ]),
       _vm._v(" "),
-      _c("div", { attrs: { id: "copyright" } }, [
-        _vm._v("Copyright 2017 - flopspot")
+      _c("section", { attrs: { id: "social-media" } }, [
+        _c("h1", { staticClass: "underlined" }, [
+          _vm._v("Werde ein Fan von flopspot")
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("h2", [_vm._v("Folge uns auf Facebook oder Twitter")]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "https://www.facebook.com/Flopspot-160124607925841/"
+              }
+            },
+            [_c("img", { attrs: { src: "/assets/facebook.png" } })]
+          ),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "https://twitter.com/FlopspotDE/" } }, [
+            _c("img", { attrs: { src: "/assets/twitter.png" } })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("nav", { staticClass: "underlined" }, [
+        _c("ul", [
+          _c("li", [
+            _c("a", { attrs: { href: "/contact" } }, [_vm._v("Kontakt")])
+          ])
+        ])
       ])
     ])
   }

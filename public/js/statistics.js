@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 170);
+/******/ 	return __webpack_require__(__webpack_require__.s = 169);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1896,7 +1896,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(205)("./" + name);
+            __webpack_require__(204)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -4531,7 +4531,7 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(204)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(203)(module)))
 
 /***/ }),
 /* 1 */
@@ -4851,9 +4851,9 @@ module.exports = {
 
 
 module.exports = __webpack_require__(41);
-module.exports.easing = __webpack_require__(176);
-module.exports.canvas = __webpack_require__(177);
-module.exports.options = __webpack_require__(178);
+module.exports.easing = __webpack_require__(175);
+module.exports.canvas = __webpack_require__(176);
+module.exports.options = __webpack_require__(177);
 
 
 /***/ }),
@@ -5699,10 +5699,10 @@ module.exports = Cancel;
 
 
 module.exports = {};
-module.exports.Arc = __webpack_require__(184);
-module.exports.Line = __webpack_require__(185);
-module.exports.Point = __webpack_require__(186);
-module.exports.Rectangle = __webpack_require__(187);
+module.exports.Arc = __webpack_require__(183);
+module.exports.Line = __webpack_require__(184);
+module.exports.Point = __webpack_require__(185);
+module.exports.Rectangle = __webpack_require__(186);
 
 
 /***/ }),
@@ -16678,10 +16678,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      tweets: []
+    };
+  },
+
+
   mounted: function mounted() {
     this.$nextTick(function () {
       this.createTweets();
@@ -16693,34 +16705,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
      * @returns {void}
      */
     createTweets: function createTweets() {
+      var self = this;
+
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/tweets').then(function (response) {
         response.data.statuses.forEach(function (val, key) {
           var postDate = val.created_at.replace('+0000', '');
-
           if (key < 5) {
-            /**
-             * Every tweet has its own div
-             * Also, of course, every tweet has a node and a headline
-             * Tweet structure: Div > headline > text
-             */
-
-            return { id: key, title: postDate, content: val.text
-              /*
-                // Headline
-              let span = document.createElement('span')
-              let spanText = document.createTextNode(postDate)
-               // Tweet itself
-              let p = document.createElement('p')
-              let pText = document.createTextNode(val.text)
-               let tweetContainer = document.createElement('div')
-               tweetContainer.className = 'tweet'
-              span.className = 'title underlined'
-               span.appendChild(spanText)
-              p.appendChild(pText)
-               document.getElementById('tweets').appendChild(tweetContainer)
-               tweetContainer.appendChild(span)
-              tweetContainer.appendChild(p)*/
-            };
+            self.tweets.push({ id: key, title: postDate, content: val.text });
           }
         });
       });
@@ -17604,75 +17595,77 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("footer", [
+    _c("div", { attrs: { id: "service" } }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "section",
+        { attrs: { id: "tweets" } },
+        _vm._l(_vm.tweets, function(tweet) {
+          return _c("div", { key: tweet.id, staticClass: "tweet" }, [
+            _c("span", { staticClass: "title underlined" }, [
+              _vm._v(_vm._s(tweet.title))
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(tweet.content))])
+          ])
+        })
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "copyright" } }, [
+      _vm._v("Copyright 2017 - flopspot")
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", [
-      _c("div", { attrs: { id: "service" } }, [
-        _c("div", { attrs: { id: "flex-service" } }, [
-          _c("section", { attrs: { id: "contact" } }, [
-            _c("h1", { staticClass: "underlined" }, [
-              _vm._v("Fragen oder Anregungen?")
-            ]),
-            _vm._v(" "),
-            _c("h2", [
-              _vm._v(" Schreib uns an "),
-              _c("a", { attrs: { href: "#" } }, [_vm._v("kontakt@flopspot.de")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "social-media" } }, [
-            _c("h1", { staticClass: "underlined" }, [
-              _vm._v("Werde ein Fan von flopspot")
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("h2", [_vm._v("Folge uns auf Facebook oder Twitter")]),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  attrs: {
-                    href: "https://www.facebook.com/Flopspot-160124607925841/"
-                  }
-                },
-                [_c("img", { attrs: { src: "/assets/facebook.png" } })]
-              ),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "https://twitter.com/FlopspotDE/" } }, [
-                _c("img", { attrs: { src: "/assets/twitter.png" } })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("nav", { staticClass: "underlined" }, [
-            _c("ul", [
-              _c("li", [
-                _c("a", { attrs: { href: "/imprint" } }, [_vm._v("Impressum")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "/contact" } }, [_vm._v("Kontakt")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "/privacyPolicy" } }, [
-                  _vm._v("Datenschutz")
-                ])
-              ])
-            ])
-          ])
+    return _c("div", { attrs: { id: "flex-service" } }, [
+      _c("section", { attrs: { id: "contact" } }, [
+        _c("h1", { staticClass: "underlined" }, [
+          _vm._v("Fragen oder Anregungen?")
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "tweets" } })
+        _c("h2", [
+          _vm._v(" Schreib uns an "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("kontakt@flopspot.de")])
+        ])
       ]),
       _vm._v(" "),
-      _c("div", { attrs: { id: "copyright" } }, [
-        _vm._v("Copyright 2017 - flopspot")
+      _c("section", { attrs: { id: "social-media" } }, [
+        _c("h1", { staticClass: "underlined" }, [
+          _vm._v("Werde ein Fan von flopspot")
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("h2", [_vm._v("Folge uns auf Facebook oder Twitter")]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "https://www.facebook.com/Flopspot-160124607925841/"
+              }
+            },
+            [_c("img", { attrs: { src: "/assets/facebook.png" } })]
+          ),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "https://twitter.com/FlopspotDE/" } }, [
+            _c("img", { attrs: { src: "/assets/twitter.png" } })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("nav", { staticClass: "underlined" }, [
+        _c("ul", [
+          _c("li", [
+            _c("a", { attrs: { href: "/contact" } }, [_vm._v("Kontakt")])
+          ])
+        ])
       ])
     ])
   }
@@ -18248,8 +18241,8 @@ helpers.getValueAtIndexOrDefault = helpers.valueAtIndexOrDefault;
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
-var convert = __webpack_require__(180);
-var string = __webpack_require__(182);
+var convert = __webpack_require__(179);
+var string = __webpack_require__(181);
 
 var Color = function (obj) {
 	if (obj instanceof Color) {
@@ -19079,8 +19072,8 @@ module.exports = {
 
 
 var helpers = __webpack_require__(2);
-var basic = __webpack_require__(188);
-var dom = __webpack_require__(189);
+var basic = __webpack_require__(187);
+var dom = __webpack_require__(188);
 
 // @TODO Make possible to select another platform at build time.
 var implementation = dom._enabled ? dom : basic;
@@ -30242,22 +30235,21 @@ return zhTw;
 /* 166 */,
 /* 167 */,
 /* 168 */,
-/* 169 */,
-/* 170 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(171);
+module.exports = __webpack_require__(170);
 
 
 /***/ }),
-/* 171 */
+/* 170 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Statistics_Overall_vue__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Statistics_Overall_vue__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Statistics_Overall_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Statistics_Overall_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Footer_vue__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Footer_vue__);
@@ -30297,15 +30289,15 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 });
 
 /***/ }),
-/* 172 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(8)
 /* script */
-var __vue_script__ = __webpack_require__(173)
+var __vue_script__ = __webpack_require__(172)
 /* template */
-var __vue_template__ = __webpack_require__(223)
+var __vue_template__ = __webpack_require__(222)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -30345,12 +30337,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 173 */
+/* 172 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_chart_js__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_chart_js__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_chart_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -30423,7 +30415,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     create: function create() {
       var self = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/rating/pastSixMonth').then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/rating/pastSixMonth')
+      /**
+       * @param {Object} response
+       * @param {integer} response.data.insufficient
+       * @param {integer} response.data.satisfying
+       * @param {integer} response.data.satisfactory
+       */
+      .then(function (response) {
         self.chart(response.data.insufficient, response.data.satisfying, response.data.satisfactory);
       });
     }
@@ -30432,18 +30431,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 174 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
  * @namespace Chart
  */
-var Chart = __webpack_require__(175)();
+var Chart = __webpack_require__(174)();
 
 Chart.helpers = __webpack_require__(2);
 
 // @todo dispatch these helpers into appropriated helpers/helpers.* file and write unit tests!
-__webpack_require__(179)(Chart);
+__webpack_require__(178)(Chart);
 
 Chart.defaults = __webpack_require__(3);
 Chart.Element = __webpack_require__(5);
@@ -30451,6 +30450,7 @@ Chart.elements = __webpack_require__(14);
 Chart.Interaction = __webpack_require__(43);
 Chart.platform = __webpack_require__(44);
 
+__webpack_require__(189)(Chart);
 __webpack_require__(190)(Chart);
 __webpack_require__(191)(Chart);
 __webpack_require__(192)(Chart);
@@ -30458,40 +30458,39 @@ __webpack_require__(193)(Chart);
 __webpack_require__(194)(Chart);
 __webpack_require__(195)(Chart);
 __webpack_require__(196)(Chart);
-__webpack_require__(197)(Chart);
 
+__webpack_require__(197)(Chart);
 __webpack_require__(198)(Chart);
 __webpack_require__(199)(Chart);
 __webpack_require__(200)(Chart);
 __webpack_require__(201)(Chart);
 __webpack_require__(202)(Chart);
-__webpack_require__(203)(Chart);
 
 // Controllers must be loaded after elements
 // See Chart.core.datasetController.dataElementType
+__webpack_require__(205)(Chart);
 __webpack_require__(206)(Chart);
 __webpack_require__(207)(Chart);
 __webpack_require__(208)(Chart);
 __webpack_require__(209)(Chart);
 __webpack_require__(210)(Chart);
 __webpack_require__(211)(Chart);
-__webpack_require__(212)(Chart);
 
+__webpack_require__(212)(Chart);
 __webpack_require__(213)(Chart);
 __webpack_require__(214)(Chart);
 __webpack_require__(215)(Chart);
 __webpack_require__(216)(Chart);
 __webpack_require__(217)(Chart);
 __webpack_require__(218)(Chart);
-__webpack_require__(219)(Chart);
 
 // Loading built-it plugins
 var plugins = [];
 
 plugins.push(
+	__webpack_require__(219)(Chart),
 	__webpack_require__(220)(Chart),
-	__webpack_require__(221)(Chart),
-	__webpack_require__(222)(Chart)
+	__webpack_require__(221)(Chart)
 );
 
 Chart.plugins.register(plugins);
@@ -30516,7 +30515,7 @@ Chart.canvasHelpers = Chart.helpers.canvas;
 
 
 /***/ }),
-/* 175 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30572,7 +30571,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 176 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30829,7 +30828,7 @@ helpers.easingEffects = effects;
 
 
 /***/ }),
-/* 177 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31050,7 +31049,7 @@ helpers.drawRoundedRectangle = function(ctx) {
 
 
 /***/ }),
-/* 178 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31153,7 +31152,7 @@ module.exports = {
 
 
 /***/ }),
-/* 179 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31763,10 +31762,10 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 180 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var conversions = __webpack_require__(181);
+var conversions = __webpack_require__(180);
 
 var convert = function() {
    return new Converter();
@@ -31860,7 +31859,7 @@ Converter.prototype.getValues = function(space) {
 module.exports = convert;
 
 /***/ }),
-/* 181 */
+/* 180 */
 /***/ (function(module, exports) {
 
 /* MIT license */
@@ -32564,11 +32563,11 @@ for (var key in cssKeywords) {
 
 
 /***/ }),
-/* 182 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
-var colorNames = __webpack_require__(183);
+var colorNames = __webpack_require__(182);
 
 module.exports = {
    getRgba: getRgba,
@@ -32791,7 +32790,7 @@ for (var name in colorNames) {
 
 
 /***/ }),
-/* 183 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32950,7 +32949,7 @@ module.exports = {
 
 
 /***/ }),
-/* 184 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33064,7 +33063,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 185 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33162,7 +33161,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 186 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33275,7 +33274,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 187 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33499,7 +33498,7 @@ module.exports = Element.extend({
 
 
 /***/ }),
-/* 188 */
+/* 187 */
 /***/ (function(module, exports) {
 
 /**
@@ -33520,7 +33519,7 @@ module.exports = {
 
 
 /***/ }),
-/* 189 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33984,7 +33983,7 @@ helpers.removeEvent = removeEventListener;
 
 
 /***/ }),
-/* 190 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34386,7 +34385,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 191 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34565,7 +34564,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 192 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35476,7 +35475,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 193 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35813,7 +35812,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 194 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36242,7 +36241,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 195 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36294,7 +36293,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 196 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37232,7 +37231,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 197 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38187,7 +38186,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 198 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38326,7 +38325,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 199 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38466,7 +38465,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 200 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38665,7 +38664,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 201 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38916,7 +38915,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 202 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39453,7 +39452,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 203 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40216,7 +40215,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 204 */
+/* 203 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -40244,7 +40243,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 205 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -40493,10 +40492,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 205;
+webpackContext.id = 204;
 
 /***/ }),
-/* 206 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40924,7 +40923,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 207 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41111,7 +41110,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 208 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41417,7 +41416,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 209 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41757,7 +41756,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 210 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41986,7 +41985,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 211 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42161,7 +42160,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 212 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42210,7 +42209,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 213 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42228,7 +42227,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 214 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42245,7 +42244,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 215 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42263,7 +42262,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 216 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42281,7 +42280,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 217 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42299,7 +42298,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 218 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42317,7 +42316,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 219 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42332,7 +42331,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 220 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42660,7 +42659,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 221 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43234,7 +43233,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 222 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43484,7 +43483,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 223 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
