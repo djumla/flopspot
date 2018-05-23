@@ -20,9 +20,7 @@
         </section>
         <nav class="underlined">
           <ul>
-            <li><a href="https://www.djumla.de/impressum">Impressum</a></li>
             <li><a href="/contact">Kontakt</a></li>
-            <li><a href="http://www.djumla.de/datenschutz.html">Datenschutz</a></li>
           </ul>
         </nav>
       </div>
